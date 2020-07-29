@@ -7,10 +7,48 @@
 
 # in root, execute: PYTHONPATH='.' python cracking_practices/partition/partition.py
 
+
+def get_ll_tail(ll):
+    current = ll.head
+    while current.next:
+        current = current.next
+
+    return current
+
+
+def partition(ll, partition):
+    before = None
+    current = ll.head
+    ll_tail = get_ll_tail(ll) # I'm going to get ot only once
+    pointer_appened = None # to know when I have to stop the traverse in the while, so I don't re visit appended nodes
+    while current:
+        if current == pointer_appened:
+            break # so I don't revisit appended nodes
+        if current.value >= partition:
+            # unlink from the ll and re linkit to the end of the ll
+            after = current.next
+            if before:
+                before.next = after
+            else:
+                ll.head = after
+            current.next = None
+
+            if not pointer_appened:
+                pointer_appened = current
+            ll_tail.next = current
+            ll_tail = current
+        else:
+            before = current
+            after = current.next
+
+        current = after # move to the next node
+
+    return ll
+
 # Approach 1
 # In this approach I will traverse the ll, if current.value is >= partition, I will remove that node from the ll, and append to the end of the ll.
 # if this node is the 1st I append, I need to have a reference to it so I don't re traverse it again in my while
-def partition(ll, partition):
+def old_partition(ll, partition):
     if not ll.head:
         raise Exception('The linked list is empty.')
 
@@ -164,7 +202,7 @@ if __name__ == "__main__":
     ll.insert(13)
 
     print('original', ll)
-    # print('updated partition', partition(ll, 5))
+    print('updated partition', partition(ll, 5))
     # print('updated', partition_new_ll(ll, 5))
     # print('updated: partition_append_just_greater_or_equals', partition_append_just_greater_or_equals(ll, 5))
 

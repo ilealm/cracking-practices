@@ -8,6 +8,8 @@
 # in root, execute: PYTHONPATH='.' python cracking_practices/partition/partition.py
 
 # Approach 1
+# In this approach I will traverse the ll, if current.value is >= partition, I will remove that node from the ll, and append to the end of the ll.
+# if this node is the 1st I append, I need to have a reference to it so I don't re traverse it again in my while
 def partition(ll, partition):
     if not ll.head:
         raise Exception('The linked list is empty.')
@@ -70,7 +72,7 @@ def partition_new_ll(ll, partition):
 # is removed from the ll and put in a temporaly list (which only refers the node, so no new ds is created)
 # and at the end of the traverse, the temp list is appended to the end of the list.
 # With this approach we asure we only traverse the original list once, and not re traverse nodes that had
-# already visited.
+# already visited. I like this approach the most
 def partition_append_just_greater_or_equals(ll, partition):
     if not ll.head:
         raise Exception('The linked list is empty.')
@@ -162,9 +164,9 @@ if __name__ == "__main__":
     ll.insert(13)
 
     print('original', ll)
-    # print('updated', partition(ll, 5))
+    # print('updated partition', partition(ll, 5))
     # print('updated', partition_new_ll(ll, 5))
-    print('updated: partition_append_just_greater_or_equals', partition_append_just_greater_or_equals(ll, 5))
+    # print('updated: partition_append_just_greater_or_equals', partition_append_just_greater_or_equals(ll, 5))
 
 
 

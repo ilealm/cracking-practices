@@ -3,28 +3,31 @@
 # If X is contained within the list, the value of X only needs to after the element less than X. The partition element X can appear anywhere in
 # the "right partition", it does not need to appear between the left and right partitions.
 
-# from cracking_practices.linked_list.linked_list import LinkedList, Node
+from cracking_practices.linked_list.linked_list import LinkedList, Node
 
-# in root, execute: PYTHONPATH='.' python cracking_practices/partition/partition.py
+# at root, execute: PYTHONPATH='.' python cracking_practices/partition/partition.py
 
-
-def get_ll_tail(ll):
-    current = ll.head
-    while current.next:
-        current = current.next
-
-    return current
-
-
+# WORKING SOLUTION
+# Approach 1
+# I'm going to obtain traverse all the ll, if the current node.value >= partition, I will remove it and appending to the same ll,
+# without losing the link of the nodes before. If I need to append, I will get the tail only once, and updating it on each append.
+# Also, I'm using a pointer to the first appended node, so I don't re visit them
 def partition(ll, partition):
+    if not ll.head:
+        raise Exception('The linked list is empty.')
+
     before = None
     current = ll.head
-    ll_tail = get_ll_tail(ll) # I'm going to get ot only once
+    ll_tail = None # I'm going to traverse all the ll only if I have to. This to have better performance.
     pointer_appened = None # to know when I have to stop the traverse in the while, so I don't re visit appended nodes
     while current:
         if current == pointer_appened:
             break # so I don't revisit appended nodes
         if current.value >= partition:
+            # if I'm here, I will need to traverse the ll once to get the tail of ll, so I can append
+            if not ll_tail:
+                ll_tail = get_ll_tail(ll) # I'm going to get ot only once
+
             # unlink from the ll and re linkit to the end of the ll
             after = current.next
             if before:
@@ -45,41 +48,13 @@ def partition(ll, partition):
 
     return ll
 
-# Approach 1
-# In this approach I will traverse the ll, if current.value is >= partition, I will remove that node from the ll, and append to the end of the ll.
-# if this node is the 1st I append, I need to have a reference to it so I don't re traverse it again in my while
-def old_partition(ll, partition):
-    if not ll.head:
-        raise Exception('The linked list is empty.')
-
-    before = None
+# Returns the last node of the given ll
+def get_ll_tail(ll):
     current = ll.head
-    while current:
-        if current.value >= partition:
-            # I need to move the node to the end of the ll
-            # temp_node = current
-            # remove this node from that possition and append it to the end
-            if before == None:
-                if not current.next == None:
-                    ll.head = current.next
-                # before = current
-            # else:
-            #     before = current
-            # break the link of the node that will be appended
-            temp_node = current.next
-            current.next = None
-            ll.append(current.value)
-            current = temp_node
-        else:
-            before = current
-            current = current.next
+    while current.next:
+        current = current.next
 
-        # problem: i need to also move the values than are less
-        # if not before == None:
-        #     if current.value > before.value:
-        #         current.value, before.value =  before.value, current.value
-
-    return(ll)
+    return current
 
 
 # WORKING SOLUTION
@@ -103,6 +78,8 @@ def partition_new_ll(ll, partition):
         current = current.next
 
     return return_ll
+
+    
 
 # WORKING SOLUTION
 # Approach 3
@@ -136,7 +113,6 @@ def partition_append_just_greater_or_equals(ll, partition):
             else:
                 current.next = temp_ll_head
                 temp_ll_head = current
-            # if before == None, set this as the new before
         else:
             before = current
 
@@ -147,62 +123,20 @@ def partition_append_just_greater_or_equals(ll, partition):
 
     return ll
 
+# if __name__ == "__main__":
+#     ll = LinkedList()
+#     ll.insert(1)
+#     ll.insert(2)
+#     ll.insert(10)
+#     ll.insert(5)
+#     ll.insert(8)
+#     ll.insert(5)
+#     ll.insert(3)
+#     ll.insert(13)
+#     ll.insert(0)
 
-# start delete
-class Node():
-    def __init__ (self, value, next_ = None):
-        self.value =  value
-        self.next = next_
-
-        if (not next_ == None) and ( not isinstance(next_, Node)):
-            raise TypeError("The value of the next node MUST be a node")
-
-
-    def __repr__(self):
-        return f"{self.value} -> {self.next}"
-
-
-class LinkedList():
-    def __init__(self):
-        self.head = None
-
-    def __repr__(self):
-        return f"The head is {self.head}"
-
-    def insert(self, value):
-        new_node = Node(value)
-        if self.head : new_node.next = self.head
-        self.head = new_node
-
-    def append(self,value):
-        new_node = Node(value)
-        current = self.head
-
-        # if the head is none, then call insert function
-        if not current :
-            self.insert(value)
-            return
-
-        while current.next:
-            current = current.next
-        current.next = new_node
-
-
-
-# end delete
-if __name__ == "__main__":
-    ll = LinkedList()
-    ll.insert(1)
-    ll.insert(2)
-    ll.insert(10)
-    ll.insert(5)
-    ll.insert(8)
-    ll.insert(5)
-    ll.insert(3)
-    ll.insert(13)
-
-    print('original', ll)
-    print('updated partition', partition(ll, 5))
+#     print('original', ll)
+#     print('updated partition', partition(ll, 5))
     # print('updated', partition_new_ll(ll, 5))
     # print('updated: partition_append_just_greater_or_equals', partition_append_just_greater_or_equals(ll, 5))
 

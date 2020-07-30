@@ -18,8 +18,8 @@ partition : 5
 3 -> 1 -> 2 -> 10 -> 13 -> 5 -> 5 -> 8
 
 ### EDGE CASES
-The partition can or not be in the LL.
-I don't need to order the values of the LL.
+- The partition can or not be in the LL.
+- I don't need to order the values of the LL.
 
 ### ALGORITHMS
 
@@ -88,7 +88,7 @@ H^
 #### BIG O
 **Time O(n):** I need to traverse all the LL. Helper function get_ll_tail will have O(n)
 
-**Space O(1):** I'n not creating a new data structure here.
+**Space O(1):** I'm not creating a new data structure here.
 
 _______
 
@@ -162,6 +162,8 @@ move to the next node: current = after
 ```
 
 #### BIG O
-**Time O(n):** we are traversing all the list.
+**Time O(n):**
+- I'm traversing all the list.
 
-**Space O(1):** We are re assigning pointers, not creating new ds.
+**Space O(1):**
+- I'm re assigning pointers, not creating new data structrure.

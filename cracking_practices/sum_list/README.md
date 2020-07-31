@@ -1,7 +1,7 @@
 [Table of Contents](../../README.md)
 
 
-# Problem 4.5: Sum List
+# Problem 2.5: Sum List
 [Whiteboard approach](https://docs.google.com/document/d/1rjC8V7h_KN9GAm-5j0JyfK1WZnCO-tQW9X22_LdGpGI/edit?usp=sharing)
 
 ### PROBLEM DOMAIN

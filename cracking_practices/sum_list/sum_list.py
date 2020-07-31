@@ -36,7 +36,7 @@ class LinkedList():
             current = current.next
         current.next = new_node
 
-# PROBLEM DOMAIN, 4.5, SUM LIST
+# PROBLEM DOMAIN, 2.5, SUM LIST
 # You have 2 numbers represented by 2 linked list, where each node contains a single digit. The digits are stored in reverse order,
 # such that the 1st digit is at the head of the list. White a function that adds the 2 numbers and returns the sum as a linked list.
 

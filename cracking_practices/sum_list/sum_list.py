@@ -71,17 +71,17 @@ def sum_list(first_ll, second_ll):
     return return_ll
 
 
-# if __name__ == "__main__":
-#     first_ll = LinkedList()
-#     first_ll.insert(6)
-#     first_ll.insert(1)
-#     first_ll.insert(7)
-#     second_ll = LinkedList()
-#     second_ll.insert(2)
-#     second_ll.insert(9)
-#     second_ll.insert(5)
+if __name__ == "__main__":
+    first_ll = LinkedList()
+    first_ll.insert(6)
+    first_ll.insert(1)
+    first_ll.insert(7)
+    second_ll = LinkedList()
+    second_ll.insert(2)
+    second_ll.insert(9)
+    second_ll.insert(5)
 
-#     print(first_ll)
-#     print(second_ll)
+    print(first_ll)
+    print(second_ll)
 
-#     print(sum_list(first_ll, second_ll))
+    print(sum_list(first_ll, second_ll))

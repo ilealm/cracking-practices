@@ -36,7 +36,7 @@ class LinkedList():
             current = current.next
         current.next = new_node
 
-# PROBLEM DOMAIN, 4.5, SUM LIST
+# PROBLEM DOMAIN, 2.5, SUM LIST
 # You have 2 numbers represented by 2 linked list, where each node contains a single digit. The digits are stored in reverse order,
 # such that the 1st digit is at the head of the list. White a function that adds the 2 numbers and returns the sum as a linked list.
 
@@ -71,17 +71,17 @@ def sum_list(first_ll, second_ll):
     return return_ll
 
 
-# if __name__ == "__main__":
-#     first_ll = LinkedList()
-#     first_ll.insert(6)
-#     first_ll.insert(1)
-#     first_ll.insert(7)
-#     second_ll = LinkedList()
-#     second_ll.insert(2)
-#     second_ll.insert(9)
-#     second_ll.insert(5)
+if __name__ == "__main__":
+    first_ll = LinkedList()
+    first_ll.insert(6)
+    first_ll.insert(1)
+    first_ll.insert(7)
+    second_ll = LinkedList()
+    second_ll.insert(2)
+    second_ll.insert(9)
+    second_ll.insert(5)
 
-#     print(first_ll)
-#     print(second_ll)
+    print(first_ll)
+    print(second_ll)
 
-#     print(sum_list(first_ll, second_ll))
+    print(sum_list(first_ll, second_ll))

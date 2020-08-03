@@ -79,23 +79,3 @@ def interseccion_approach_two(one, two):
 
 
 
-
-if __name__ == "__main__":
-    one = LinkedList()
-    one.insert('E')
-    one.insert('D')
-    node_c = one.insert('C')
-    one.insert('B')
-    one.insert('A')
-
-    two = LinkedList()
-    # two.insert('Z')
-    two.insert('Z',node_c)
-    two.insert('Y')
-    two.insert('X')
-
-    print(one)
-    print(two)
-    # print(interseccion_approach_one(one, two))
-    print(interseccion_approach_two(one, two))
-

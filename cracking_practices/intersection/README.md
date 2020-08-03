@@ -111,7 +111,7 @@ one_set= A, AB, ABC, ABCD, ABCDE
 [cracking_practices/intersection/intersection.py](intersection.py)
 
 ### TESTS
-[tests/intersection.py](../../tests/intersection.py)
+[tests/test_intersection.py](../../tests/test_intersection.py)
 
 ### GITHUB BRANCH
 

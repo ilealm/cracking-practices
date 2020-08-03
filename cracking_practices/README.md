@@ -51,6 +51,6 @@ algo
 
 
 ### TESTS
-[tests/x.py](../../tests/x.py)
+[tests/test_x.py](../../tests/x.py)
 
 ### GITHUB BRANCH

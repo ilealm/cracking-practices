@@ -14,3 +14,7 @@
 [2.6 - Palindrome in Linked List](cracking_practices/palindrome_ll/README.md)
 
 - Implement a function to check is a linked list is a palindrome. Each node contains a letter of the word to check.
+
+
+[2.7 - Interseccion ](cracking_practices/intersection/README.md)
+- Given two singly linked list, determine if the two lists intersect. Return the intersecting node. Note that the intersection is based on reference, not value. That is, if the kth value node on the first ll is the exact same node (by reference) as the jth node on the second ll, then, they are intersecting.

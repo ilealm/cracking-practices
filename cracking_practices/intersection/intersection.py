@@ -25,7 +25,8 @@ class LinkedList():
         self.head = new_node
         return new_node
 
-
+#  Traverse ll one, and for each node, traverse the 2nd ll until finds the same list_one.current.next
+# equal to a node on the second ll, or it reaches the end of the list.
 def interseccion_approach_one(one, two):
     if not one:
         raise Exception('First linked list must be valid.')
@@ -49,6 +50,36 @@ def interseccion_approach_one(one, two):
 
 
 
+# Traverse all ll_one and store the nodes in a set. Then, traverse all the second list, if the current node
+# (in the second list) exist in the set, there is the intersection, and I'm going to return that node.
+def interseccion_approach_two(one, two):
+    if not one:
+        raise Exception('First linked list must be valid.')
+        return False
+    if not two:
+        raise Exception('Second linked list must be valid.')
+        return False
+
+    one_current = one.head
+    one_set = set()
+    while one_current:
+        one_set.add(one_current)
+        one_current = one_current.next
+
+
+    two_current = two.head
+
+    while two_current:
+        if two_current in one_set:
+            return two_current
+
+        two_current = two_current.next
+
+    return False
+
+
+
+
 if __name__ == "__main__":
     one = LinkedList()
     one.insert('E')
@@ -58,11 +89,13 @@ if __name__ == "__main__":
     one.insert('A')
 
     two = LinkedList()
-    two.insert('Z')
-    # two.insert('Z',node_c)
+    # two.insert('Z')
+    two.insert('Z',node_c)
     two.insert('Y')
     two.insert('X')
 
     print(one)
     print(two)
-    print(interseccion_approach_one(one, two))
+    # print(interseccion_approach_one(one, two))
+    print(interseccion_approach_two(one, two))
+

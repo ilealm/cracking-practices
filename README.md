@@ -18,3 +18,10 @@
 
 [2.7 - Interseccion ](cracking_practices/intersection/README.md)
 - Given two singly linked list, determine if the two lists intersect. Return the intersecting node. Note that the intersection is based on reference, not value. That is, if the kth value node on the first ll is the exact same node (by reference) as the jth node on the second ll, then, they are intersecting.
+
+
+[2.7 - Interseccion ](cracking_practices/intersection/README.md)
+- Given two singly linked list, determine if the two lists intersect. Return
+
+[2.8 - Loop Detection ](cracking_practices/loop_detection/README.md)
+- Given a circular linked list, implement an algorithm that returns the node at the beginning of the loop.

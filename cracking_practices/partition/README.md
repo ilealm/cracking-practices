@@ -167,3 +167,8 @@ move to the next node: current = after
 
 **Space O(1):**
 - I'm re assigning pointers, not creating new data structrure.
+
+
+### GITHUB BRANCH
+
+[Pull Request # 1, Branch: partition](https://github.com/ilealm/cracking-practices/pull/1)

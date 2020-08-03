@@ -115,3 +115,7 @@ return True
 
 ### TESTS
 [tests/test_palindrome_ll.py](../../tests/test_palindrome_ll.py)
+
+### GITHUB BRANCH
+
+[Pull Request # 3, Branch: palindrome_ll](https://github.com/ilealm/cracking-practices/pull/3)

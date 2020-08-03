@@ -104,3 +104,6 @@ return_ll = 2 -> 1 -> 9 -> None
 **Space O(n):**
 - I'm creating a new data structure for my return linked list.
 
+### GITHUB BRANCH
+
+[Pull Request # 2, Branch: sum_list](https://github.com/ilealm/cracking-practices/pull/2)

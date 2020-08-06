@@ -44,7 +44,7 @@ test
 
 
 #### BIG O
-**Time O(n^2):** I need to
+**Time O(n):** I need to
 
 **Space O(n):** I'm
 
@@ -53,7 +53,7 @@ test
 
 
 ### TESTS
-[tests/test_x.py](../../tests/x.py)
+[tests/test_x.py](../../tests/test_x.py)
 
 ### GITHUB BRANCH
 

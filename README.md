@@ -24,3 +24,7 @@
 
 [Run Length Encoding ](cracking_practices/run_length_encoding/README.md)
 - Create a function that receives a string and returns the run-length encoding of it.
+
+
+[1.1 - Is unique](cracking_practices/is_unique/README.md)
+- Implement an algorithm to determinate if a string has all unique characters.

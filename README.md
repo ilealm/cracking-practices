@@ -28,3 +28,8 @@
 
 [1.1 - Is unique](cracking_practices/is_unique/README.md)
 - Implement an algorithm to determinate if a string has all unique characters.
+
+
+[1.3 - URLify](cracking_practices/URLify/README.md)
+- Write a method to replace all the white spaces in a str_to_url with '%20'. You may assume that the str_to_url has sufficient space at the end to hold the additional characters
+and that you are given the true length of the str_to_url.

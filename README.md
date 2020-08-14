@@ -2,34 +2,38 @@
 
 ## Table of Contents
 
-[2.4 - Partition](cracking_practices/partition/README.md)
+[Partition - 2.4](cracking_practices/partition/README.md)
 
 - Write code to partition a linked list around a value X, such that all nodes less than X come before all nodes greater than or equal to X. If X is contained within the list, the value of X only needs to after the element less than X. The partition element X can appear anywhere in the "right partition", it does not need to appear between the left and right partitions.
 
-[2.5 - Sum List](cracking_practices/sum_list/README.md)
+[Sum List - 2.5](cracking_practices/sum_list/README.md)
 
 - You have 2 numbers represented by 2 linked list, where each node contains a single digit. The digits are stored in reverse order, such that the 1st digit is at the head of the list. White a function that adds the 2 numbers and returns the sum as a linked list.
 
 
-[2.6 - Palindrome in Linked List](cracking_practices/palindrome_ll/README.md)
+[Palindrome in Linked List - 2.6](cracking_practices/palindrome_ll/README.md)
 
 - Implement a function to check is a linked list is a palindrome. Each node contains a letter of the word to check.
 
 
-[2.7 - Interseccion ](cracking_practices/intersection/README.md)
+[Interseccion - 2.7](cracking_practices/intersection/README.md)
 - Given two singly linked list, determine if the two lists intersect. Return the intersecting node. Note that the intersection is based on reference, not value. That is, if the kth value node on the first ll is the exact same node (by reference) as the jth node on the second ll, then, they are intersecting.
 
-[2.8 - Loop Detection ](cracking_practices/loop_detection/README.md)
+[Loop Detection - 2.8](cracking_practices/loop_detection/README.md)
 - Given a circular linked list, implement an algorithm that returns the node at the beginning of the loop.
 
 [Run Length Encoding ](cracking_practices/run_length_encoding/README.md)
 - Create a function that receives a string and returns the run-length encoding of it.
 
 
-[1.1 - Is unique](cracking_practices/is_unique/README.md)
+[Is unique - 1.1](cracking_practices/is_unique/README.md)
 - Implement an algorithm to determinate if a string has all unique characters.
 
 
-[1.3 - URLify](cracking_practices/URLify/README.md)
+[URLify - 1.3](cracking_practices/URLify/README.md)
 - Write a method to replace all the white spaces in a str_to_url with '%20'. You may assume that the str_to_url has sufficient space at the end to hold the additional characters
 and that you are given the true length of the str_to_url.
+
+
+[One Away - 1.5](cracking_practices/one_way/README.md)
+- There are three types of edits that can be performed on strings: insert a character,  remove a character, or replace a character. Given two strings,  write a function to check if they are one edit or zero edits away. Return true or false.

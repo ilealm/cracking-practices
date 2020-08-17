@@ -37,3 +37,6 @@ and that you are given the true length of the str_to_url.
 
 [One Away - 1.5](cracking_practices/one_way/README.md)
 - There are three types of edits that can be performed on strings: insert a character,  remove a character, or replace a character. Given two strings,  write a function to check if they are one edit or zero edits away. Return true or false.
+
+[Rotate Matix - 1.7](cracking_practices/rotate_matix_90/README.md)
+- Given an image represented by an NxN matrix, where each pixel in the image is 4 bytes. Write a method to rotate the image by 90 degrees.

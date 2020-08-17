@@ -41,6 +41,53 @@ def rotate_matix_90_in_place(matrix):
 
 
 
+def rotate_matix_90_in_place_v2(matrix):
+    n = len(matrix)
+
+    # I will traverse until the middle BC I'm updating from corners to inside
+    for row in range(0,n//2):
+        for col in range(row, n-1): # I will traverse until n-1 BC first I update the corners. Start on row to mantain a diagonal in the inner squares.
+            # step 1, save top_left
+            top_left = matrix[row][col] # top_left coordinates
+
+            # step 2, replace:
+            # top_left ----->  bottom_left
+            matrix[row][col] = matrix[n-1-col][row]  # bottom_left coordinates
+            # bottom_left = matrix[n-1-col][row]
+            # print('     bottom_left:', bottom_left)
+
+            # step 3, replace:
+            # bottom_left -----> bottom_right
+            matrix[n-1-col][row] = matrix[n-1-row][n-1-col]
+
+            # bottom_right = matrix[n-1-row][n-1-col] #bottom_right coordinates
+            # print('          bottom_right:', bottom_right)
+
+            # step 4, replace:
+            # bottom_right -----> top_right
+            matrix[n-1-row][n-1-col] = matrix[col][n-1-row]
+
+            # top_right = matrix[col][n-1-row]  # top_right coordinates
+            # print('               top_right:', top_right)
+
+            # step 5, replace:
+            # top_right -----> top_left
+            matrix[col][n-1-row] = top_left
+
+    return matrix
+
+            # top_left = matrix[row][col]
+            # print('top_left:', top_left)
+
+            # bottom_left = matrix[n-1-col][row]
+            # print('     bottom_left:', bottom_left)
+
+            # bottom_right = matrix[n-1-row][n-1-col]
+            # print('          bottom_right:', bottom_right)
+
+            # top_right = matrix[col][n-1-row]
+            # print('               top_right:', top_right)
+
 if __name__ == "__main__":
     matrix = [
         [1, 2, 3, 4],
@@ -49,7 +96,7 @@ if __name__ == "__main__":
         [13, 14, 15, 16],
     ]
 
-    x = rotate_matix_90_in_place(matrix)
+    x = rotate_matix_90_in_place_v2(matrix)
     for i in range(0,len(x)):
         print(x[i])
     # print(rotate_matix_90_new_matrix(matrix))

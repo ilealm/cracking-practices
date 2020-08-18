@@ -17,27 +17,42 @@ def rotate_matix_90_new_matrix(matrix):
     return return_matrix
 
 
+# APPROACH 2, Update un place.
+# Viewing the matrix as a square, rotate the corners and then move one possition to the next cell.
 def rotate_matix_90_in_place(matrix):
     n = len(matrix)
 
-    for row in range(0, n // 2):
-        for col in range(row, n-row-1):
-            # save the current value to replace right_top at the end of the steps
-            top = matrix[row][col]
-            # step 1 assign left_top to the current value of left_bottom
-            matrix[row][col] = matrix[n - 1 - col][row]
+    # I will traverse until the middle (n//2) BC I'm updating from corners to certer
+    for row in range(0,n//2):
+        # Range start is on row to mantain a diagonal in the inner squares. (0,0; 1,1; 2,2...)
+        # Range top has to be "n-1-row" BS the matrix is shrinking on each row loop, so I don't pass where I already passed.
+        for col in range(row, n-1-row):
+            # step 1, save top_left
+            # top_left coordinates matrix[row][col]
+            top_left = matrix[row][col]
 
-            # step 2 move right_bottom to left_bottom here
-            matrix[n - 1 - col][row] = matrix[n - row- 1][n - 1 - row- col]
+            # step 2, replace:
+            # top_left ----->  bottom_left
+            # bottom_left coordinates = matrix[n-1-col][row]
+            matrix[row][col] = matrix[n-1-col][row]
 
-            # step 3 move right_top to right_bottom
-            matrix[n - row- 1][n - 1- row- col] = matrix[col][n - row- 1]
+            # step 3, replace:
+            # bottom_left -----> bottom_right
+            # bottom_right coordinates matrix[n-1-row][n-1-col]
+            matrix[n-1-col][row] = matrix[n-1-row][n-1-col]
 
-            # step 4 move left_top to right_top
-            matrix[col][n - row - 1] = top
+
+            # step 4, replace:
+            # bottom_right -----> top_right
+            # top_right coordinates    matrix[col][n-1-row]
+            matrix[n-1-row][n-1-col] = matrix[col][n-1-row]
+
+
+            # step 5, replace:
+            # top_right -----> top_left (saved value)
+            matrix[col][n-1-row] = top_left
 
     return matrix
-
 
 
 
@@ -49,8 +64,24 @@ if __name__ == "__main__":
         [13, 14, 15, 16],
     ]
 
-    x = rotate_matix_90_in_place(matrix)
-    for i in range(0,len(x)):
-        print(x[i])
-    # print(rotate_matix_90_new_matrix(matrix))
+    matrix = [
+        [1, 2, 3, 4, 5],
+        [6, 7, 8 , 9 ,10],
+        [11,12, 13, 14, 15],
+        [16, 17, 18, 19,20],
+        [21, 22, 23, 24,25],
+        ]
+
+# [21, 16, 11, 6, 1]
+# [22, 17, 12, 7, 2]
+# [23, 18, 13, 8, 3]
+# [24, 19, 14, 9, 4]
+# [25, 20, 15, 10, 5]
+
+    # x = rotate_matix_90_in_place(matrix)
+    # for i in range(0,len(x)):
+    #     print(x[i])
+
+    print(rotate_matix_90_new_matrix(matrix))
+
 

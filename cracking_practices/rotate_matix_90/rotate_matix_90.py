@@ -17,6 +17,8 @@ def rotate_matix_90_new_matrix(matrix):
     return return_matrix
 
 
+# APPROACH 2, Update un place.
+# Viewing the matrix as a square, rotate the corners and then move one possition to the next cell.
 def rotate_matix_90_in_place(matrix):
     n = len(matrix)
 

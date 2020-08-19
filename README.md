@@ -40,3 +40,7 @@ and that you are given the true length of the str_to_url.
 
 [Rotate Matix - 1.7](cracking_practices/rotate_matix_90/README.md)
 - Given an image represented by an NxN matrix, where each pixel in the image is 4 bytes. Write a method to rotate the image by 90 degrees.
+
+[String Rotation 1.9](cracking_practices/string_rotation/README.md)
+- Given two strings, s1 and s2, write code to check if s2 is a rotation of s1 using only one call to isSubstrig.
+

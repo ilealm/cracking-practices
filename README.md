@@ -44,3 +44,5 @@ and that you are given the true length of the str_to_url.
 [String Rotation 1.9](cracking_practices/string_rotation/README.md)
 - Given two strings, s1 and s2, write code to check if s2 is a rotation of s1 using only one call to isSubstrig.
 
+[Fibonacci](cracking_practices/fibonacci/README.md)
+- Given a number, return its value in the fibonacci sequence.

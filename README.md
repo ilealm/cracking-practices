@@ -46,3 +46,6 @@ and that you are given the true length of the str_to_url.
 
 [Fibonacci](cracking_practices/fibonacci/README.md)
 - Given a number, return its value in the fibonacci sequence.
+
+[Reverse String](cracking_practices/reverse_string/README.md)
+- Given a string, return it in reverse order.

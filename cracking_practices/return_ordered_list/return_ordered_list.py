@@ -42,10 +42,13 @@ class LinkedList():
             current = current.next
         current.next = new_node
 
-
+# Approach 1, Implement a LL
+# Implement a link list (ll) to save on ordering fashion the values, and each node will have a counter of the occurrence of that number. At the end traverse the ll and return a list.
+# Pros: traversing the LL to find values will be faster
+# Cons: I will create a new DD to store in worst-case scenario 100 nodes. and then create a new list to return the values in order way.
 def return_ordered_list(unordered_list):
     ll_ordered = LinkedList()
-    list_ordered = []
+    return_ordered_list = []
     previous = None
     current = ll_ordered.head
 
@@ -60,7 +63,7 @@ def return_ordered_list(unordered_list):
         while current:
             if current.value == unordered_list[i]:
                 current.counter += 1
-                break  # this works fine
+                break
 
             new_node = Node(unordered_list[i])
 
@@ -80,25 +83,28 @@ def return_ordered_list(unordered_list):
                     previous.next = new_node
                     new_node.next = current
                 break
-                # continue
             else:
                 #  I'm at some point in the ll, check if I need to insert here.
                 if current.next.value > unordered_list[i]:
                     new_node.next = current.next
                     current.next = new_node
                     break
-                    # continue
 
 
             previous = current
             current = current.next
 
-    return(ll_ordered)
 
+    # convert the ll to a list whit the exact ocurrences of each number
+    current = ll_ordered.head
 
-# 		set previous to current
-# 		set current to current.next
+    while current:
+        for i in range(0, current.counter):
+            return_ordered_list.append(current.value)
 
+        current = current.next
+
+    return(return_ordered_list)
 
 
 

@@ -1,6 +1,6 @@
 import pytest
 
-from cracking_practices.return_ordered_list.return_ordered_list import return_ordered_list
+from cracking_practices.return_ordered_list.return_ordered_list import return_ordered_list, return_ordered_list_using_BST
 
 def test_one():
     test_list = [30, 30, 50, 70, 50, 35, 35, 35, 35, 90, 10, 22, 30, 1, 1, 1, 1, 1, 100]

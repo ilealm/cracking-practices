@@ -49,3 +49,6 @@ and that you are given the true length of the str_to_url.
 
 [Reverse String](cracking_practices/reverse_string/README.md)
 - Given a string, return it in reverse order.
+
+[Return Ordered List](cracking_practices/return_ordered_list/README.md)
+- Having a list of thousands of unordered numbers from 1 - 100, return an ordered list with all these values.

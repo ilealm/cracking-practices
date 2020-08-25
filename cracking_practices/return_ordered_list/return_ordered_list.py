@@ -53,7 +53,7 @@ class LinkedList():
 # Implement a link list (ll) to save on ordering fashion the values, and each node will have a counter of the occurrence of that number. At the end traverse the ll and return a list.
 # Pros: traversing the LL to find values will be faster
 # Cons: I will create a new DD to store in worst-case scenario 100 nodes. and then create a new list to return the values in order way.
-def return_ordered_list(unordered_list):
+def return_ordered_list_using_ll(unordered_list):
     ll_ordered = LinkedList()
     return_ordered_list = []
     previous = None
@@ -223,13 +223,4 @@ def return_ordered_list_using_BST(unordered_list):
     return bst.inOrder()
 
 
-if __name__ == "__main__":
-
-
-
-    unordered_list = [30,30,50,70,50,35,35,35,35,90,10, 22,30,1,1,1,1,1,100]
-    # unordered_list = [50, 30, 10,10, 80, 35,70,80]
-    print(unordered_list)
-
-    print(return_ordered_list_using_BST(unordered_list))
 

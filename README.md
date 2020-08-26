@@ -52,3 +52,6 @@ and that you are given the true length of the str_to_url.
 
 [Return Ordered List](cracking_practices/return_ordered_list/README.md)
 - Having a list of thousands of unordered numbers from 1 - 100, return an ordered list with all these values.
+
+[Merge Sort List](cracking_practices/merge_sort/README.md)
+- Given a unsorted list with integer values, sorted in place using Merge Sort.

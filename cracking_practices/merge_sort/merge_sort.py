@@ -9,7 +9,7 @@ def merge_sort(array):
     left = array[0:middle]
     right = array[middle:]
 
-    # print('A:', array, '     L:', left, '    R:', right)
+    
     merge_sort(left)
     merge_sort(right)
 
@@ -19,7 +19,6 @@ def merge_sort(array):
     return array
 
 def merge_helves(left, right, array):
-    # print('Merge, A:', array, '     L:', left, '    R:', right)
 
     right_pointer = 0
     left_pointer = 0
@@ -30,7 +29,7 @@ def merge_helves(left, right, array):
             right_pointer +=1
             array_pointer +=1
         else:
-            right_pointer += 1
+            array[array_pointer] = left[left_pointer]
             left_pointer += 1
             array_pointer += 1
 
@@ -48,6 +47,6 @@ def merge_helves(left, right, array):
 
 
 if __name__ == "__main__":
-    array = [30,25,15,10,4,80,41]
+    array = [30,25,15,41,5,80,40,1]
     print(array)
     print(merge_sort(array))

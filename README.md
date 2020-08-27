@@ -55,3 +55,6 @@ and that you are given the true length of the str_to_url.
 
 [Merge Sort List](cracking_practices/merge_sort/README.md)
 - Given a unsorted list with integer values, sorted in place using Merge Sort.
+
+[Quick Sort List](cracking_practices/quick_sort/README.md)
+- Given a unsorted list with integer values, sorted in place using Quick Sort.

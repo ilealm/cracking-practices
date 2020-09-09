@@ -119,6 +119,10 @@ def zig_zag_tree(tree):
 
     while len(zig_zag_list) < len(bf_list):
         possitions_to_move = pow(2, level)
+        # for unperfectly balanced trees..
+        if possitions_to_move > (len(bf_list) - len(zig_zag_list) ) :
+            possitions_to_move = len(bf_list) - len(zig_zag_list)
+
         if starting_on_right:
             rightest_position = (possitions_to_move + pointer) - 1 # because I'm using indices
             for i in range(possitions_to_move):
@@ -163,22 +167,22 @@ def return_dummy_tree():
     BST.add(160)
     BST.add(190)
     # level 4
-    BST.add(5)
-    BST.add(20)
-    BST.add(30)
-    BST.add(45)
-    BST.add(55)
-    BST.add(65)
-    BST.add(80)
-    BST.add(95)
-    BST.add(110)
+    # BST.add(5)
+    # BST.add(20)
+    # BST.add(30)
+    # BST.add(45)
+    # BST.add(55)
+    # BST.add(65)
+    # BST.add(80)
+    # BST.add(95)
+    # BST.add(110)
     BST.add(120)
     BST.add(130)
-    BST.add(145)
-    BST.add(150)
+    # BST.add(145)
+    # BST.add(150)
     BST.add(165)
-    BST.add(180)
-    BST.add(200)
+    # BST.add(180)
+    # BST.add(200)
 
     return BST
 

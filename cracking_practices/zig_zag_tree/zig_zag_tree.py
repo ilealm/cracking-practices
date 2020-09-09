@@ -95,6 +95,7 @@ class Queue:
 
 # Approach Brute Force: Call helper function to create a list with all the tree traversed in Breath First fashion.
 # From there, I will start moving in the list level by level.
+# From root, I will move to right to start the zigzag traverse.
 # level = 0, pow(2,level) => 1
 # level = 1, pow(2,level) => 2
 # level = 2, pow(2,level) => 4
@@ -105,8 +106,10 @@ class Queue:
 def zig_zag_tree(tree):
     zig_zag_list = []
 
-    if not tree: return
+    if not tree or not tree.root : return zig_zag_list
+
     bf_list = tree.BreadthFirst(tree)
+    print(bf_list)
 
     pointer = 0 # is a pointer to the current position in the list
     level = 0   # is the level of the tree where I'm now
@@ -124,14 +127,13 @@ def zig_zag_tree(tree):
             possitions_to_move = len(bf_list) - len(zig_zag_list)
 
         if starting_on_right:
-            rightest_position = (possitions_to_move + pointer) - 1 # because I'm using indices
+            rightest_position = (possitions_to_move + pointer) - 1 # because I'm using indices in the list
             for i in range(possitions_to_move):
                 zig_zag_list.append(bf_list[rightest_position - i])
                 pointer += 1
 
             starting_on_right = False
         else:
-
             for i in range(possitions_to_move):
                 zig_zag_list.append(bf_list[pointer])
                 pointer += 1
@@ -142,50 +144,49 @@ def zig_zag_tree(tree):
 
     return zig_zag_list
 
-    # print(bf_list)
+
+# def return_dummy_tree():
+#     BST = BinarySearchTree()
+#     # level 0
+#     BST.add(100)
+#     # level 1
+#     BST.add(50)
+#     BST.add(150)
+#     # level 2
+#     BST.add(25)
+#     BST.add(75)
+#     BST.add(125)
+#     BST.add(175)
+#     # level 3
+#     BST.add(15)
+#     BST.add(40)
+#     BST.add(60)
+#     BST.add(90)
+#     BST.add(115)
+#     BST.add(140)
+#     BST.add(160)
+#     BST.add(190)
+#     # level 4
+#     BST.add(5)
+#     BST.add(20)
+#     BST.add(30)
+#     BST.add(45)
+#     BST.add(55)
+#     BST.add(65)
+#     BST.add(80)
+#     BST.add(95)
+#     BST.add(110)
+#     BST.add(120)
+#     BST.add(130)
+#     BST.add(145)
+#     BST.add(150)
+#     BST.add(165)
+#     BST.add(180)
+#     BST.add(200)
 
 
-def return_dummy_tree():
-    BST = BinarySearchTree()
-    # level 0
-    BST.add(100)
-    # level 1
-    BST.add(50)
-    BST.add(150)
-    # level 2
-    BST.add(25)
-    BST.add(75)
-    BST.add(125)
-    BST.add(175)
-    # level 3
-    BST.add(15)
-    BST.add(40)
-    BST.add(60)
-    BST.add(90)
-    BST.add(115)
-    BST.add(140)
-    BST.add(160)
-    BST.add(190)
-    # level 4
-    # BST.add(5)
-    # BST.add(20)
-    # BST.add(30)
-    # BST.add(45)
-    # BST.add(55)
-    # BST.add(65)
-    # BST.add(80)
-    # BST.add(95)
-    # BST.add(110)
-    BST.add(120)
-    BST.add(130)
-    # BST.add(145)
-    # BST.add(150)
-    BST.add(165)
-    # BST.add(180)
-    # BST.add(200)
+#     return BST
 
-    return BST
-
-if __name__ == "__main__":
-    print(zig_zag_tree(return_dummy_tree()))
+# if __name__ == "__main__":
+#     print(zig_zag_tree(return_dummy_tree()))
 

@@ -144,9 +144,10 @@ def zig_zag_tree(tree):
     return zig_zag_list
 
 
-# this appproach will mimic the BreadthFirst that I use in my trees.
+# IMPLEMENTING BREADTH FIRST. Traverse the tree in a breath way, and create a temp list to save the nodes of each level.
+# Depending on if the level is even or odd, the node will be appended to the end or inserted at the top of the temp list.
+# When I change level, before doing that I will insert the temp list to my return list.
 def zig_zag_tree_v2(tree):
-
     list_breadth = []
 
     # if not tree.root : return 'The Tree is empty.'
@@ -196,49 +197,49 @@ def zig_zag_tree_v2(tree):
 
 
 
-def return_dummy_tree():
-    BST = BinarySearchTree()
+# def return_dummy_tree():
+#     BST = BinarySearchTree()
     # level 0
-    BST.add(100)
+    # BST.add(100)
     # level 1
-    BST.add(50)
-    BST.add(150)
+    # BST.add(50)
+    # BST.add(150)
     # level 2
-    BST.add(25)
-    BST.add(75)
-    BST.add(125)
-    BST.add(175)
+    # BST.add(25)
+    # BST.add(75)
+    # BST.add(125)
+    # BST.add(175)
     # level 3
-    BST.add(15)
-    BST.add(40)
-    BST.add(60)
-    BST.add(90)
-    BST.add(115)
-    BST.add(140)
-    BST.add(160)
-    BST.add(190)
+    # BST.add(15)
+    # BST.add(40)
+    # BST.add(60)
+    # BST.add(90)
+    # BST.add(115)
+    # BST.add(140)
+    # BST.add(160)
+    # BST.add(190)
 #     # level 4
-    BST.add(5)
-    BST.add(20)
-    BST.add(30)
-    BST.add(45)
+    # BST.add(5)
+    # BST.add(20)
+    # BST.add(30)
+    # BST.add(45)
     # BST.add(55)
     # BST.add(65)
-    BST.add(80)
-    BST.add(95)
-    BST.add(110)
-    BST.add(120)
-    BST.add(130)
-    BST.add(145)
-    BST.add(150)
-    BST.add(165)
+    # BST.add(80)
+    # BST.add(95)
+    # BST.add(110)
+    # BST.add(120)
+    # BST.add(130)
+    # BST.add(145)
+    # BST.add(150)
+    # BST.add(165)
     # BST.add(180)
     # BST.add(200)
 
 
-    return BST
+#     return BST
 
-if __name__ == "__main__":
-    # print(zig_zag_tree(return_dummy_tree()))
-    print(zig_zag_tree_v2(return_dummy_tree()))
+# if __name__ == "__main__":
+#     # print(zig_zag_tree(return_dummy_tree()))
+#     print(zig_zag_tree_v2(return_dummy_tree()))
 

@@ -59,5 +59,5 @@ and that you are given the true length of the str_to_url.
 [Quick Sort List](cracking_practices/quick_sort/README.md)
 - Given a unsorted list with integer values, sorted in place using Quick Sort.
 
-[Binary Tree zig zag](cracking_practices/zig_zag_tree/README.md)
+[Binary Tree Zig Zag](cracking_practices/zig_zag_tree/README.md)
 - Having a binary search tree, return the values in a zig zag fashion.

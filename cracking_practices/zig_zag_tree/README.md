@@ -26,6 +26,7 @@ Having a binary search tree, return the values in a zig zag fashion.
 - The value of the nodes are irrelevant.
 - The zig-zag movement starts from the root to the right.
 - I can assume I already have the class node, BST, binaryTree, and BreadthFirst.
+- Tree is mostly balanced.
 
 
 

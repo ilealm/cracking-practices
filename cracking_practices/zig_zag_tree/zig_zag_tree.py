@@ -196,29 +196,73 @@ def zig_zag_tree_v2(tree):
     return list_breadth
 
 
+# Approach 3. Implement 2 queues, one for actual level and second for next level.
+# THIS IS THE BETTER APPROACH, THE TREE DOESN'T NEED TO BE BALANCED
+# Use a flag to know where to move: left_to_rigth, based on this flag, I can know if insert left or right next.
+# Based on: https://www.youtube.com/watch?v=PwEmiE5u3tE
+# But I did some changes
+def zig_zag_tree_two_queues(tree):
+    list_return = []
+    list_level = []
 
-# def return_dummy_tree():
-#     BST = BinarySearchTree()
+    if not tree.root : return list_return
+
+    current_level = Queue()
+    next_level = Queue()
+    left_to_rigth = False
+
+    current_level.enqueue(tree.root)
+
+    while not current_level.is_empty():
+        front = current_level.dequeue()
+
+        if front.left :
+            next_level.enqueue(front.left)
+        if front.right :
+            next_level.enqueue(front.right)
+
+
+        if left_to_rigth:
+            list_level.append(front.value)
+        else:
+            list_level.insert(0, front.value)
+
+
+        if current_level.is_empty():
+            # this means I ended current level
+            list_return += list_level
+            list_level.clear()
+            # change the flow of the zig zag
+            left_to_rigth = not left_to_rigth
+            # swap queues
+            current_level, next_level = next_level, current_level
+
+    return list_return
+
+
+
+def return_dummy_tree():
+    BST = BinarySearchTree()
     # level 0
-    # BST.add(100)
+    BST.add(100)
     # level 1
-    # BST.add(50)
-    # BST.add(150)
+    BST.add(50)
+    BST.add(150)
     # level 2
-    # BST.add(25)
-    # BST.add(75)
+    BST.add(25)
+    BST.add(75)
     # BST.add(125)
-    # BST.add(175)
+    BST.add(175)
     # level 3
-    # BST.add(15)
+    BST.add(15)
     # BST.add(40)
     # BST.add(60)
-    # BST.add(90)
+    BST.add(90)
     # BST.add(115)
     # BST.add(140)
-    # BST.add(160)
-    # BST.add(190)
-#     # level 4
+    BST.add(160)
+    BST.add(190)
+    # level 4
     # BST.add(5)
     # BST.add(20)
     # BST.add(30)
@@ -233,13 +277,15 @@ def zig_zag_tree_v2(tree):
     # BST.add(145)
     # BST.add(150)
     # BST.add(165)
-    # BST.add(180)
+    BST.add(180)
     # BST.add(200)
 
+    return BST
 
-#     return BST
 
-# if __name__ == "__main__":
+
+if __name__ == "__main__":
 #     # print(zig_zag_tree(return_dummy_tree()))
 #     print(zig_zag_tree_v2(return_dummy_tree()))
+    print(zig_zag_tree_two_queues(return_dummy_tree()))
 

@@ -1,7 +1,7 @@
 [Table of Contents](../../README.md)
 
 
-# Problem: Binary Tree zig zag.
+# Problem: Binary Tree Zig Zag.
 
 [Whiteboard approach](https://docs.google.com/document/d/1-9eUTuEyqJKBEYzV3OqvdquukBZkqu0e4SthqdJjUJw/edit?usp=sharing)
 
@@ -26,6 +26,7 @@ Having a binary search tree, return the values in a zig zag fashion.
 - The value of the nodes are irrelevant.
 - The zig-zag movement starts from the root to the right.
 - I can assume I already have the class node, BST, binaryTree, and BreadthFirst.
+- Tree is mostly balanced.
 
 
 
@@ -93,6 +94,66 @@ zig_zag_list=
 **Time O(n2):** I'm traversing the tree to copy to a list, and then I move again trough the list.
 
 **Space O(n2):** Because I'm reacting two new ds. (one to have the tree in breathFirst, and another to return the zig-zag)
+
+
+-----
+
+#### APPROACH  2, IMPLEMENTING BREADTH FIRST.
+
+- Traverse the tree in a breath way, and create a temp list to save the nodes of each level. Depending on if the level is even or odd, the node will be appended to the end or inserted at the top of the temp list. When I change level, before doing that I will insert the temp list to my return list.
+
+
+```
+create a function that receives a tree
+implement basic validation on the tree
+	create a variable list list_breadth and set to empty list
+
+	declare a queue instance (breadth)
+enqueue the tree.root
+
+set variable level, and set to 0
+set num_ele_this_level to pow(2,level)
+set ele_added_this_level to 0
+set is_even_level = True
+set temp_list to empty list
+
+	create a loop while there is something in the queue
+		set front to breadth.dequeue()
+      if front.left have something,
+      	     breadth.enqueue(front.left)
+      if front.right is not None
+      	     breadth.enqueue(front.right)
+
+
+       if is_even_level, then  temp_list.append(front.value)
+       else,            temp_list.insert(0, front.value)
+
+	increase ele_added_this_level by 1
+
+	#check if I changed level
+       if ele_added_this_level == num_ele_this_level:
+		increase level by 1
+		add temp_list to list_breadth
+empty temp_list
+
+set the new elements of the level in num_ele_this_level
+set ele_added_this_level to 0
+switch value of is_even_level
+
+	# validate if the tree is unbalance in the last level, if so, add the rest of the list
+if ele_added_this_level < num_ele_this_level : add temp_list to list_breadth
+
+   return list_breadth
+
+```
+#### BIG O
+**Time O(n):** I'm traversing the tree only once.
+
+
+**Space O(nLogn):** Because I'm reacting two new ds:one temp which have one level at time, and another with all the nodes of the tree.
+
+
+
 
 ### CODE
 [cracking_practices/zig_zag_tree/zig_zag_tree.py](zig_zag_tree.py)

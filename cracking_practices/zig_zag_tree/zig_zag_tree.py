@@ -102,7 +102,6 @@ class Queue:
 # level = 3, pow(2,level) => 8
 # level = 4, pow(2,level) => 16
 # level = 5, pow(2,level) => 32
-
 def zig_zag_tree(tree):
     zig_zag_list = []
 
@@ -145,48 +144,102 @@ def zig_zag_tree(tree):
     return zig_zag_list
 
 
+# IMPLEMENTING BREADTH FIRST. Traverse the tree in a breath way, and create a temp list to save the nodes of each level.
+# Depending on if the level is even or odd, the node will be appended to the end or inserted at the top of the temp list.
+# When I change level, before doing that I will insert the temp list to my return list.
+def zig_zag_tree_v2(tree):
+    list_breadth = []
+
+    # if not tree.root : return 'The Tree is empty.'
+    if not tree.root : return list_breadth
+
+    breadth = Queue()
+    breadth.enqueue(tree.root)
+    level = 0
+    num_ele_this_level = pow(2,level)
+    ele_added_this_level = 0
+    is_even_level = True  # BC starts on level 0
+    temp_list = [] # here I'm going to save the array of only the current level, and I will insert/append depending on is_even_level
+
+    while not breadth.is_empty():
+
+        front = breadth.dequeue()
+        if front.left:
+            breadth.enqueue(front.left)
+        if front.right:
+            breadth.enqueue(front.right)
+
+
+        if is_even_level:
+            temp_list.append(front.value)
+        else:
+            temp_list.insert(0, front.value)
+
+        ele_added_this_level += 1
+
+
+        if ele_added_this_level == num_ele_this_level:
+            #  I just moved one level down
+            level += 1
+            list_breadth += temp_list
+            temp_list.clear()
+            # list_breadth.append('Level ' + str(level))
+
+            num_ele_this_level = pow(2,level)
+            ele_added_this_level = 0
+            is_even_level = not is_even_level
+
+
+    # if the tree is unbalance in the last level, add the rest of the list
+    if ele_added_this_level < num_ele_this_level : list_breadth += temp_list
+
+    return list_breadth
+
+
+
 # def return_dummy_tree():
 #     BST = BinarySearchTree()
-#     # level 0
-#     BST.add(100)
-#     # level 1
-#     BST.add(50)
-#     BST.add(150)
-#     # level 2
-#     BST.add(25)
-#     BST.add(75)
-#     BST.add(125)
-#     BST.add(175)
-#     # level 3
-#     BST.add(15)
-#     BST.add(40)
-#     BST.add(60)
-#     BST.add(90)
-#     BST.add(115)
-#     BST.add(140)
-#     BST.add(160)
-#     BST.add(190)
+    # level 0
+    # BST.add(100)
+    # level 1
+    # BST.add(50)
+    # BST.add(150)
+    # level 2
+    # BST.add(25)
+    # BST.add(75)
+    # BST.add(125)
+    # BST.add(175)
+    # level 3
+    # BST.add(15)
+    # BST.add(40)
+    # BST.add(60)
+    # BST.add(90)
+    # BST.add(115)
+    # BST.add(140)
+    # BST.add(160)
+    # BST.add(190)
 #     # level 4
-#     BST.add(5)
-#     BST.add(20)
-#     BST.add(30)
-#     BST.add(45)
-#     BST.add(55)
-#     BST.add(65)
-#     BST.add(80)
-#     BST.add(95)
-#     BST.add(110)
-#     BST.add(120)
-#     BST.add(130)
-#     BST.add(145)
-#     BST.add(150)
-#     BST.add(165)
-#     BST.add(180)
-#     BST.add(200)
+    # BST.add(5)
+    # BST.add(20)
+    # BST.add(30)
+    # BST.add(45)
+    # BST.add(55)
+    # BST.add(65)
+    # BST.add(80)
+    # BST.add(95)
+    # BST.add(110)
+    # BST.add(120)
+    # BST.add(130)
+    # BST.add(145)
+    # BST.add(150)
+    # BST.add(165)
+    # BST.add(180)
+    # BST.add(200)
 
 
 #     return BST
 
 # if __name__ == "__main__":
-#     print(zig_zag_tree(return_dummy_tree()))
+#     # print(zig_zag_tree(return_dummy_tree()))
+#     print(zig_zag_tree_v2(return_dummy_tree()))
 

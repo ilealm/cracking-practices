@@ -153,6 +153,54 @@ if ele_added_this_level < num_ele_this_level : add temp_list to list_breadth
 **Space O(nLogn):** Because I'm reacting two new ds:one temp which have one level at time, and another with all the nodes of the tree.
 
 
+-----
+
+#### APPROACH 3, IMPLEMENTING BREADTH FIRST WITH TWO QUEUES.
+
+- THIS IS THE BETTER APPROACH, THE TREE DOESN'T NEED TO BE BALANCED
+- Traverse t Implement 2 queues, one for actual level and second for next level.
+- Using a flag to know where to move: left_to_rigth, based on this flag, I can know if insert left or right next.
+- Based on: https://www.youtube.com/watch?v=PwEmiE5u3tE
+- But I did some changes
+
+#### ALGORITHM
+```
+create a function that receives a tree
+	add basic validations to the three
+	declare helper variables:
+list_return = []
+list_level = []
+	current_level = Queue()
+next_level = Queue()
+   	left_to_rigth = False
+
+	enque tree.root into current_level
+
+	create a loop while current_level is not empty
+		create a variable front and set to current_level.dequeue()
+
+		if front have a left node, add it to next_level queue
+		if front have a right node, add it to next_level queue
+
+		depending on the flow I'm inserting, I will insert[0] or append in my helper list
+
+       	if current_level is, empty, means I need to change level
+			add to list_return what I have in list_level
+            reset list_level
+           		change the flow of the zig zag (left_to_rigth )
+			swap queues current_level, next_level to next_level, current_level
+
+   return list_return
+
+```
+
+#### BIG O
+**Time O(n):** I'm traversing the tree only once.
+
+
+**Space O(nLogn):** Because I'm reacting two new ds:one temp which have one level at time, and another with all the nodes of the tree.
+
+
 
 
 ### CODE
@@ -164,4 +212,4 @@ if ele_added_this_level < num_ele_this_level : add temp_list to list_breadth
 
 ### GITHUB BRANCH
 
-[Pull Request # 20, Branch: zig_zag_tree](https://github.com/ilealm/cracking-practices/pull/20)
+[Pull Request # 22, Branch: zig_zag_tree](https://github.com/ilealm/cracking-practices/pull/22)

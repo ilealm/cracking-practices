@@ -1,6 +1,6 @@
 import pytest
 
-from cracking_practices.zig_zag_tree.zig_zag_tree import zig_zag_tree, Node, BinaryTree, BinarySearchTree
+from cracking_practices.zig_zag_tree.zig_zag_tree import zig_zag_tree, zig_zag_tree_two_queues , Node, BinaryTree, BinarySearchTree
 
 
 def test_empty_tree():
@@ -78,6 +78,43 @@ def test_2_level_unbalanced(dummy_2_level_unbalanced):
     actual = zig_zag_tree(dummy_2_level_unbalanced)
 
     assert actual ==  expected, 'Error on dummy_2_level_unbalanced'
+
+
+def test_approach3_one(dummy_tree_32):
+    '''
+    Test on approach 3, implementing 2 queues.
+    This approach accepts unbalanced trees.
+    '''
+    expected = [100, 50, 150, 175, 125, 75, 25, 15, 40, 60, 90, 115, 140, 160, 190, 200, 180, 165, 150, 145, 130, 120, 110, 95, 80, 65, 55, 45, 30, 20, 5]
+
+    actual = zig_zag_tree_two_queues(dummy_tree_32)
+
+    assert actual ==  expected, 'Error on dummy_tree_32.'
+
+
+
+def test_approach3_two(dummy_unbalanced_tree_one):
+    '''
+    Test on approach 3, implementing 2 queues.
+    This approach accepts unbalanced trees.
+    '''
+    expected = [100, 50, 150, 175, 75, 25, 15, 90, 160, 190, 180]
+
+    actual = zig_zag_tree_two_queues(dummy_unbalanced_tree_one)
+
+    assert actual ==  expected, 'Error on test_approach3_two.'
+
+
+def test_approach3_tree(dummy_unbalanced_small_tree):
+    '''
+    Test on approach 3, implementing 2 queues.
+    This approach accepts unbalanced trees.
+    '''
+    expected = [100, 50, 150, 175, 125, 75, 25, 15, 160]
+
+    actual = zig_zag_tree_two_queues(dummy_unbalanced_small_tree)
+
+    assert actual ==  expected, 'Error on test_approach3_tree.'
 
 
 
@@ -175,5 +212,47 @@ def dummy_2_level_unbalanced():
     # level 2
     BST.add(25)
     BST.add(125)
+
+    return BST
+
+@pytest.fixture
+def dummy_unbalanced_tree_one():
+    BST = BinarySearchTree()
+    # level 0
+    BST.add(100)
+    # level 1
+    BST.add(50)
+    BST.add(150)
+    # level 2
+    BST.add(25)
+    BST.add(75)
+    BST.add(175)
+    # level 3
+    BST.add(15)
+    BST.add(90)
+    BST.add(160)
+    BST.add(190)
+    # level 4
+    BST.add(180)
+
+    return BST
+
+
+@pytest.fixture
+def dummy_unbalanced_small_tree():
+    BST = BinarySearchTree()
+    # level 0
+    BST.add(100)
+    # level 1
+    BST.add(50)
+    BST.add(150)
+    # level 2
+    BST.add(25)
+    BST.add(75)
+    BST.add(125)
+    BST.add(175)
+    # level 3
+    BST.add(15)
+    BST.add(160)
 
     return BST

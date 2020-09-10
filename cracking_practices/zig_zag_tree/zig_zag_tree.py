@@ -160,21 +160,23 @@ def zig_zag_tree_v2(tree):
     is_even_level = True  # BC starts on level 0
     temp_list = [] # here I'm going to save the array of only the current level, and I will insert/append depending on is_even_level
 
-    # if the level is odd, I will add the nodes from the right, otherwise, from the left
-
     while not breadth.is_empty():
 
         front = breadth.dequeue()
-        # list_breadth.append(front.value)
-        ele_added_this_level += 1
+        if front.left:
+            breadth.enqueue(front.left)
+        if front.right:
+            breadth.enqueue(front.right)
+
 
         if is_even_level:
             temp_list.append(front.value)
         else:
             temp_list.insert(0, front.value)
 
+        ele_added_this_level += 1
 
-        # TODO  when is not a balanced tree in more than the last level
+
         if ele_added_this_level == num_ele_this_level:
             #  I just moved one level down
             level += 1
@@ -186,11 +188,9 @@ def zig_zag_tree_v2(tree):
             ele_added_this_level = 0
             is_even_level = not is_even_level
 
-        if front.left:
-            breadth.enqueue(front.left)
-        if front.right:
-            breadth.enqueue(front.right)
 
+    # if the tree is unbalance in the last level, add the rest of the list
+    if ele_added_this_level < num_ele_this_level : list_breadth += temp_list
 
     return list_breadth
 
@@ -222,8 +222,8 @@ def return_dummy_tree():
     BST.add(20)
     BST.add(30)
     BST.add(45)
-    BST.add(55)
-    BST.add(65)
+    # BST.add(55)
+    # BST.add(65)
     BST.add(80)
     BST.add(95)
     BST.add(110)
@@ -232,8 +232,8 @@ def return_dummy_tree():
     BST.add(145)
     BST.add(150)
     BST.add(165)
-    BST.add(180)
-    BST.add(200)
+    # BST.add(180)
+    # BST.add(200)
 
 
     return BST

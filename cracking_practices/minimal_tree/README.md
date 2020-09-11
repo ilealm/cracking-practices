@@ -3,7 +3,7 @@
 
 # Problem 4.2
 
-[Whiteboard approach](X)
+[Whiteboard approach](https://docs.google.com/document/d/1imHz4_QKa1nEJYe1B-1Ul_fVNTQlHkAsrEdxsWLLWiQ/edit?usp=sharing)
 
 ### PROBLEM DOMAIN
 Given a sorted (increasing order) array with unique integer elements, white an algorithm to create a binary search tree with minimal height.
@@ -82,4 +82,4 @@ tree: 100, 50, 25, 75, 150, 130, 175
 
 ### GITHUB BRANCH
 
-[Pull Request # 23, Branch: minimal_tree](https://github.com/ilealm/cracking-practices/pull/23)
+[Pull Request # 24, Branch: minimal_tree](https://github.com/ilealm/cracking-practices/pull/24)

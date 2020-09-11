@@ -61,3 +61,6 @@ and that you are given the true length of the str_to_url.
 
 [Binary Tree Zig Zag](cracking_practices/zig_zag_tree/README.md)
 - Having a binary search tree, return the values in a zig zag fashion.
+
+[Minimal Tree 4.2](cracking_practices/minimal_tree/README.md)
+- Given a sorted (increasing order) array with unique integer elements, white an algorithm to create a binary search tree with minimal height.

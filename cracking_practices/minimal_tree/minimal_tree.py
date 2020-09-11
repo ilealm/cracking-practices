@@ -101,33 +101,14 @@ class Queue:
         return len(self.storage) == 0
 
 
-# # def minimal_tree(array, start, end, tree):
-# def minimal_tree(array, start, end, tree):
-#     print(array)
-#     print("start: ", start, " end:", end)
 
-#     if start == end:
-#         tree.add(array[start])
-#         return
-
-#     middle = (end - start) // 2
-#     tree.add(array[middle])
-#     # here my problem is when I do the left part, the middle is not the middle in the left side
-
-#     # recursive left part
-#     minimal_tree(array, start, middle-1, tree)
-#     # recursive right part
-#     minimal_tree(array, middle+1, end, tree)
-
-#     return tree
-
-
-# def minimal_tree(array, start, end, tree):
 def minimal_tree(array):
     tree = BinarySearchTree()
 
     def traverse_array(sub_array, tree):
         print(sub_array)
+
+        if len(sub_array) == 0 : return
 
         if len(sub_array) == 1:
             tree.add(sub_array[0])
@@ -136,11 +117,10 @@ def minimal_tree(array):
         middle = len(sub_array) // 2
         tree.add(sub_array[middle])
 
-        # recursion left part
+        # recursion left part. REMEMBER, THE END IS NOT INCLUDING, SO DON'T DO MIDDLE -1
         traverse_array(sub_array[0: middle], tree)
         # recursion right part
         traverse_array(sub_array[middle+1: ], tree)
-        # minimal_tree(sub_array[middle+1: len(sub_array]), tree)
 
 
     traverse_array(array, tree)
@@ -149,48 +129,18 @@ def minimal_tree(array):
 
 
 if __name__ == "__main__":
-    BST = BinarySearchTree()
-    # level 0
-    BST.add(100)
-    # level 1
-    BST.add(50)
-    BST.add(150)
-    # level 2
-    BST.add(25)
-    BST.add(75)
-    BST.add(125)
-    BST.add(175)
-    # level 3
-    BST.add(15)
-    BST.add(40)
-    BST.add(60)
-    BST.add(90)
-    BST.add(115)
-    BST.add(140)
-    BST.add(160)
-    BST.add(190)
-    # # level 4
-    # BST.add(5)
-    # BST.add(20)
-    # BST.add(30)
-    # BST.add(45)
-    # BST.add(55)
-    # BST.add(65)
-    # BST.add(80)
-    # BST.add(95)
-    # BST.add(110)
-    # BST.add(120)
-    # BST.add(130)
-    # BST.add(145)
-    # BST.add(150)
-    # BST.add(165)
-    # BST.add(180)
-    # BST.add(200)
 
-    # print(BST.BreadthFirst())
+#     # print(BST.BreadthFirst())
 
-    array = [15, 25, 40, 50, 60, 75, 90, 100, 115, 125, 140, 150, 160, 175, 190]
+    array = [25, 50, 75, 100, 130, 150, 175]
 
-    # print(minimal_tree(array, 0, len(array), BinarySearchTree()))
-    print(minimal_tree(array))
+#     # => [100, 50, 150, 25, 75, 125, 175, 15, 40, 60, 90, 115, 140, 160, 190]
+#     array = [5, 15, 20,25, 30,40,45,50,55,60,65]
+#     # =>[40, 20, 55, 15, 30, 50, 65, 5, 25, 45, 60]
+#     array = [5, 15, 20,25, 30,40,45, 50,55, 60,65, 75, 80,90, 95, 100, 110, 115, 120, 130, 125, 140, 145, 150, 160, 165, 180, 175, 190, 200]
+#     =>[100, 50, 150, 25, 75, 130, 175, 15, 40, 60, 90, 115, 140, 165, 180, 5, 20, 30, 45, 55, 65, 80, 95, 110, 120, 145, 160, 200, 125, 190]
+
+
+    my_tree = minimal_tree(array)
+    print( my_tree.BreadthFirst())
 

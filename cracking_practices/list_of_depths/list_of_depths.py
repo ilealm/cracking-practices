@@ -118,6 +118,7 @@ class NodeLinkedList:
 class LinkedList:
     def __init__(self):
         self.head = None
+        self.tail = None
 
     def __repr__(self):
         return f"The head is {self.head}"
@@ -130,13 +131,20 @@ class LinkedList:
 
         self.head = new_node
 
+        if not self.tail :
+            self.tail = new_node
+
+
     def append(self, value):
         if not self.head :
             self.insert(value)
             return
 
         # traverse all the LL to the end of the LL.
-        # this could improve if I implement a tail artribute on the init of the class
+        # this could improve if I implement a tail artribute on the init of the class, so I'm implementing
+        new_node =  NodeLinkedList(value)
+        self.tail.next = new_node
+        self.tail = new_node
 
 
 
@@ -154,7 +162,10 @@ def list_of_depths(tree):
 
     while not current_level.is_empty():
         front = current_level.dequeue()
-        liknedlist_level.insert(front.value)
+        # this add the node to the top of the LL, so the nodes of the tree will be inverted
+        # liknedlist_level.insert(front.value)
+        # so I'm appending at the tail of the ll
+        liknedlist_level.append(front.value)
 
         if front.left:
             next_level.enqueue(front.left)

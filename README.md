@@ -65,5 +65,5 @@ and that you are given the true length of the str_to_url.
 [Minimal Tree 4.2](cracking_practices/minimal_tree/README.md)
 - Given a sorted (increasing order) array with unique integer elements, white an algorithm to create a binary search tree with minimal height.
 
-
-list_of_depths
+[List of Depths 4.3](cracking_practices/list_of_depths/README.md)
+- Given a binary tree, design an algorithm that creates a link list of all the nodes at each level depth. If you have a tree with deep D, you will have D linked list.

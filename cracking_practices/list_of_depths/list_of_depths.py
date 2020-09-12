@@ -5,15 +5,6 @@
 
 # HELPER CLASSES
 
-# Node for tree
-# queue
-# BinaryTree
-#     BreadthFirst
-# BinarySearchTree(BinaryTree)
-#     add()
-# node for linklist
-# LinkedList
-#   insert()
 
 from collections import deque
 
@@ -131,28 +122,26 @@ class LinkedList:
 
         self.head = new_node
 
-        if not self.tail :
+        if not self.tail:
             self.tail = new_node
 
-
     def append(self, value):
-        if not self.head :
+        if not self.head:
             self.insert(value)
             return
 
         # traverse all the LL to the end of the LL.
         # this could improve if I implement a tail artribute on the init of the class, so I'm implementing
-        new_node =  NodeLinkedList(value)
+        new_node = NodeLinkedList(value)
         self.tail.next = new_node
         self.tail = new_node
-
-
 
 
 def list_of_depths(tree):
     return_List = []
 
-    if not  tree.root : return return_List
+    if not tree.root:
+        return return_List
 
     liknedlist_level = LinkedList()
     current_level = Queue()
@@ -175,7 +164,7 @@ def list_of_depths(tree):
         # check if I'm changing levels, this is, when current_level is empty
         if current_level.is_empty():
             # store the linked list in the list, and reset it
-            return_List.append(liknedlist_level)
+            return_List.append(str(liknedlist_level).strip())
             liknedlist_level = LinkedList()
 
             # swap queues to change the level
@@ -186,31 +175,33 @@ def list_of_depths(tree):
 
 if __name__ == "__main__":
 
-    tree = BinarySearchTree()
-    tree.add(100)
-    tree.add(50)
-    tree.add(150)
-    tree.add(25)
-    tree.add(75)
-    tree.add(125)
-    tree.add(175)
-    # print(tree.BreadthFirst())
-
-    print(list_of_depths(tree))
-
-    # x = Queue()
-    # x.enqueue("iris")
-    # print(x.peek())
-    # x.enqueue("leal")
-    # x.dequeue()
-    # print(x.peek())
-
-    # x.dequeue()
-    # print(x.peek())
-    # ll = LinkedList()
-    # ll.insert("leal")
-    # ll.insert("iris")
-    # ll.insert("ing.")
-
-    # print(ll)
+    BST = BinarySearchTree()
+    # level 0
+    BST.add(100)
+    # level 1
+    BST.add(50)
+    BST.add(150)
+    # level 2
+    BST.add(25)
+    BST.add(75)
+    BST.add(125)
+    BST.add(175)
+    # level 3
+    BST.add(15)
+    BST.add(40)
+    BST.add(90)
+    BST.add(115)
+    BST.add(160)
+    BST.add(190)
+    # level 4
+    BST.add(5)
+    BST.add(20)
+    BST.add(45)
+    BST.add(80)
+    BST.add(95)
+    BST.add(110)
+    BST.add(150)
+    BST.add(165)
+    BST.add(180)
+    print(list_of_depths(BST))
 

@@ -67,3 +67,6 @@ and that you are given the true length of the str_to_url.
 
 [List of Depths 4.3](cracking_practices/list_of_depths/README.md)
 - Given a binary tree, design an algorithm that creates a link list of all the nodes at each level depth. If you have a tree with deep D, you will have D linked list.
+
+[Validate BST 4.5](cracking_practices/validate_bst/README.md)
+- Implement a function that checks if a binary tree is a BST

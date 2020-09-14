@@ -68,7 +68,7 @@ successor: None, 151
 current: 175,160,151
 ```
 
-    
+
 #### BIG O
 **Time O(Logn):** I'm traversing at most, half of the tree.
 
@@ -83,4 +83,4 @@ current: 175,160,151
 
 ### GITHUB BRANCH
 
-[Pull Request # n, Branch: successor](https://github.com/ilealm/cracking-practices/pull/X)
+[Pull Request # 28, Branch: successor](https://github.com/ilealm/cracking-practices/pull/28)

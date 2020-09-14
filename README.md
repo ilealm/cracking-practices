@@ -73,3 +73,10 @@ and that you are given the true length of the str_to_url.
 
 [Check Balanced 4.4](cracking_practices/check_balanced/README.md)
 - Implement a function to check if a binary tree is balanced. For the purpose of this question, a balanced tree is defined to be a tree such as the hights of the two subtrees of any node never differ by more than one.
+
+
+[Successor 4.6](cracking_practices/successor/README.md)
+- Write an algorithm to find the "next" node (i.e in-order successor) of a given node in a BST. You may assume that each node has a link to its parent.
+
+
+

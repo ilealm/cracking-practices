@@ -111,10 +111,13 @@ class Stack:
 
 
 def get_node_path(tree, target):
-    return_stack = Stack()
-    # return_stack = []
+    # for returning a stack
+    # return_stack = Stack()  # this works perfect, if I want to have a nodes instead of a list
+    # for return a list:
+    return_stack = []   # this is for returning list
     founded = False
 
+    if not tree or not target : return return_stack
 
     def traverse(current, target):
         nonlocal founded
@@ -123,9 +126,11 @@ def get_node_path(tree, target):
         if not current:
             return
 
-        return_stack.push(current.value)
-        # return_stack.append(current.value)
-        # return_stack.insert(0, current.value)
+        # for returning a stack
+        # return_stack.push(current.value)
+
+        # for return a list:
+        return_stack.insert(0, current.value)
 
         if current.value == target.value:
             founded = True
@@ -135,26 +140,67 @@ def get_node_path(tree, target):
             if not current.left.value == target.value:
                 traverse(current.left, target)
             else:
-                # the next node is my target, and I don't need to go there.
                 founded = True
                 return
-        # else:
-        #     return_stack.pop()
 
         if current.right:
             if not current.right.value == target.value:
                 traverse(current.right, target)
             else:
-                # the next node is my target, and I don't need to go there.
                 founded = True
-        # else:
-        #     return_stack.pop()
+
         if not founded:
-            return_stack.pop()
+            # for return a list:
+            return_stack.pop(0)
+            # for return a stack:
+            # return_stack.pop()
 
 
     traverse(tree.root, target)
     return return_stack
+
+
+
+# def get_node_path(tree, target):
+#     return_stack = Stack()
+#     # return_stack = []
+#     founded = False
+
+
+#     def traverse(current, target):
+#         nonlocal founded
+#         if founded:
+#             return
+#         if not current:
+#             return
+
+#         return_stack.push(current.value)
+#         # return_stack.append(current.value)
+#         # return_stack.insert(0, current.value)
+
+#         if current.value == target.value:
+#             founded = True
+#             return
+
+#         if current.left:
+#             if not current.left.value == target.value:
+#                 traverse(current.left, target)
+#             else:
+#                 founded = True
+#                 return
+
+#         if current.right:
+#             if not current.right.value == target.value:
+#                 traverse(current.right, target)
+#             else:
+#                 founded = True
+
+#         if not founded:
+#             return_stack.pop()
+
+
+#     traverse(tree.root, target)
+#     return return_stack
 
 
 if __name__ == "__main__":

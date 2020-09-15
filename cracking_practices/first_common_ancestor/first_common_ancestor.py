@@ -5,6 +5,9 @@ class Node:
         self.right = None
         self.parent = None
 
+    def __str__(self):
+        return f"Node: {self.value}"
+
 
 class BinarySearch:
     def __init__(self):
@@ -107,36 +110,38 @@ class Stack:
             raise Exception("Can't pop from an empty stack.")
 
 
-
 def get_node_path(tree, target):
     return_stack = Stack()
+    # return_stack = []
     founded = False
 
-    # return_stack.push(tree.root.value)
 
     def traverse(current, target):
         nonlocal founded
-        if founded : return
-        if not current: return
-
-        return_stack.push(current.value)
-
-        if current.value == target.value:
+        if founded:
+            return
+        if not current:
             return
 
-        if current.left :
+        return_stack.push(current.value)
+        # return_stack.append(current.value)
+        # return_stack.insert(0, current.value)
+
+        if current.value == target.value:
+            founded = True
+            return
+
+        if current.left:
             if not current.left.value == target.value:
                 traverse(current.left, target)
             else:
                 # the next node is my target, and I don't need to go there.
                 founded = True
                 return
-        else:
-            return_stack.pop()
+        # else:
+        #     return_stack.pop()
 
-
-
-        if current.right :
+        if current.right:
             if not current.right.value == target.value:
                 traverse(current.right, target)
             else:
@@ -144,15 +149,12 @@ def get_node_path(tree, target):
                 founded = True
         # else:
         #     return_stack.pop()
-
+        if not founded:
+            return_stack.pop()
 
 
     traverse(tree.root, target)
     return return_stack
-
-
-
-
 
 
 if __name__ == "__main__":
@@ -196,8 +198,12 @@ if __name__ == "__main__":
 
     # Node: 20
     node_a = BST.root.left.left.left.right
-    print(BST, node_a.value)
-    get_node_path(BST, node_a)
 
+    print(node_a.value)
+    print(get_node_path(BST, node_a))
 
+    # Node 90
+    node_b = BST.root.left.right.right
+    print(node_b.value)
+    print(get_node_path(BST, node_b))
 

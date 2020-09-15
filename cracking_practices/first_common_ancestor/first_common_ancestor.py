@@ -207,3 +207,8 @@ if __name__ == "__main__":
     print(node_b.value)
     print(get_node_path(BST, node_b))
 
+
+    # Node 145
+    node_b = BST.root.right.left.right.right
+    print(node_b.value)
+    print(get_node_path(BST, node_b))

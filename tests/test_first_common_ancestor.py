@@ -1,72 +1,58 @@
 import pytest
-from cracking_practices.first_common_ancestor.first_common_ancestor import get_node_path, BinarySearchTree
+from cracking_practices.first_common_ancestor.first_common_ancestor import get_node_path, BinarySearchTree, first_common_ancestor
 
 
-def test_get_node_path_none(dummy_4level_BST):
-    node = None
-
-    expected = []
-
-    actual =get_node_path(dummy_4level_BST, node)
-
-    assert actual == expected, 'Error on test_get_node_path_none.'
-
-
-def test_get_node_path20(dummy_4level_BST):
+def test_node20_node90(dummy_4level_BST):
     # Node: 20
-    node = dummy_4level_BST.root.left.left.left.right
-
-    expected = [15, 25, 50, 100]
-
-    actual =get_node_path(dummy_4level_BST, node)
-
-    assert actual == expected, 'Error on test_get_node_path20.'
-
-
-def test_get_node_path90(dummy_4level_BST):
+    node_a = dummy_4level_BST.root.left.left.left.right
     # Node: 90
-    node = dummy_4level_BST.root.left.right.right
+    node_b = dummy_4level_BST.root.left.right.right
 
-    expected = [75, 50, 100]
+    expected = 50
 
-    actual =get_node_path(dummy_4level_BST, node)
+    actual = first_common_ancestor(dummy_4level_BST, node_a, node_b)
 
-    assert actual == expected, 'Error on test_get_node_path90.'
+    assert actual == expected, 'Error on test_node20_node90.'
 
 
-def test_get_node_path145(dummy_4level_BST):
+def test_node50_node150(dummy_4level_BST):
     # Node: 145
-    node = dummy_4level_BST.root.right.left.right.right
+    node_a = dummy_4level_BST.root.left.right.right
+    # Node: 200
+    node_b = dummy_4level_BST.root.right.right.right.right
 
-    expected = [140, 125, 150, 100]
+    expected = 100
 
-    actual =get_node_path(dummy_4level_BST, node)
+    actual = first_common_ancestor(dummy_4level_BST, node_a, node_b)
 
-    assert actual == expected, 'Error on test_get_node_path145.'
+    assert actual == expected, 'Error on test_node50_node150.'
 
 
-def test_get_node_path200(dummy_4level_BST):
+def test_node145_node200(dummy_4level_BST):
     # Node: 145
-    node = dummy_4level_BST.root.right.right.right.right
+    node_a = dummy_4level_BST.root.left
+    # Node: 200
+    node_b = dummy_4level_BST.root.right
 
-    expected = [190, 175, 150, 100]
+    expected = 100
 
-    actual =get_node_path(dummy_4level_BST, node)
+    actual = first_common_ancestor(dummy_4level_BST, node_a, node_b)
 
-    assert actual == expected, 'Error on test_get_node_path200.'
-
-
-def test_get_node_path_root(dummy_4level_BST):
-    # Node: 100
-    node = dummy_4level_BST.root
-
-    expected = [100]
-
-    actual =get_node_path(dummy_4level_BST, node)
-
-    assert actual == expected, 'Error on test_get_node_path_root.'
+    assert actual == expected, 'Error on test_node145_node200.'
 
 
+
+def test_node120_node130(dummy_4level_BST):
+    # Node: 120
+    node_a = dummy_4level_BST.root.right.left.left.right
+    # Node: 140
+    node_b = dummy_4level_BST.root.right.left.right
+
+    expected = 125
+
+    actual = first_common_ancestor(dummy_4level_BST, node_a, node_b)
+
+    assert actual == expected, 'Error on test_node120_node130.'
 
 
 @pytest.fixture

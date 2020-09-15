@@ -74,10 +74,13 @@ and that you are given the true length of the str_to_url.
 [Check Balanced 4.4](cracking_practices/check_balanced/README.md)
 - Implement a function to check if a binary tree is balanced. For the purpose of this question, a balanced tree is defined to be a tree such as the hights of the two subtrees of any node never differ by more than one.
 
-
 [Successor 4.6](cracking_practices/successor/README.md)
 - Write an algorithm to find the "next" node (i.e in-order successor) of a given node in a BST. You may assume that each node has a link to its parent.
 
+[Get Node Path](cracking_practices/get_node_path/README.md)
+- Write a function that returns in a list the path of a node in the tree, from the lower level to root. It receives a tree and a node, to search its value in the tree. * It can return a Stack() object if required.
 
 
-first_common_ancestor
+[First Common Ancestor 4.8](cracking_practices/first_common_ancestor/README.md)
+- Design an algorithm and write the code to find the first common ancestor of two nodes in a binary tree. Avoid storing additional nodes in the data structure. NOTE: This is not necessarily a binary search tree.
+

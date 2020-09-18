@@ -84,3 +84,5 @@ and that you are given the true length of the str_to_url.
 [First Common Ancestor 4.8](cracking_practices/first_common_ancestor/README.md)
 - Design an algorithm and write the code to find the first common ancestor of two nodes in a binary tree. Avoid storing additional nodes in the data structure. NOTE: This is not necessarily a binary search tree.
 
+[Permutations](cracking_practices/permutations/README.md)
+- Given an array, return all the possibles permutations of it.

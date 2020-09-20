@@ -111,11 +111,14 @@
 # https://www.youtube.com/watch?v=KukNnoN-SoY
 # I got almost everything for just the explanation, exept permutation.pop(), that I needed
 # for some reason on each call to the function, if I don't make the call as permutations(array2 [], []); permutation and
-# perms don't resert, so I need to call the function as
-#  permutations(array, [], [])
+# perms don't resert, so I need to call the function as permutations(array, [], []).
+# FIXED from lines 119 - 126
+def permutations(array, permutation=None, perms=None):
+    if permutation is None:
+        permutation = []
+    if perms is None:
+        perms = []
 
-
-def permutations(array, permutation=[], perms=[]):
     if array == []:
         perms.append(permutation.copy())
         return

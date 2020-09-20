@@ -6,7 +6,7 @@ def test_one():
     expected = 24
     array = ["a", "b", "c", "e"]
 
-    actual = len(permutations(array, [], []))
+    actual = len(permutations(array))
 
     assert actual == expected, "Error on test_one."
 
@@ -15,7 +15,7 @@ def test_two():
     expected = [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]
     array = [1, 2, 3]
 
-    actual = permutations(array, [],[])
+    actual = permutations(array)
 
     assert actual == expected, "Error on test_two."
 
@@ -24,7 +24,7 @@ def test_tree():
 
     array = ["a", "b", "c", "e"]
 
-    actual = permutations(array, [],[])
+    actual = permutations(array)
 
     assert actual == expected, "Error on test_tree."
 
@@ -34,6 +34,6 @@ def test_four():
 
     expected = [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]
 
-    actual = permutations(array, [],[])
+    actual = permutations(array)
 
     assert actual == expected, "Error on test_four."

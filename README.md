@@ -86,3 +86,7 @@ and that you are given the true length of the str_to_url.
 
 [Permutations](cracking_practices/permutations/README.md)
 - Given an array, return all the possibles permutations of it.
+
+[Join Two Orderder Lists ](cracking_practices/join_two_lists/README.md)
+- Given two ordered list, return a lists with all the elements sorted.
+

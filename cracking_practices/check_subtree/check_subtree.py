@@ -1,9 +1,5 @@
-# BST Sequence 4.9
-# PROBLEM DOMAIN
-# A binary search tree was created by traversing a through an array from left to right and inserting each element.
-# Given a binary search tree with distinct elements, print all possible arrays that could have lead to this tree.
-
 from collections import deque
+
 
 class Queue:
     def __init__(self):
@@ -38,31 +34,29 @@ class BinaryTree:
     def __init__(self):
         self.root = None
 
-
     def __str__(self):
         return f"The root is {self.root}"
 
-
     def preOrder():
-        result= []
+        result = []
 
-        if not self.root : return result
+        if not self.root:
+            return result
 
         def traverse(current):
-            if not current : return
+            if not current:
+                return
 
             result.append(current.value)
             traverse(current.left)
             traverse(current.right)
 
-
         traverse(self.root)
         return result
 
-
     def BreadthFirst(self):
         result = []
-        if not self.root :
+        if not self.root:
             return result
 
         breadth = Queue()
@@ -72,9 +66,9 @@ class BinaryTree:
             front = breadth.dequeue()
             result.append(front.value)
 
-            if front.left :
+            if front.left:
                 breadth.enqueue(front.left)
-            if front.right :
+            if front.right:
                 breadth.enqueue(front.right)
 
         return result
@@ -85,8 +79,7 @@ class BinarySearchTree(BinaryTree):
         if not self.root:
             return "The tree is empty."
 
-
-    def add(self ,value):
+    def add(self, value):
         new_node = Node(value)
 
         if not self.root:
@@ -94,7 +87,8 @@ class BinarySearchTree(BinaryTree):
             return
 
         def traverse(current, new_node):
-            if not current : return
+            if not current:
+                return
 
             if new_node.value < current.value:
                 if not current.left:
@@ -110,35 +104,51 @@ class BinarySearchTree(BinaryTree):
         traverse(self.root, new_node)
 
 
+# END HELPER CLASSES
 
-def permutations(array, permutation=None, perms=None):
-    if permutation is None:
-        permutation = []
-    if perms is None:
-        perms = []
+def are_equal_trees(tree1, tree2):
+    are_equal = True
+    breadth1 = Queue()
+    breadth2 = Queue()
 
-    if array == []:
-        perms.append(permutation.copy())
-        return
+    breadth1.enqueue(tree1)
+    breadth2.enqueue(tree2)
+    while not breadth2.is_empty() and are_equal:
+        front1 = breadth1.dequeue()
+        front2 = breadth2.dequeue()
 
-    for i in range(0, len(array)):
-        permutation.append(array[i])
-        sub_array = array[:i] + array[i + 1 :]
-        permutations(sub_array, permutation, perms)
-        permutation.pop()
+        if not front1.value == front2.value:
+            are_equal = False
+            return are_equal
+        else:
+            if front1.left :
+                breadth1.enqueue(front1.left)
+            if front1.right :
+                breadth1.enqueue(front1.right)
+            if front2.left :
+                breadth2.enqueue(front2.left)
+            if front2.right :
+                breadth2.enqueue(front2.right)
 
-    return perms
-
-
-def bst_sequences(tree):
-    # transform the tree to an array, using BreadthFirst, which will have the root at [0]
-    array = tree.BreadthFirst()
-    # I know array[0] is the root, so I will get the permutations of the rest of the array
-    perms_lst = permutations(array[1:])
-    # add the root to each permutation
-    for i in range(0, len(perms_lst)):
-        perms_lst[i].insert(0, array[0])
-
-    return perms_lst
+    return are_equal
 
 
+def check_subtree(tree1, tree2):
+    is_subtree = False
+    if not tree1 or not tree2 : return is_subtree
+
+    breadht = Queue()
+    breadht.enqueue(tree1.root)
+
+    while not breadht.is_empty() and not is_subtree:
+        front = breadht.dequeue()
+
+        if front.value == tree2.root.value :
+            is_subtree = are_equal_trees(front, tree2.root)
+
+        if front.left:
+            breadht.enqueue(front.left)
+        if front.right:
+            breadht.enqueue(front.right)
+
+    return is_subtree

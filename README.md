@@ -92,3 +92,9 @@ and that you are given the true length of the str_to_url.
 
 [BST Sequence 4.9 ](cracking_practices/bst_sequences/README.md)
 - A binary search tree was created by traversing a through an array from left to right and inserting each element. Given a binary search tree with distinct elements, print all possible arrays that could have lead to this tree.
+
+
+[Check Subtree 4.10](cracking_practices/check_subtree/README.md)
+- T1 and T2 are two very large binary trees, with T1 much bigger than T2. Create an algorithm to determine if T2 is a subtree of T1. A tree T2 is a subtree of T1 if there exists a node n in T1 such that the subtree of n is identical to T2. That is, if you cut off the tree at node n, the new two trees would be identical.
+
+

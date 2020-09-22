@@ -90,3 +90,5 @@ and that you are given the true length of the str_to_url.
 [Join Two Orderder Lists ](cracking_practices/join_two_lists/README.md)
 - Given two ordered list, return a lists with all the elements sorted.
 
+[BST Sequence 4.9 ](cracking_practices/bst_sequences/README.md)
+- A binary search tree was created by traversing a through an array from left to right and inserting each element. Given a binary search tree with distinct elements, print all possible arrays that could have lead to this tree.

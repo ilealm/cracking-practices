@@ -1,3 +1,4 @@
+import pytest
 from cracking_practices.bst_sequences.bst_sequences import bst_sequences, BinarySearchTree
 
 def test_one():

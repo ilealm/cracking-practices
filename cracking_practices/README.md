@@ -8,17 +8,10 @@
 ### PROBLEM DOMAIN
 X
 
-### INPUT, Example 1
+### INPUT
 
 
-### OUTPUT, Example 1
-
-
-
-### INPUT, Example 2
-
-### OUTOUT, Example 2
-
+### OUTPUT
 
 
 ### EDGE CASES

@@ -37,14 +37,6 @@ def longest_substring(letters, K):
 
     return longest
 
-# loop all the array
-# add letter to window_letters
-# add window letters to dic
-# if len(dic) > k:
-# if len(window_letters) > longest : set new longest
-# remove[0] from window_letters
-# reset dict with window_letters
-# return longest
 
 
 

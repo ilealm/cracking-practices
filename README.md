@@ -105,4 +105,6 @@ and that you are given the true length of the str_to_url.
 [Maximum Subarrays](cracking_practices/max_sub_array/README.md)
 - Given an array of positive numbers and a positive number ‘k’, find the maximum sum of any contiguous subarray of size ‘k’.
 
+[Smallest Subarray with a given sum](cracking_practices/smallest_subarray/README.md)
+- Given an array of positive numbers and a positive number ‘S’, find the length of the smallest contiguous subarray whose sum is greater than or equal to ‘S’.
 

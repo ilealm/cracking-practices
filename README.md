@@ -108,3 +108,6 @@ and that you are given the true length of the str_to_url.
 [Smallest Subarray with a given sum](cracking_practices/smallest_subarray/README.md)
 - Given an array of positive numbers and a positive number ‘S’, find the length of the smallest contiguous subarray whose sum is greater than or equal to ‘S’.
 
+[Longest Substring with K Distinct Characters ](cracking_practices/longest_substring/README.md)
+- Given a string, find the length of the longest substring in it with no more than K distinct characters.
+

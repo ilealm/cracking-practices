@@ -99,6 +99,10 @@ and that you are given the true length of the str_to_url.
 [Check Subtree 4.10](cracking_practices/check_subtree/README.md)
 - T1 and T2 are two very large binary trees, with T1 much bigger than T2. Create an algorithm to determine if T2 is a subtree of T1. A tree T2 is a subtree of T1 if there exists a node n in T1 such that the subtree of n is identical to T2. That is, if you cut off the tree at node n, the new two trees would be identical.
 
-[Check Average Subarrays](cracking_practices/average_subarrays/README.md)
+[Average Subarrays](cracking_practices/average_subarrays/README.md)
 - Given an array, find the average of all contiguous subarrays of size ‘K’ in it.
+
+[Maximum Subarrays](cracking_practices/max_sub_array/README.md)
+- Given an array of positive numbers and a positive number ‘k’, find the maximum sum of any contiguous subarray of size ‘k’.
+
 

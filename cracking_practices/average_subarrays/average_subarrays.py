@@ -58,3 +58,7 @@ def find_averages_of_subarrays(K, arr):
     return result
 
 
+# if __name__ == "__main__":
+#     array = [2, 1, 5, 1, 3, 2]
+#     k = 3
+#     print(find_averages_of_subarrays(k, array))

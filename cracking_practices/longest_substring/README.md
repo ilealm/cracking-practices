@@ -9,6 +9,7 @@
 Given a string, find the length of the longest substring in it with no more than K distinct characters.
 
 ### VISUALS
+```
 Example 1:
 Input: String="araaci", K=2
 Output: 4
@@ -23,6 +24,7 @@ Example 3:
 Input: String="cbbebi", K=3
 Output: 5
 Explanation: The longest substrings with no more than '3' distinct characters are "cbbeb" & "bbebi".
+```
 
 ### EDGE CASES
 - Can be N length.
@@ -32,7 +34,7 @@ Explanation: The longest substrings with no more than '3' distinct characters ar
 
 ### ALGORITHMS
 
-#### APPROACH 1, Using set to mantain control of unrepeted charachers
+#### APPROACH 1, Sliding window
 ```
 create a function that receives a string and an integer
     declare variables

@@ -1,7 +1,7 @@
 [Table of Contents](../../README.md)
 
 
-# Problem X.X
+# Problem 
 
 <!-- [Whiteboard approach](X) -->
 

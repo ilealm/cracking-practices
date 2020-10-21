@@ -1,12 +1,12 @@
 [Table of Contents](../../README.md)
 
 
-# Problem 
+# Problem
 
 <!-- [Whiteboard approach](X) -->
 
 ### PROBLEM DOMAIN
-X
+
 
 ### VISUALS
 
@@ -29,7 +29,7 @@ algo
 
 #### TESTS
 ```
-Please review the test secion below.
+Please review the test section below.
 ```
 
 
@@ -47,4 +47,4 @@ Please review the test secion below.
 
 ### GITHUB BRANCH
 
-[Pull Request # n, Branch: X](https://github.com/ilealm/cracking-practices/pull/X)
+[Pull Request # n, Branch: x](https://github.com/ilealm/cracking-practices/pull/X)

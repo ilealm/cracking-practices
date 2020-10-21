@@ -114,3 +114,5 @@ and that you are given the true length of the str_to_url.
 [ Fruits into Baskets ](cracking_practices/fruits_into_baskets/README.md)
 - Given an array of characters where each character represents a fruit tree, you are given two baskets and your goal is to put maximum number of fruits in each basket. The only restriction is that each basket can have only one type of fruit.
 
+[ No Repeat Substring ](cracking_practices/no_repeat_substring/README.md)
+- Given a string, find the length of the longest substring which has no repeating characters.

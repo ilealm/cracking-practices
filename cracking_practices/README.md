@@ -9,7 +9,8 @@
 
 
 ### VISUALS
-
+```
+```
 
 ### EDGE CASES
 - X
@@ -18,9 +19,6 @@
 ### ALGORITHMS
 
 #### APPROACH 1,
-- X
-
-
 ```
 algo
 

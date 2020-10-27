@@ -31,9 +31,6 @@ Explanation: Replace the 'b' or 'd' with 'c' to have the longest repeating subst
 ### ALGORITHMS
 
 #### APPROACH 1, Sliding window with a inner runner.
-- X
-
-
 ```
 declare a function that receives a string an a integer k value.
     declare pointer_left = 0

@@ -116,3 +116,6 @@ and that you are given the true length of the str_to_url.
 
 [ No Repeat Substring ](cracking_practices/no_repeat_substring/README.md)
 - Given a string, find the length of the longest substring which has no repeating characters.
+
+
+longest_subsrt_w_replacement

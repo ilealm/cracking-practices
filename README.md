@@ -120,4 +120,5 @@ and that you are given the true length of the str_to_url.
 [ Longest Substring with Same Letters after Replacement ](cracking_practices/longest_subsrt_w_replacement/README.md)
 - Given a string with lowercase letters only, if you are allowed to replace no more than ‘k’ letters with any letter, find the length of the longest substring having the same letters after replacement.
 
-
+[ Longest Subarray with Ones after Replacement ](cracking_practices/longest_subsrt_w_1s_replacement/README.md)
+- Given an array containing 0s and 1s, if you are allowed to replace no more than ‘k’ 0s with 1s, find the length of the longest contiguous subarray having all 1s.

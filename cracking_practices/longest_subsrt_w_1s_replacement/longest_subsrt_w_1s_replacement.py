@@ -1,3 +1,4 @@
+# Longest Subarray with Ones after Replacement
 # Given an array containing 0s and 1s, if you are allowed to replace no more than ‘k’ 0s with 1s,
 # find the length of the longest contiguous subarray having all 1s.
 
@@ -9,6 +10,8 @@ def length_of_longest_substring(arr, k):
     replacements = 0
     max_lenght = 0
     pointer_left = 0
+
+    if len(arr) == 0 or k < 0 : return 0
 
     for pointer_right in range(len(arr)):
         if arr[pointer_right] == 0 :
@@ -27,6 +30,7 @@ def length_of_longest_substring(arr, k):
                     # move the window 1 space
                     pointer_left += 1
 
+    # check if the latest window is the longest.
     max_lenght = max(max_lenght, len(arr[pointer_left : pointer_right+1]))
 
     return max_lenght

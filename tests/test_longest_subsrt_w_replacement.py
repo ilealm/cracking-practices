@@ -5,7 +5,7 @@ def test_one():
     String="aabccbb"
     k = 2
 
-    expected = 'bbbbb'
+    expected =  5 #'bbbbb'
 
     actual = longest_subsrt_w_replacement(String, k)
 
@@ -16,7 +16,7 @@ def test_two():
     String="abbcb"
     k = 1
 
-    expected = 'bbbb'
+    expected = 4 # 'bbbb'
 
     actual = longest_subsrt_w_replacement(String, k)
 
@@ -28,7 +28,7 @@ def test_three():
 
     k = 1
 
-    expected = 'ccc'
+    expected = 3 # 'ccc'
 
     actual = longest_subsrt_w_replacement(String, k)
 

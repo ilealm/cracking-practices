@@ -40,5 +40,7 @@ def longest_subsrt_w_replacement(str, k):
     if len(str[pointer_left:pointer_right+1]) > len(max_str):
         max_str = str[pointer_left:pointer_right+1]
 
-    return max_str[0]* len(max_str)
+    return len(max_str)
+
+
 

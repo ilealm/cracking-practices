@@ -122,3 +122,6 @@ and that you are given the true length of the str_to_url.
 
 [ Longest Subarray with Ones after Replacement ](cracking_practices/longest_subsrt_w_1s_replacement/README.md)
 - Given an array containing 0s and 1s, if you are allowed to replace no more than ‘k’ 0s with 1s, find the length of the longest contiguous subarray having all 1s.
+
+[ Permutation in a String ](cracking_practices/permutation_in_a_str/README.md)
+- Given a string and a pattern, find out if the string contains any permutation of the pattern.

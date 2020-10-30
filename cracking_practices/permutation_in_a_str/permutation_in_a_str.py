@@ -6,44 +6,43 @@
 # Output: true
 # Explanation: The string contains "bca" which is a permutation of the given pattern.
 
+
+# Helper function that receives a string and returns a dictionary with all the ocurrencies for each letter.
+def convert_str_to_dict(string):
+    return_dict = dict()
+
+    for ch in (string): # you can list as many input dicts as you want here
+        if ch in return_dict:
+            return_dict[ch] += 1
+        else:
+            return_dict[ch]  = 1
+
+    return return_dict
+
+
 def find_permutation(string, pattern):
     if len(string) == 0 or len(pattern) == 0 : return False
 
-    pattern_dict = dict()
+    # stablish my first window
+    pointer_left = 0
+    pointer_right = len(pattern)
+
+    pattern_dict = convert_str_to_dict(pattern)
+
+    while pointer_right <= len(string) :
+        window_dict = convert_str_to_dict(string[pointer_left:pointer_right])
+
+        if pattern_dict == window_dict :
+            return True
+
+        # BC both dicts are different, I will move the window one position to right
+        pointer_left += 1
+        pointer_right += 1
+
+    return False
 
 
 
 
-    for ch in (pattern): # you can list as many input dicts as you want here
-        if ch in pattern_dict:
-            pattern_dict[ch] += 1
-        else:
-            pattern_dict[ch] = 1
-
-        # print(d)
-        # for key, value in d.items():
-        #     dd[key].append(value)
-
-    print(pattern)
-    print(pattern_dict)
-
-    # print(pattern_dict)
-
-    # create a dictionary for the Pattern
-    # create boolean variable Found and set to false
-    # create pointers, left =0, right = len(pattern)
-    # use a while to use sliding window method to move thought the string. this while will be until right < len(string) and not Found
-    #     for each window i will tranform into a dict, then compare if both dict are equal, if so, return true
-    #     move window: increase by one left and right
 
 
-if __name__ == "__main__":
-    print(find_permutation('bcdxabcdy', 'bcdyabcdx'))
-
-    # add basic validations
-    # create a dictionary for the Pattern
-    # create boolean variable Found and set to false
-    # create pointers, left =0, right = len(pattern)
-    # use a while to use sliding window method to move thought the string. this while will be until right < len(string) and not Found
-    #     for each window i will tranform into a dict, then compare if both dict are equal, if so, return true
-    #     move window: increase by one left and right

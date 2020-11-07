@@ -125,3 +125,6 @@ and that you are given the true length of the str_to_url.
 
 [ Permutation in a String ](cracking_practices/permutation_in_a_str/README.md)
 - Given a string and a pattern, find out if the string contains any permutation of the pattern.
+
+[ String Anagrams ](cracking_practices/string_anagrams/README.md)
+- Given a string and a pattern, find all anagrams of the pattern in the given string.

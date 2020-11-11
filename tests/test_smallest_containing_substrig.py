@@ -32,3 +32,14 @@ def test_tree():
     actual = find_substring(String, Pattern)
 
     assert actual ==  expected, 'Error on test tree.'
+
+
+def test_four():
+    String = "abdabca"
+    Pattern = "abc"
+
+    expected = "abc"
+
+    actual = find_substring(String, Pattern)
+
+    assert actual ==  expected, 'Error on test four.'

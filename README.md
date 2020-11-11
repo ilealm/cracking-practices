@@ -128,3 +128,6 @@ and that you are given the true length of the str_to_url.
 
 [ String Anagrams ](cracking_practices/string_anagrams/README.md)
 - Given a string and a pattern, find all anagrams of the pattern in the given string.
+
+[ Smallest Window containing Substring ](cracking_practices/smallest_containing_substrig/README.md)
+- Given a string and a pattern, find the smallest substring in the given string which has all the characters of the given pattern.

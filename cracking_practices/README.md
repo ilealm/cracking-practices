@@ -3,7 +3,7 @@
 
 # Problem
 
-<!-- [Whiteboard approach](X) -->
+<!-- [Whiteboard approach](x_x) -->
 
 ### PROBLEM DOMAIN
 
@@ -37,12 +37,12 @@ Please review the test section below.
 **Space O(n):** I'm
 
 ### CODE
-[cracking_practices/x/x.py](x.py)
+[cracking_practices/x_x/x_x.py](x_x.py)
 
 
 ### TESTS
-[tests/test_x.py](../../tests/test_x.py)
+[tests/test_x_x.py](../../tests/test_x_x.py)
 
 ### GITHUB BRANCH
 
-[Pull Request # n, Branch: x](https://github.com/ilealm/cracking-practices/pull/X)
+[Pull Request # n, Branch: x_x](https://github.com/ilealm/cracking-practices/pull/X)

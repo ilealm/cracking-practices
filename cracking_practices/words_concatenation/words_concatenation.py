@@ -1,7 +1,12 @@
+# Words Concatenation
+# Given a string and a list of words, find all the starting indices of substrings in the
+# given string that are a concatenation of all the given words exactly once without any
+# overlapping of words. It is given that all words are of the same length.
 # String = "catfoxcat"
 # Words = ["cat", "fox"]
 
 
+# Helper function that returns the number of character in all the array
 def get_num_ch(array):
     num_ch = 0
 
@@ -9,7 +14,6 @@ def get_num_ch(array):
         num_ch += len(array[i])
 
     return num_ch
-
 
 
 

@@ -1,5 +1,8 @@
 import pytest
-from cracking_practices.words_concatenation.words_concatenation import find_word_concatenation
+from cracking_practices.words_concatenation.words_concatenation import (
+    find_word_concatenation,
+)
+
 
 def test_one():
     String = "catfoxcat"
@@ -9,7 +12,7 @@ def test_one():
 
     actual = find_word_concatenation(String, Words)
 
-    assert actual == expected, 'Error on test_one'
+    assert actual == expected, "Error on test_one"
 
 
 def test_two():
@@ -20,4 +23,4 @@ def test_two():
 
     actual = find_word_concatenation(String, Words)
 
-    assert actual == expected, 'Error on test_two'
+    assert actual == expected, "Error on test_two"

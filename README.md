@@ -135,3 +135,5 @@ and that you are given the true length of the str_to_url.
 [ Words Concatenation ](cracking_practices/words_concatenation/README.md)
 - Given a string and a list of words, find all the starting indices of substrings in the given string that are a concatenation of all the given words exactly once without any overlapping of words. It is given that all words are of the same length.
 
+[ Pair with Target Sum ](cracking_practices/pair_with_target_sum/README.md)
+- Given an array of sorted numbers and a target sum, find a pair in the array whose sum is equal to the given target. Write a function to return the indices of the two numbers (i.e. the pair) such that they add up to the given target.

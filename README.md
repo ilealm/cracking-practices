@@ -137,3 +137,6 @@ and that you are given the true length of the str_to_url.
 
 [ Pair with Target Sum ](cracking_practices/pair_with_target_sum/README.md)
 - Given an array of sorted numbers and a target sum, find a pair in the array whose sum is equal to the given target. Write a function to return the indices of the two numbers (i.e. the pair) such that they add up to the given target.
+
+[ Remove Duplicates ](cracking_practices/remove_duplicates/README.md)
+- Given an array of sorted numbers, remove all duplicates from it. You should not use any extra space; after removing the duplicates in-place return the length of the subarray that has no duplicate in it.

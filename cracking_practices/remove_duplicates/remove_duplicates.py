@@ -18,4 +18,3 @@ def remove_duplicates(arr):
             arr.pop(runner)
 
     return len(arr)
-

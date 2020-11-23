@@ -141,4 +141,5 @@ and that you are given the true length of the str_to_url.
 [ Remove Duplicates ](cracking_practices/remove_duplicates/README.md)
 - Given an array of sorted numbers, remove all duplicates from it. You should not use any extra space; after removing the duplicates in-place return the length of the subarray that has no duplicate in it.
 
-squaring_a_sorted_array
+[ Squaring a Sorted Array ](cracking_practices/squaring_a_sorted_array/README.md)
+- Given a sorted array, create a new array containing squares of all the number of the input array in the sorted order.

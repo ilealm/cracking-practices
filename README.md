@@ -143,3 +143,6 @@ and that you are given the true length of the str_to_url.
 
 [ Squaring a Sorted Array ](cracking_practices/squaring_a_sorted_array/README.md)
 - Given a sorted array, create a new array containing squares of all the number of the input array in the sorted order.
+
+[ Triplet Sum to Zero ](cracking_practices/triplet_sum_to_zero/README.md)
+- Given an array of unsorted numbers, find all unique triplets in it that add up to zero.

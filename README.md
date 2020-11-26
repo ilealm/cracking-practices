@@ -146,3 +146,8 @@ and that you are given the true length of the str_to_url.
 
 [ Triplet Sum to Zero ](cracking_practices/triplet_sum_to_zero/README.md)
 - Given an array of unsorted numbers, find all unique triplets in it that add up to zero.
+
+[ Triplet Sum Close to Target ](cracking_practices/triplet_sum_close_to_target/README.md)
+- Given an array of unsorted numbers and a target number, find a triplet in the array whose sum is as
+close to the target number as possible, return the sum of the triplet. If there are more than one such
+triplet, return the sum of the triplet with the smallest sum.

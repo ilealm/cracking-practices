@@ -151,3 +151,6 @@ and that you are given the true length of the str_to_url.
 - Given an array of unsorted numbers and a target number, find a triplet in the array whose sum is as
 close to the target number as possible, return the sum of the triplet. If there are more than one such
 triplet, return the sum of the triplet with the smallest sum.
+
+[ Triplets with Smaller Sum ](cracking_practices/triplets_with_smaller_sum/README.md)
+- Given an array arr of unsorted numbers and a target sum, count all triplets in it such that arr[i] + arr[j] + arr[k] < target where i, j, and k are three different indices. Write a function to return the count of such triplets.

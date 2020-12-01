@@ -154,3 +154,6 @@ triplet, return the sum of the triplet with the smallest sum.
 
 [ Triplets with Smaller Sum ](cracking_practices/triplets_with_smaller_sum/README.md)
 - Given an array arr of unsorted numbers and a target sum, count all triplets in it such that arr[i] + arr[j] + arr[k] < target where i, j, and k are three different indices. Write a function to return the count of such triplets.
+
+[ Subarrays with Product Less than a Target ](cracking_practices/subarrays_w_product_less_than_target/README.md)
+- Given an array with positive numbers and a target number, find all of its contiguous subarrays whose product is less than the target number.

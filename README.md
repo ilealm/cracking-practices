@@ -157,3 +157,9 @@ triplet, return the sum of the triplet with the smallest sum.
 
 [ Subarrays with Product Less than a Target ](cracking_practices/subarrays_w_product_less_than_target/README.md)
 - Given an array with positive numbers and a target number, find all of its contiguous subarrays whose product is less than the target number.
+
+[ Dutch National Flag Problem ](cracking_practices/dutch_national_flag/README.md)
+- Given an array containing 0s, 1s and 2s, sort the array in-place. You should treat numbers of the array as objects, hence, we can’t count 0s, 1s, and 2s to recreate the array.
+
+[ Quadruple Sum to Target ](cracking_practices/quadruple_sum_to_target/README.md)
+- Given an array of unsorted numbers and a target number, find all unique quadruplets in it, whose sum is equal to the target number.

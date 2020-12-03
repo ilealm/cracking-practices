@@ -14,7 +14,8 @@
 
 ### EDGE CASES
 
--   X
+- I can have valid values in the arays.
+- Values can be repeted.
 
 ### ALGORITHMS
 

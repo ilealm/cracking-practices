@@ -1,3 +1,6 @@
+# Minimum Window Sort
+# Given an array, find the length of the smallest subarray in it which when sorted will sort the whole array.
+
 # Input: [1, 2, 5, 3, 7, 10, 9, 12]
 # Output: 5
 # Explanation: We need to sort only the subarray [5, 3, 7, 10, 9] to make the whole array sorted
@@ -24,20 +27,32 @@ def shortest_window_sort(arr):
     min_window = math.inf
     right = 0
 
-    while current < len(arr)-1: # is -1 BC I use a peek
+    while current < len(arr)-1 and current >= 0: # is -1 BC I use a peek
 
         # check if the next is < current
+        # if arr[current] > arr[current+1]:
         if arr[current] > arr[current+1]:
             # I will create a window from current to a bigger number than current
             left = current
             right = current + 1
-            while arr[right] < arr[current] and right < len(arr):
-                # save the min value to know I later I need to grow the window to the left
-                min_window = min(min_window, arr[right])
-                right += 1
 
-            # now, I will check if I need to grow my window to the left
-            if min_window < arr[current-1]:
+            # from this point I know is unsorted, so I need to find the maximous value in all the array
+            # so later I can stabish the window
+            max_value = arr[current]
+            max_position = current
+            for i in range(current+1, len(arr)):
+                if arr[i] > max_value:
+                    max_value = arr[i]
+                    max_position = i
+
+            # if I didn't found a bigger value means the array is sorted in reverse.
+            if max_position == 0:
+                smallest = len(arr)
+                break
+
+            right = max_position - 1
+
+            if arr[left] < arr[right]:
                 left -= 1
 
             # obtain the smallest
@@ -50,9 +65,18 @@ def shortest_window_sort(arr):
             # move my current to the next position
             current += 1
 
-    return smallest
+
+    if smallest == math.inf :
+        return 0
+    else:
+        return smallest
 
 
 
-# if __name__ == "__main__":
-#     print(shortest_window_sort([ 1, 3, 2, 0, -1, 7, 10 ]))
+if __name__ == "__main__":
+    # print(shortest_window_sort([ 1, 3, 2, 0, -1, 7, 10 ]))
+    # print(shortest_window_sort([ 1, 2, 5, 3, 7, 10, 9, 12 ]))
+    # print(shortest_window_sort([ 1, 2, 3 ]))
+    print(shortest_window_sort([ 3, 2, 1 ]))
+
+

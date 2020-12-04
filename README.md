@@ -166,3 +166,6 @@ triplet, return the sum of the triplet with the smallest sum.
 
 [ Comparing Strings containing Backspaces ](cracking_practices/comparing_str_with_baskspaces/README.md)
 - Given two strings containing backspaces (identified by the character ‘#’), check if the two strings are equal.
+
+[ Minimum Window Sort ](cracking_practices/minimum_window_sort/README.md)
+- Given an array, find the length of the smallest subarray in it which when sorted will sort the whole array.

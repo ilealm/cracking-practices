@@ -163,3 +163,6 @@ triplet, return the sum of the triplet with the smallest sum.
 
 [ Quadruple Sum to Target ](cracking_practices/quadruple_sum_to_target/README.md)
 - Given an array of unsorted numbers and a target number, find all unique quadruplets in it, whose sum is equal to the target number.
+
+[ Comparing Strings containing Backspaces ](cracking_practices/comparing_str_with_baskspaces/README.md)
+- Given two strings containing backspaces (identified by the character ‘#’), check if the two strings are equal.

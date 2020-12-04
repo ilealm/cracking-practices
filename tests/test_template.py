@@ -21,7 +21,7 @@
 #     assert actual == expected, 'Error on test_two.'
 
 
-# def tes_three():
+# def test_three():
 
 #     expected =
 

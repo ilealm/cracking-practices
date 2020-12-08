@@ -178,3 +178,9 @@ triplet, return the sum of the triplet with the smallest sum.
 
 [ Start of LinkedList Cycle ](cracking_practices/linked_list_cycle_length/README.md)
 - Given the head of a Singly LinkedList that contains a cycle, write a function to find the starting node of the cycle.
+
+
+[ Happy Number ](cracking_practices/happy_number/README.md)
+- Any number will be called a happy number if, after repeatedly replacing it with a number equal to the sum of the
+square of all of its digits, leads us to number ‘1’. All other (not-happy) numbers will never reach ‘1’.
+Instead, they will be stuck in a cycle of numbers which does not include ‘1’.

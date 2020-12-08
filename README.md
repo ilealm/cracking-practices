@@ -169,3 +169,6 @@ triplet, return the sum of the triplet with the smallest sum.
 
 [ Minimum Window Sort ](cracking_practices/minimum_window_sort/README.md)
 - Given an array, find the length of the smallest subarray in it which when sorted will sort the whole array.
+
+[ LinkedList Cycle ](cracking_practices/linked_list_cycle/README.md)
+- Given the head of a Singly LinkedList, write a function to determine if the LinkedList has a cycle in it or not.

@@ -38,6 +38,33 @@ Instead, they will be stuck in a cycle of numbers which does not include ‘1’
 
 ```
 
+#### APPROACH 2, Implementing 2 pointers, a slower and faster. Based on Educative.com logic.
+```
+def find_happy_number(num):
+
+create a function that obtain the sum of the square digits and returns the sum
+
+create a function that receives the number to check
+    set slower = faster = num
+
+    create a loop while true to find a digits sum that is = 1 or if both pointers are the same value
+
+        set slower to get_square_sum(slower)
+        set faster to get_square_sum(get_square_sum(faster))  # 2 calls, so this pointer is ahead by 2.
+        If there is a cycle, eventualy will be in the same point.
+
+        ckeck:
+        if slower == faster:
+            if slower == 1:
+                return True
+            else:
+                return False
+
+
+
+
+```
+
 #### TESTS
 
 ```

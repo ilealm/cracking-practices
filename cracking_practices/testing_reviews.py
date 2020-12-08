@@ -1,30 +1,25 @@
-def dutch_flag_sort(arr):
-  # all elements < low are 0, and all elements > high are 2
-  # all elements from >= low < i are 1
-  low, high = 0, len(arr) - 1
-  i = 0
-  while(i <= high):
-    if arr[i] == 0:
-      arr[i], arr[low] = arr[low], arr[i]
-      # increment 'i' and 'low'
-      i += 1
-      low += 1
-    elif arr[i] == 1:
-      i += 1
-    else:  # the case for arr[i] == 2
-      arr[i], arr[high] = arr[high], arr[i]
-      # decrement 'high' only, after the swap the number at index 'i' could be 0, 1 or 2
-      high -= 1
+def find_happy_number(num):
+  slow, fast = num, num
+  while True:
+    slow = find_square_sum(slow)  # move one step
+    fast = find_square_sum(find_square_sum(fast))  # move two steps
+    if slow == fast:  # found the cycle
+      break
+  return slow == 1  # see if the cycle is stuck on the number '1'
+
+
+def find_square_sum(num):
+  _sum = 0
+  while (num > 0):
+    digit = num % 10
+    _sum += digit * digit
+    num //= 10
+  return _sum
 
 
 def main():
-  arr = [1, 0, 2, 1, 0]
-  dutch_flag_sort(arr)
-  print(arr)
-
-  arr = [2, 2, 0, 1, 2, 0]
-  dutch_flag_sort(arr)
-  print(arr)
+  print(find_happy_number(23))
+  print(find_happy_number(12))
 
 
 main()

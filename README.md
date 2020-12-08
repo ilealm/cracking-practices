@@ -172,3 +172,6 @@ triplet, return the sum of the triplet with the smallest sum.
 
 [ LinkedList Cycle ](cracking_practices/linked_list_cycle/README.md)
 - Given the head of a Singly LinkedList, write a function to determine if the LinkedList has a cycle in it or not.
+
+[ LinkedList Cycle Length ](cracking_practices/linked_list_cycle_length/README.md)
+- Given the head of a LinkedList with a cycle, find the length of the cycle.

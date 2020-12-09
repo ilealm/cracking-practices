@@ -184,3 +184,7 @@ triplet, return the sum of the triplet with the smallest sum.
 - Any number will be called a happy number if, after repeatedly replacing it with a number equal to the sum of the
 square of all of its digits, leads us to number ‘1’. All other (not-happy) numbers will never reach ‘1’.
 Instead, they will be stuck in a cycle of numbers which does not include ‘1’.
+
+[ Middle of the LinkedList ](cracking_practices/middle_of_linkedlist/README.md)
+- Given the head of a Singly LinkedList, write a method to return the middle node of the LinkedList.
+If the total number of nodes in the LinkedList is even, return the second middle node.

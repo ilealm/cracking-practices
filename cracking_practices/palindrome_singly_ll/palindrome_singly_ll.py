@@ -18,7 +18,9 @@ class Node:
         self.next = next
 
 
-# helper function that will return the middle node of the singly LL
+# helper function that will return the middle node of the singly LL,
+#  with the position on the LL and a true/false flag depending on
+# if the ll is even or not.
 def get_middle_node(head):
     slower = faster = head
     middle = 1  # is one BS I already started at 1 in the head
@@ -44,8 +46,9 @@ def get_k_node(head, k):
     return current_node
 
 
+# My approach is to get the middle of the LL, and from there, i will have 2 pointers: left and right, and I will compare each other moving
+# towards the outer limits
 def is_palindromic_linked_list(head):
-
     middle_info = get_middle_node(head)
     middle_node, middle_position, is_even = (
         middle_info[0],
@@ -53,45 +56,22 @@ def is_palindromic_linked_list(head):
         middle_info[2],
     )
 
-    print(
-        "-------   middle_node node value:",
-        middle_node.value,
-        "middle_position: ",
-        middle_position,
-        " is Even LL:",
-        is_even,
-    )
-
-    if not is_even:
-        # set my pointers to start the comparing, from the middle to the edges
-        left_position = middle_position - 1
-        pointer_left = get_k_node(head, left_position)
+    # set my pointers to start the comparing, from the middle to the edges
+    left_position = middle_position - 1
+    pointer_left = get_k_node(head, left_position)
+    # depending on if is even or not the LL, i will possition the pointers left and rigth to check against each other
+    if is_even:
+        pointer_right = middle_node
+    else:
         pointer_right = middle_node.next
-        while pointer_right:
-            if not pointer_left.value == pointer_right.value:
-                return False
 
-            left_position -= 1
-            pointer_left = get_k_node(head, left_position)
-            pointer_right = pointer_right.next
 
+    while pointer_right:
+        if not pointer_left.value == pointer_right.value:
+            return False
+
+        left_position -= 1
+        pointer_left = get_k_node(head, left_position)
+        pointer_right = pointer_right.next
 
     return True
-
-
-def main():
-    head = Node(2)
-    head.next = Node(4)
-    head.next.next = Node(6)
-    head.next.next.next = Node(4)
-    head.next.next.next.next = Node(20)
-
-    is_palindromic_linked_list(head)
-    # print("Is palindrome: " + str(is_palindromic_linked_list(head)))
-
-    head.next.next.next.next.next = Node(2)
-    is_palindromic_linked_list(head)
-    # print("Is palindrome: " + str(is_palindromic_linked_list(head)))
-
-
-main()

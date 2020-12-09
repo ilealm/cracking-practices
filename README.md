@@ -188,3 +188,8 @@ Instead, they will be stuck in a cycle of numbers which does not include ‘1’
 [ Middle of the LinkedList ](cracking_practices/middle_of_linkedlist/README.md)
 - Given the head of a Singly LinkedList, write a method to return the middle node of the LinkedList.
 If the total number of nodes in the LinkedList is even, return the second middle node.
+
+[ Palindrome LinkedList ](cracking_practices/palindrome_singly_ll/README.md)
+Given the head of a Singly LinkedList, write a method to check if the LinkedList is a palindrome or not.
+Your algorithm should use constant space and the input LinkedList should be in the original form once
+the algorithm is finished. The algorithm should have O(N)O(N) time complexity where ‘N’ is the number of nodes in the LinkedList.

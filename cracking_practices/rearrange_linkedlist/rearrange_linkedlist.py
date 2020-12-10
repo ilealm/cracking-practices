@@ -62,9 +62,8 @@ def reverse_half_linkedlist(head, start_node, start_position):
 
     prev = None
     # break the first half of the ll, so I can rejoin with the reversed half
-    end_first_half = get_k_node(head, start_position-1)
+    end_first_half = get_k_node(head, start_position - 1)
     end_first_half.next = None
-
 
     # reverse the second half
     while start_node:
@@ -82,7 +81,6 @@ def reverse_half_linkedlist(head, start_node, start_position):
     # return head
 
 
-
 # My approach for this problem will the tackle in 3 parts: find the middle, reverse in place the second half of the LL,
 # make the zip o both halfs in place
 def reorder(head):
@@ -90,15 +88,53 @@ def reorder(head):
     middle_values = get_middle_node(head)
     # the middle value is not that acurate, BC I'm not traversing all the LL to be sure from all the nodes to the right of
     # the middle
-    middle_node, position, is_even = middle_values[0], middle_values[1], middle_values[2]
+    middle_node, middle_position, is_even = (
+        middle_values[0],
+        middle_values[1],
+        middle_values[2],
+    )
 
     # Step 2: reverse the 2nd half or the array
-    print("middle node: ", middle_node.value, "position: ", position)
-    reverse_half_linkedlist(head, middle_node, position)
+    print("middle node: ", middle_node.value, "middle_position: ", middle_position)
+    reverse_half_linkedlist(head, middle_node, middle_position)
 
+    # Step 3: make zip of the two helves
+    node_left = head
+    # in this point, my middle_node now is the last one, so I can't reference to it as the middle one,
+    # I need to get get the new node at middle position
+
+    node_right = get_k_node(head, middle_position)
+    print("the middle node is ", node_right.value)
+
+
+    next_node_right = node_right.next
+    while not next_node_right is None:
+        next_node_left = node_left.next
+        next_node_right = node_right.next
+
+
+        node_left.next = node_right
+        node_right.next = next_node_left
+
+        # check here if == None, if so, set next to None and break
+        if next_node_right == None:
+            # I reached the final of the list
+            node_right.next = None
+            break
+
+        # move pointers for the next loop
+        node_left = next_node_left
+        # if node_right.next == None :
+        #     break
+        # if not next_node_right == None:
+        node_right = next_node_right
+        # i += 1
+
+    # node_right.next = None
+    # now I need to set the last node.next of the LL to None
     print(head.print_list())
 
-    return
+    # return 'something'
 
 
 def main():
@@ -116,12 +152,14 @@ def main():
     head.next.next.next = Node(4)
     head.next.next.next.next = Node(5)
     head.next.next.next.next.next = Node(6)
+    head.next.next.next.next.next.next = Node(7)
+    head.next.next.next.next.next.next.next = Node(8)
 
     reorder(head)
     # set the head to the new node
     # head = reverse_linkedlist(head)
     # print("in main....")
-    head.print_list()
+    # head.print_list()
     # print("here")
 
 

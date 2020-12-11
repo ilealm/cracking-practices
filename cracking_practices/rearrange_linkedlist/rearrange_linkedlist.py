@@ -86,12 +86,55 @@ def reverse_half_linkedlist(head, start_node, start_position):
     # return head
 
 
+# helper function that receives a LL and breacking point, the node before the break will point to None and the breacking point
+# node will be returned
+def break_ll(head, break_position):
+    prev = None
+    current_node = head
+    i = 1
+
+    while current_node and i < break_position:
+        prev = current_node
+        current_node = current_node.next
+        i += 1
+
+    # Break the LL on the node before of current
+    prev.next = None
+    # Current is now the head of the new LL
+    return current_node
+
+
+
+def do_zip(head, break_position):
+    node_left = head
+    next_node_left = node_left.next
+
+    # step 3.1: break the LL so the zip works on even or odd ll
+    node_right = break_ll(head, break_position)
+    next_node_right = node_right.next
+
+    while next_node_left and not next_node_right is None:
+        next_node_left = node_left.next
+        next_node_right = node_right.next
+
+        node_left.next = node_right
+        # I need to check if next_node_left is truty BS can be the end for an ODD LL
+        if next_node_left:
+            node_right.next = next_node_left
+
+        # move pointers for the next loop
+        if next_node_left:   # I need to check if next_node_left is truty BS can be the end for an ODD LL
+            node_left = next_node_left
+        node_right = next_node_right
+
+
+
 # My approach for this problem will the tackle in 3 parts: find the middle, reverse in place the second half of the LL,
 # make the zip o both halfs in place
 def reorder(head):
     # Step 1: obtain the middle
     middle_values = get_middle_node(head)
-    # the middle value is not that acurate, BC I'm not traversing all the LL to be sure from all the nodes
+    # the middle value and is_even is not that acurate, BC I'm not traversing all the LL to be sure from all the nodes
     # to the right of the middle
     middle_node, middle_position, is_even = (
         middle_values[0],
@@ -103,173 +146,5 @@ def reorder(head):
     reverse_half_linkedlist(head, middle_node, middle_position)
 
     # Step 3: make zip of the two helves
-    node_left = head
-    next_node_left = node_left.next
-    # in this point, my middle_node now is the last one, so I can't reference to it as the middle one,
-    # I need to get get the new node at middle position
-    # node_right = get_k_node(head, middle_position)
-    # step 3.1: break the LL so the zip works on even or odd ll
-    node_right = break_ll(head, middle_position)
+    do_zip(head, middle_position)
 
-
-    # print("the middle node is ", node_right.value)
-
-    print('is even',is_even, 'middle ', middle_position)
-    next_node_right = node_right.next
-    while next_node_left and not next_node_right is None:
-        next_node_left = node_left.next
-        next_node_right = node_right.next
-
-        node_left.next = node_right
-        if next_node_left:
-            node_right.next = next_node_left
-
-        # # check here if == None, if so, I reached the final of the list so I need to to put a None at the end of the list
-        # if next_node_right == None:
-        #     node_right.next = None
-        #     break
-
-        # move pointers for the next loop
-        if next_node_left:
-            node_left = next_node_left
-        node_right = next_node_right
-
-
-def break_ll(head, brack_position):
-    prev = None
-    current_node = head
-    i = 1
-
-    while current_node and i < brack_position:
-        prev = current_node
-        current_node = current_node.next
-        i += 1
-
-    # Breack the LL on the node before of current
-    prev.next = None
-    # Current is now the head of the new LL
-    return current_node
-
-
-# ------------ working
-    # node_left = head
-    # # in this point, my middle_node now is the last one, so I can't reference to it as the middle one,
-    # # I need to get get the new node at middle position
-    # node_right = get_k_node(head, middle_position)
-    # # print("the middle node is ", node_right.value)
-
-    # next_node_right = node_right.next
-    # while not next_node_right is None:
-    # # i = 1
-    # # while i <= middle_position:
-    #     next_node_left = node_left.next
-    #     next_node_right = node_right.next
-
-    #     # made the zip
-    #     node_left.next = node_right
-    #     node_right.next = next_node_left
-
-    #     # check here if == None, if so, I reached the final of the list so I need to to put a None at the end of the list
-    #     if next_node_right == None:
-    #         node_right.next = None
-    #         break
-
-    #     # check if I reached the end of the Left side FOR AN ODD LL, which means I need to add the last node of the LL
-    #     if not next_node_left.next == None and next_node_right.next == None:
-    #         node_right.next = next_node_right
-    #         next_node_right.next = None
-    #         break
-
-    #     # move pointer nodes to the next position
-    #     node_left = next_node_left
-    #     node_right = next_node_right
-
-
-
-    print(head.print_list())
-    print('here')
-
-
-def main():
-    # head = Node(2)
-    # head.next = Node(4)
-    # head.next.next = Node(6)
-    # head.next.next.next = Node(8)
-    # head.next.next.next.next = Node(10)
-    # head.next.next.next.next.next = Node(12)
-
-    head = Node(1)
-    head.next = Node(2)
-    head.next.next = Node(3)
-    head.next.next.next = Node(4)
-    head.next.next.next.next = Node(5)
-    # head.next.next.next.next.next = Node(6)
-    # head.next.next.next.next.next.next = Node(7)
-    # head.next.next.next.next.next.next.next = Node(8)
-
-    # head = Node(2)
-    # head.next = Node(4)
-    # head.next.next = Node(6)
-    # head.next.next.next = Node(8)
-    # head.next.next.next.next = Node(10)
-
-    # head = Node(1)
-    # head.next = Node(2)
-    # head.next.next = Node(3)
-    # head.next.next.next = Node(4)
-    # head.next.next.next.next = Node(5)
-    # head.next.next.next.next = Node(50)
-
-    # head = Node(1)
-    # head.next = Node(2)
-    # head.next.next = Node(3)
-    # head.next.next.next = Node(4)
-    # head.next.next.next.next = Node(5)
-    # head.next.next.next.next.next = Node(6)
-
-    # head = Node(2)
-    # head.next = Node(4)
-    # head.next.next = Node(6)
-    # head.next.next.next = Node(8)
-    # head.next.next.next.next = Node(10)
-    # head.next.next.next.next.next = Node(12)
-
-    reorder(head)
-    # set the head to the new node
-    # head = reverse_linkedlist(head)
-    # print("in main....")
-    head.print_list()
-    # print("here")
-
-
-main()
-
-
-
-# -----
-
-# original
-#    # Step 3: make zip of the two helves
-#     node_left = head
-#     # in this point, my middle_node now is the last one, so I can't reference to it as the middle one,
-#     # I need to get get the new node at middle position
-#     node_right = get_k_node(head, middle_position)
-#     # print("the middle node is ", node_right.value)
-
-
-#     next_node_right = node_right.next
-#     while not next_node_right is None:
-#         next_node_left = node_left.next
-#         next_node_right = node_right.next
-
-#         node_left.next = node_right
-#         node_right.next = next_node_left
-
-#         # check here if == None, if so, I reached the final of the list so I need to to put a None at the end of the list
-#         if next_node_right == None:
-#             node_right.next = None
-#             break
-
-#         # move pointers for the next loop
-#         node_left = next_node_left
-#         node_right = next_node_right

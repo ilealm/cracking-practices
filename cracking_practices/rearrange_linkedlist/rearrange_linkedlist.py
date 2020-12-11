@@ -8,9 +8,9 @@ class Node:
 
     def print_list(self):
         temp = self
-        values = ''
+        values = ""
         while temp is not None:
-            values += (str(temp.value) + " ")
+            values += str(temp.value) + " "
             # print(str(temp.value) + " ", end="")
             temp = temp.next
         # print()
@@ -48,6 +48,7 @@ def reverse_all_linkedlist(head):
     head = moving
 
     return head
+
 
 # helper function that returns the k node of a LL
 def get_k_node(head, k):
@@ -99,7 +100,6 @@ def reorder(head):
     )
 
     # Step 2: reverse the 2nd half or the array
-    # print("middle node: ", middle_node.value, "middle_position: ", middle_position)
     reverse_half_linkedlist(head, middle_node, middle_position)
 
     # Step 3: make zip of the two helves
@@ -128,8 +128,43 @@ def reorder(head):
         node_right = next_node_right
 
 
-    # print(head.print_list())
+# ------------ working
+    # node_left = head
+    # # in this point, my middle_node now is the last one, so I can't reference to it as the middle one,
+    # # I need to get get the new node at middle position
+    # node_right = get_k_node(head, middle_position)
+    # # print("the middle node is ", node_right.value)
 
+    # next_node_right = node_right.next
+    # while not next_node_right is None:
+    # # i = 1
+    # # while i <= middle_position:
+    #     next_node_left = node_left.next
+    #     next_node_right = node_right.next
+
+    #     # made the zip
+    #     node_left.next = node_right
+    #     node_right.next = next_node_left
+
+    #     # check here if == None, if so, I reached the final of the list so I need to to put a None at the end of the list
+    #     if next_node_right == None:
+    #         node_right.next = None
+    #         break
+
+    #     # check if I reached the end of the Left side FOR AN ODD LL, which means I need to add the last node of the LL
+    #     if not next_node_left.next == None and next_node_right.next == None:
+    #         node_right.next = next_node_right
+    #         next_node_right.next = None
+    #         break
+
+    #     # move pointer nodes to the next position
+    #     node_left = next_node_left
+    #     node_right = next_node_right
+
+
+
+    print(head.print_list())
+    print('here')
 
 
 def main():
@@ -140,21 +175,41 @@ def main():
     # head.next.next.next.next = Node(10)
     # head.next.next.next.next.next = Node(12)
 
+    head = Node(1)
+    head.next = Node(2)
+    head.next.next = Node(3)
+    head.next.next.next = Node(4)
+    head.next.next.next.next = Node(5)
+    head.next.next.next.next.next = Node(6)
+    head.next.next.next.next.next.next = Node(7)
+    head.next.next.next.next.next.next.next = Node(8)
+
+    # head = Node(2)
+    # head.next = Node(4)
+    # head.next.next = Node(6)
+    # head.next.next.next = Node(8)
+    # head.next.next.next.next = Node(10)
+
+    # head = Node(1)
+    # head.next = Node(2)
+    # head.next.next = Node(3)
+    # head.next.next.next = Node(4)
+    # head.next.next.next.next = Node(5)
+    # head.next.next.next.next = Node(50)
+
     # head = Node(1)
     # head.next = Node(2)
     # head.next.next = Node(3)
     # head.next.next.next = Node(4)
     # head.next.next.next.next = Node(5)
     # head.next.next.next.next.next = Node(6)
-    # head.next.next.next.next.next.next = Node(7)
-    # head.next.next.next.next.next.next.next = Node(8)
 
-    head = Node(2)
-    head.next = Node(4)
-    head.next.next = Node(6)
-    head.next.next.next = Node(8)
-    head.next.next.next.next = Node(10)
-
+    # head = Node(2)
+    # head.next = Node(4)
+    # head.next.next = Node(6)
+    # head.next.next.next = Node(8)
+    # head.next.next.next.next = Node(10)
+    # head.next.next.next.next.next = Node(12)
 
     reorder(head)
     # set the head to the new node
@@ -165,3 +220,33 @@ def main():
 
 
 main()
+
+
+
+# -----
+
+# original
+#    # Step 3: make zip of the two helves
+#     node_left = head
+#     # in this point, my middle_node now is the last one, so I can't reference to it as the middle one,
+#     # I need to get get the new node at middle position
+#     node_right = get_k_node(head, middle_position)
+#     # print("the middle node is ", node_right.value)
+
+
+#     next_node_right = node_right.next
+#     while not next_node_right is None:
+#         next_node_left = node_left.next
+#         next_node_right = node_right.next
+
+#         node_left.next = node_right
+#         node_right.next = next_node_left
+
+#         # check here if == None, if so, I reached the final of the list so I need to to put a None at the end of the list
+#         if next_node_right == None:
+#             node_right.next = None
+#             break
+
+#         # move pointers for the next loop
+#         node_left = next_node_left
+#         node_right = next_node_right

@@ -35,3 +35,38 @@ def test_two():
     actual = head.print_list()
 
     assert actual == expected, 'Error on test_two.'
+
+# bug with odd ll
+def test_three():
+    head = Node(1)
+    head.next = Node(2)
+    head.next.next = Node(3)
+    head.next.next.next = Node(4)
+    head.next.next.next.next = Node(5)
+    head.next.next.next.next.next = Node(6)
+
+    # expected = '1 5 2 4 3 '
+    expected = '1 6 2 5 3 4 '
+
+    reorder(head)
+    actual = head.print_list()
+
+    assert actual == expected, 'Error on test_three.'
+
+
+def test_four():
+    head = Node(1)
+    head.next = Node(2)
+    head.next.next = Node(3)
+    head.next.next.next = Node(4)
+    head.next.next.next.next = Node(5)
+    head.next.next.next.next.next = Node(6)
+    head.next.next.next.next.next.next = Node(7)
+
+
+    expected = '1 7 2 6 3 5 4 '
+
+    reorder(head)
+    actual = head.print_list()
+
+    assert actual == expected, 'Error on test_four.'

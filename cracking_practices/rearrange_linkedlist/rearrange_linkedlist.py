@@ -104,28 +104,51 @@ def reorder(head):
 
     # Step 3: make zip of the two helves
     node_left = head
+    next_node_left = node_left.next
     # in this point, my middle_node now is the last one, so I can't reference to it as the middle one,
     # I need to get get the new node at middle position
-    node_right = get_k_node(head, middle_position)
+    # node_right = get_k_node(head, middle_position)
+    # step 3.1: break the LL so the zip works on even or odd ll
+    node_right = break_ll(head, middle_position)
+
+
     # print("the middle node is ", node_right.value)
 
-
+    print('is even',is_even, 'middle ', middle_position)
     next_node_right = node_right.next
-    while not next_node_right is None:
+    while next_node_left and not next_node_right is None:
         next_node_left = node_left.next
         next_node_right = node_right.next
 
         node_left.next = node_right
-        node_right.next = next_node_left
+        if next_node_left:
+            node_right.next = next_node_left
 
-        # check here if == None, if so, I reached the final of the list so I need to to put a None at the end of the list
-        if next_node_right == None:
-            node_right.next = None
-            break
+        # # check here if == None, if so, I reached the final of the list so I need to to put a None at the end of the list
+        # if next_node_right == None:
+        #     node_right.next = None
+        #     break
 
         # move pointers for the next loop
-        node_left = next_node_left
+        if next_node_left:
+            node_left = next_node_left
         node_right = next_node_right
+
+
+def break_ll(head, brack_position):
+    prev = None
+    current_node = head
+    i = 1
+
+    while current_node and i < brack_position:
+        prev = current_node
+        current_node = current_node.next
+        i += 1
+
+    # Breack the LL on the node before of current
+    prev.next = None
+    # Current is now the head of the new LL
+    return current_node
 
 
 # ------------ working
@@ -180,9 +203,9 @@ def main():
     head.next.next = Node(3)
     head.next.next.next = Node(4)
     head.next.next.next.next = Node(5)
-    head.next.next.next.next.next = Node(6)
-    head.next.next.next.next.next.next = Node(7)
-    head.next.next.next.next.next.next.next = Node(8)
+    # head.next.next.next.next.next = Node(6)
+    # head.next.next.next.next.next.next = Node(7)
+    # head.next.next.next.next.next.next.next = Node(8)
 
     # head = Node(2)
     # head.next = Node(4)

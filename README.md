@@ -190,6 +190,13 @@ Instead, they will be stuck in a cycle of numbers which does not include ‘1’
 If the total number of nodes in the LinkedList is even, return the second middle node.
 
 [ Palindrome LinkedList ](cracking_practices/palindrome_singly_ll/README.md)
-Given the head of a Singly LinkedList, write a method to check if the LinkedList is a palindrome or not.
+- Given the head of a Singly LinkedList, write a method to check if the LinkedList is a palindrome or not.
 Your algorithm should use constant space and the input LinkedList should be in the original form once
 the algorithm is finished. The algorithm should have O(N)O(N) time complexity where ‘N’ is the number of nodes in the LinkedList.
+
+[ Rearrange a LinkedList ](cracking_practices/rearrange_linkedlist/README.md)
+- Given the head of a Singly LinkedList, write a method to modify the LinkedList such that the nodes from the second half
+of the LinkedList are inserted alternately to the nodes from the first half in reverse order. So if the LinkedList has
+nodes 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> null, your method should return 1 -> 6 -> 2 -> 5 -> 3 -> 4 -> null.
+
+Your algorithm should not use any extra space and the input LinkedList should be modified in-place.

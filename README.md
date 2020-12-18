@@ -200,3 +200,10 @@ of the LinkedList are inserted alternately to the nodes from the first half in r
 nodes 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> null, your method should return 1 -> 6 -> 2 -> 5 -> 3 -> 4 -> null.
 
 Your algorithm should not use any extra space and the input LinkedList should be modified in-place.
+
+[ Cycle in a Circular Array ](cracking_practices/cycle_in_circular_array/README.md)
+- We are given an array containing positive and negative numbers. Suppose the array contains a number ‘M’ at a particular index. Now, if ‘M’ is positive we will move forward ‘M’ indices and if ‘M’ is negative move backwards ‘M’ indices. You should assume that the array is circular which means two things:
+
+If, while moving forward, we reach the end of the array, we will jump to the first element to continue the movement.
+If, while moving backward, we reach the beginning of the array, we will jump to the last element to continue the movement.
+Write a method to determine if the array has a cycle. The cycle should have more than one element and should follow one direction which means the cycle should not contain both forward and backward movements.

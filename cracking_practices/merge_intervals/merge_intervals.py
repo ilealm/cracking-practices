@@ -1,5 +1,5 @@
 from __future__ import print_function
-# import math
+
 
 class Interval:
     def __init__(self, start, end):
@@ -15,18 +15,13 @@ def merge(intervals):
 
     if len(intervals) == 0 : return merged
 
-    # I always add the first interval to the merged list
-    # merged.append(intervals[0])
-
-    # for i in range(1, len(intervals)):
     for i in range(len(intervals)):
         # now, I will compare my current interval to what I already have in merged
         inteval_overpaled = False
         for m in range(len(merged)):
-            # Scenario 1: there is no overlaping
+            # Scenario 1: there is no overlaping, if not, I will just add to the merge array.
             if intervals[i].start < merged[m].start and intervals[i].end < merged[m].end:
                 continue
-
 
             # Scenario 2: the current array has a end bigger than something already stored in merge array, if so, it will be
             # join to merge. The start and end of merge could change.
@@ -34,6 +29,7 @@ def merge(intervals):
                 # I need to stablish the end of the new merge
                 new_start = min(intervals[i].start, merged[m].start)
                 new_end = max(intervals[i].end, merged[m].end)
+
                 merged[m].start = new_start
                 merged[m].end = new_end
                 inteval_overpaled = True
@@ -58,9 +54,9 @@ def main():
         i.print_interval()
     print()
 
-#   print("Merged intervals: ", end='')
-#   for i in merge([Interval(1, 4), Interval(2, 6), Interval(3, 5)]):
-#     i.print_interval()
-#   print()
+    print("Merged intervals: ", end='')
+    for i in merge([Interval(1, 4), Interval(2, 6), Interval(3, 5)]):
+        i.print_interval()
+    print()
 
 main()

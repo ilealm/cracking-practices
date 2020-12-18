@@ -207,3 +207,6 @@ Your algorithm should not use any extra space and the input LinkedList should be
 If, while moving forward, we reach the end of the array, we will jump to the first element to continue the movement.
 If, while moving backward, we reach the beginning of the array, we will jump to the last element to continue the movement.
 Write a method to determine if the array has a cycle. The cycle should have more than one element and should follow one direction which means the cycle should not contain both forward and backward movements.
+
+[ Merge Intervals ](cracking_practices/merge_intervals/README.md)
+- Given a list of intervals, merge all the overlapping intervals to produce a list that has only mutually exclusive intervals.

@@ -50,7 +50,7 @@ CS: 1
 
     now, I will move both pointers 1 position until both are at the same place,
     there is the start of the cycle
-    
+
     return slower.value
 ```
 
@@ -62,7 +62,7 @@ Please review the test section below.
 
 #### BIG O
 
-**Time O(n):** I need to traverse the linked list witout internal lopps.
+**Time O(n^2):** I need to traverse the linked list and for each position search for a loop.
 
 **Space O(1):** I'm not creating new DS.
 

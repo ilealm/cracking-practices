@@ -23,10 +23,18 @@ def merge(intervals):
         # now, I will compare my current interval to what I already have in merged
         inteval_overpaled = False
         for m in range(len(merged)):
-            # if there is an overlaping, I will merge
+            # Scenario 1: there is no overlaping
+            if intervals[i].start < merged[m].start and intervals[i].end < merged[m].end:
+                continue
+
+
+            # Scenario 2: the current array has a end bigger than something already stored in merge array, if so, it will be
+            # join to merge. The start and end of merge could change.
             if intervals[i].start <= merged[m].end and not inteval_overpaled:
                 # I need to stablish the end of the new merge
+                new_start = min(intervals[i].start, merged[m].start)
                 new_end = max(intervals[i].end, merged[m].end)
+                merged[m].start = new_start
                 merged[m].end = new_end
                 inteval_overpaled = True
 
@@ -45,10 +53,10 @@ def main():
     print()
 
 
-  print("Merged intervals: ", end='')
-  for i in merge([Interval(6, 7), Interval(2, 4), Interval(5, 9)]):
-    i.print_interval()
-  print()
+    print("Merged intervals: ", end='')
+    for i in merge([Interval(6, 7), Interval(2, 4), Interval(5, 9)]):
+        i.print_interval()
+    print()
 
 #   print("Merged intervals: ", end='')
 #   for i in merge([Interval(1, 4), Interval(2, 6), Interval(3, 5)]):

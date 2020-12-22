@@ -210,3 +210,7 @@ Write a method to determine if the array has a cycle. The cycle should have more
 
 [ Merge Intervals ](cracking_practices/merge_intervals/README.md)
 - Given a list of intervals, merge all the overlapping intervals to produce a list that has only mutually exclusive intervals.
+
+[ Insert Interval ](cracking_practices/insert_interval/README.md)
+- Given a list of non-overlapping intervals sorted by their start time, insert a given interval at the correct position and
+merge all necessary intervals to produce a list that has only mutually exclusive intervals.

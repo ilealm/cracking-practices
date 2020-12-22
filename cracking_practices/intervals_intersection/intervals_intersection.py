@@ -8,8 +8,6 @@ def merge(intervals_a, intervals_b):
     end = 1
 
     # traverse b to find intersecctions on a
-    # while b < len(intervals_b):
-    # for b in range(len(intervals_b)):
     while b < len(intervals_b):
         # check if not fit at all
         if intervals_b[b][start] > intervals_a[a][end]:
@@ -36,10 +34,3 @@ def merge(intervals_a, intervals_b):
 
     return result
 
-
-def main():
-#   print("Intervals Intersection: " + str(merge([[1, 3], [5, 6], [7, 9]], [[2, 3], [5, 7]])))
-  print("Intervals Intersection: " + str(merge([[1, 3], [5, 7], [9, 12]], [[5, 10]])))
-
-
-main()

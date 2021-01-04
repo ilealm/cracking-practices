@@ -217,3 +217,6 @@ merge all necessary intervals to produce a list that has only mutually exclusive
 
 [ Intervals Intersection ](cracking_practices/intervals_intersection/README.md)
 - Given two lists of intervals, find the intersection of these two lists. Each list consists of disjoint intervals sorted on their start time.
+
+[ Conflicting Appointments ](cracking_practices/conflicting_appointments/README.md)
+- Given an array of intervals representing ‘N’ appointments, find out if a person can attend all the appointments.

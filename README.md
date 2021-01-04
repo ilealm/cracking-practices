@@ -220,3 +220,6 @@ merge all necessary intervals to produce a list that has only mutually exclusive
 
 [ Conflicting Appointments ](cracking_practices/conflicting_appointments/README.md)
 - Given an array of intervals representing ‘N’ appointments, find out if a person can attend all the appointments.
+
+[ Minimum Meeting Rooms ](cracking_practices/mininum_meetings_rooms/README.md)
+- Given a list of intervals representing the start and end time of ‘N’ meetings, find the minimum number of rooms required to hold all the meetings.

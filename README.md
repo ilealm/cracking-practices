@@ -220,3 +220,10 @@ merge all necessary intervals to produce a list that has only mutually exclusive
 
 [ Conflicting Appointments ](cracking_practices/conflicting_appointments/README.md)
 - Given an array of intervals representing ‘N’ appointments, find out if a person can attend all the appointments.
+
+[ Minimum Meeting Rooms ](cracking_practices/mininum_meetings_rooms/README.md)
+- Given a list of intervals representing the start and end time of ‘N’ meetings, find the minimum number of rooms required to hold all the meetings.
+
+[ Maximum CPU Load ](cracking_practices/maximum_cpu_load/README.md)
+- We are given a list of Jobs. Each job has a Start time, an End time, and a CPU load when it is running.
+Our goal is to find the maximum CPU load at any time if all the jobs are running on the same machine.

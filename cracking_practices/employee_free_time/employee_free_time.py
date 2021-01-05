@@ -1,3 +1,9 @@
+# Employee Free Time
+# For ‘K’ employees, we are given a list of intervals representing each employee’s working hours.
+# Our goal is to determine if there is a free interval which is common to all employees.
+# You can assume that each list of employee working hours is sorted on the start time.
+
+
 from __future__ import print_function
 
 
@@ -10,37 +16,11 @@ class Interval:
         print("[" + str(self.start) + ", " + str(self.end) + "]", end="")
 
 
-def find_employee_free_timeV1(schedule):
-    result = []
-    # just to make easier to read
-    shiftA = start = employeeA = 0
-    shiftB = end = employeeB = 1
-
-    # get the gaps of each employee
-    gaps = []
-    for i in range(len(schedule)):
-        gaps.append([schedule[i][shiftA].end, schedule[i][shiftB].start])
-
-    # get the common gaps of both employees
-    start_gap = max(gaps[employeeA][start], gaps[employeeB][start])
-    end_gap = min(gaps[employeeA][end], gaps[employeeB][end])
-    result.append([start_gap, end_gap])
-    # result.append(end_gap)
-
-    # validate if employeeA and employeeb have a touching gap
-    if (schedule[employeeB][shiftB].end + 1) == schedule[employeeA][shiftB].start:
-        result.append(
-            [schedule[employeeB][shiftB].end, schedule[employeeA][shiftB].start]
-        )
-        # result.append(schedule[employeeB][shiftB].end)
-        # result.append(schedule[employeeA][shiftB].start)
-
-    return result
-
-
 def find_employee_free_time(schedule):
     result = []
     working_hours = [False] * 13
+    starting_shfts = []  # so I can check for special cases
+    special_case = []
     max_hour = 0
 
     # Fill working_hours with true for whenever is someone working on that hour.
@@ -49,6 +29,12 @@ def find_employee_free_time(schedule):
     # Also, I will keep track of the bigest hour to latter I can search for all the gaps.
     for i in range(len(schedule)):
         for j in range(len(schedule[i])):
+            if len(starting_shfts) > 0:
+                if schedule[i][j].end + 1 in starting_shfts:
+                    special_case.append(schedule[i][j].end)
+        
+            starting_shfts.append(schedule[i][j].start)
+
             # Fill the hours of the current shift
             for s in range(schedule[i][j].start, schedule[i][j].end + 1):
                 working_hours[s] = True
@@ -57,36 +43,15 @@ def find_employee_free_time(schedule):
     # Find gaps where all the employes are not working, in other words, where working_hours = False
     for i in range(1, max_hour):
         if not working_hours[i]:
-            # result.append([i - 1, i + 1])
-            result.append(i-1)
-            result.append(i+1)
+            result.append([i - 1, i + 1])
+            # result.append(i - 1)
+            # result.append(i + 1)
 
+    # check for special cases
+    for i in range(len(special_case)):
+        result.append([special_case[i], special_case[i] + 1])
 
     return result
 
 
-def main():
 
-    input = [[Interval(1, 3), Interval(5, 6)], [Interval(2, 3), Interval(6, 8)]]
-    print("Free intervals: ", end="")
-    print(find_employee_free_time(input))
-    # for interval in find_employee_free_time(input):
-    #     interval.print_interval()
-    # print()
-
-    input = [[Interval(1, 3), Interval(9, 12)], [Interval(2, 4)], [Interval(6, 8)]]
-    print("Free intervals: ", end="")
-    print(find_employee_free_time(input))
-    # for interval in find_employee_free_time(input):
-    #     interval.print_interval()
-    # print()
-
-    input = [[Interval(1, 3)], [Interval(2, 4)], [Interval(3, 5), Interval(7, 9)]]
-    print("Free intervals: ", end="")
-    print(find_employee_free_time(input))
-    # for interval in find_employee_free_time(input):
-    #     interval.print_interval()
-    # print()
-
-
-main()

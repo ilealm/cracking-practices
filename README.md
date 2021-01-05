@@ -227,3 +227,7 @@ merge all necessary intervals to produce a list that has only mutually exclusive
 [ Maximum CPU Load ](cracking_practices/maximum_cpu_load/README.md)
 - We are given a list of Jobs. Each job has a Start time, an End time, and a CPU load when it is running.
 Our goal is to find the maximum CPU load at any time if all the jobs are running on the same machine.
+
+
+[ Employee Free Time](cracking_practices/employee_free_time/README.md)
+- For ‘K’ employees, we are given a list of intervals representing each employee’s working hours. Our goal is to determine if there is a free interval which is common to all employees. You can assume that each list of employee working hours is sorted on the start time.

@@ -43,39 +43,47 @@ def find_employee_free_time(schedule):
     working_hours = [False] * 13
     max_hour = 0
 
+    # Fill working_hours with true for whenever is someone working on that hour.
     # traverse all the employees (i) and their shifts(j), and then, set working_hours to true for all the hours the employee
     # has assigned job.
     # Also, I will keep track of the bigest hour to latter I can search for all the gaps.
     for i in range(len(schedule)):
         for j in range(len(schedule[i])):
             # Fill the hours of the current shift
-            for s in range(schedule[i][j].start, schedule[i][j].end+1):
+            for s in range(schedule[i][j].start, schedule[i][j].end + 1):
                 working_hours[s] = True
                 max_hour = max(max_hour, s)
 
+    # Find gaps where all the employes are not working, in other words, where working_hours = False
+    for i in range(1, max_hour):
+        if not working_hours[i]:
+            # result.append([i - 1, i + 1])
+            result.append(i-1)
+            result.append(i+1)
 
-
-    print('max_hour ', max_hour)
 
     return result
 
 
 def main():
 
-    # input = [[Interval(1, 3), Interval(5, 6)], [Interval(2, 3), Interval(6, 8)]]
-    # print("Free intervals: ", end="")
+    input = [[Interval(1, 3), Interval(5, 6)], [Interval(2, 3), Interval(6, 8)]]
+    print("Free intervals: ", end="")
+    print(find_employee_free_time(input))
     # for interval in find_employee_free_time(input):
     #     interval.print_interval()
     # print()
 
     input = [[Interval(1, 3), Interval(9, 12)], [Interval(2, 4)], [Interval(6, 8)]]
     print("Free intervals: ", end="")
-    for interval in find_employee_free_time(input):
-        interval.print_interval()
-    print()
+    print(find_employee_free_time(input))
+    # for interval in find_employee_free_time(input):
+    #     interval.print_interval()
+    # print()
 
-    # input = [[Interval(1, 3)], [Interval(2, 4)], [Interval(3, 5), Interval(7, 9)]]
-    # print("Free intervals: ", end="")
+    input = [[Interval(1, 3)], [Interval(2, 4)], [Interval(3, 5), Interval(7, 9)]]
+    print("Free intervals: ", end="")
+    print(find_employee_free_time(input))
     # for interval in find_employee_free_time(input):
     #     interval.print_interval()
     # print()

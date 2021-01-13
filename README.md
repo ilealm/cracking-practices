@@ -228,10 +228,13 @@ merge all necessary intervals to produce a list that has only mutually exclusive
 - We are given a list of Jobs. Each job has a Start time, an End time, and a CPU load when it is running.
 Our goal is to find the maximum CPU load at any time if all the jobs are running on the same machine.
 
+[ Employee Free Time](cracking_practices/employee_free_time/README.md)
+- For ‘K’ employees, we are given a list of intervals representing each employee’s working hours. Our goal is to determine if there is a free interval which is common to all employees. You can assume that each list of employee working hours is sorted on the start time.
+
 [ Cyclic Sort ](cracking_practices/cyclic_sort/README.md)
 - We are given an array containing ‘n’ objects. Each object, when created, was assigned a unique number from 1 to ‘n’ based on their creation sequence. This means that the object with sequence number ‘3’ was created just before the object with sequence number ‘4’.
-
 Write a function to sort the objects in-place on their creation sequence number in O(n)O(n) and without any extra space. For simplicity, let’s assume we are passed an integer array containing only the sequence numbers, though each number is actually an object.
 
 [ Find the Missing Number ](cracking_practices/find_missing_number/README.md)
 - We are given an array containing ‘n’ distinct numbers taken from the range 0 to ‘n’. Since the array has only ‘n’ numbers out of the total ‘n+1’ numbers, find the missing number.
+

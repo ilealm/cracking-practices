@@ -239,5 +239,9 @@ Write a function to sort the objects in-place on their creation sequence number 
 - We are given an array containing ‘n’ distinct numbers taken from the range 0 to ‘n’. Since the array has only ‘n’ numbers out of the total ‘n+1’ numbers, find the missing number.
 
 [ Find All Missing Number ](cracking_practices/find_all_missing_numbers/README.md)
--
+- We are given an unsorted array containing numbers taken from the range 1 to ‘n’. The array can have duplicates, which means some numbers will be missing. Find all those missing numbers.
+
+
+[ Find the Duplicate Number ](cracking_practices/find_all_missing_numbers/README.md)
+- We are given an unsorted array containing ‘n+1’ numbers taken from the range 1 to ‘n’. The array has only one duplicate but it can be repeated multiple times. Find that duplicate number without using any extra space. You are, however, allowed to modify the input array.
 

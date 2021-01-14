@@ -238,3 +238,6 @@ Write a function to sort the objects in-place on their creation sequence number 
 [ Find the Missing Number ](cracking_practices/find_missing_number/README.md)
 - We are given an array containing ‘n’ distinct numbers taken from the range 0 to ‘n’. Since the array has only ‘n’ numbers out of the total ‘n+1’ numbers, find the missing number.
 
+[ Find All Missing Number ](cracking_practices/find_all_missing_numbers/README.md)
+-
+

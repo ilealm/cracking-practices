@@ -245,3 +245,5 @@ Write a function to sort the objects in-place on their creation sequence number 
 [ Find the Duplicate Number ](cracking_practices/find_all_missing_numbers/README.md)
 - We are given an unsorted array containing ‘n+1’ numbers taken from the range 1 to ‘n’. The array has only one duplicate but it can be repeated multiple times. Find that duplicate number without using any extra space. You are, however, allowed to modify the input array.
 
+[ Find all Duplicate Numbers ](cracking_practices/find_all_duplicate_numbers/README.md)
+- We are given an unsorted array containing ‘n’ numbers taken from the range 1 to ‘n’. The array has some numbers appearing twice, find all these duplicate numbers without using any extra space.

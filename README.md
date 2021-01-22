@@ -247,3 +247,6 @@ Write a function to sort the objects in-place on their creation sequence number 
 
 [ Find all Duplicate Numbers ](cracking_practices/find_all_duplicate_numbers/README.md)
 - We are given an unsorted array containing ‘n’ numbers taken from the range 1 to ‘n’. The array has some numbers appearing twice, find all these duplicate numbers without using any extra space.
+
+[ Find the Corrupt Pair ](cracking_practices/find_the_corrupt_pair/README.md)
+- We are given an unsorted array containing ‘n’ numbers taken from the range 1 to ‘n’. The array originally contained all the numbers from 1 to ‘n’, but due to a data error, one of the numbers got duplicated which also resulted in one number going missing. Find both these numbers.

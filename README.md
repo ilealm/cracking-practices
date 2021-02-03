@@ -253,3 +253,6 @@ Write a function to sort the objects in-place on their creation sequence number 
 
 [ Find the Smallest Missing Positive Number ](cracking_practices/find_smallest_missing_possitive_number/README.md)
 - Given an unsorted array containing numbers, find the smallest missing positive number in it.
+
+[ Find the First K Missing Positive Numbers ](cracking_practices/find_first_k_missing_positive/README.md)
+- Given an unsorted array containing numbers and a number ‘k’, find the first ‘k’ missing positive numbers in the array.

@@ -266,3 +266,6 @@ Write a function to sort the objects in-place on their creation sequence number 
 
 [ Reverse a List in Place ](cracking_practices/reverse_list_in_place/README.md)
 - Create a function that receives a list and return the same list but with the elements in inverted order, without any extra space (in place).
+
+[ Exersices with recursion ](cracking_practices/recursion/README.md)
+- Using Recursion, get the sum of all elements in an array, get the number of elements in an array, find the bigest number of elements in an array and applying binary search, find a value in a list. If the value is not there, return -1.

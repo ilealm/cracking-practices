@@ -259,3 +259,7 @@ Write a function to sort the objects in-place on their creation sequence number 
 
 [ Implement Binary Search in a List ](cracking_practices/binary_search/README.md)
 - Given an sorted array containing numbers or letters, using binary search return the value's index. If the value is not found, then returns -1.
+
+
+[ Implement a Selection Sort to sort a List ](cracking_practices/selection_sort/README.md)
+-  Given a unsorted list, return the same list in an ordered fashion using Selection Sort.

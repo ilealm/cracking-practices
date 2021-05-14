@@ -1,7 +1,7 @@
 [Table of Contents](../../README.md)
 
 # Problem
-
+Implement Binary Search in a List
 
 
 ### PROBLEM DOMAIN
@@ -77,4 +77,4 @@ Please review the test section below.
 
 ### GITHUB BRANCH
 
-[Pull Request # n, Branch: binary_search](https://github.com/ilealm/cracking-practices/pull/X)
+[Pull Request # n, Branch: binary_search](https://github.com/ilealm/cracking-practices/pull/85)

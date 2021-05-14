@@ -256,3 +256,6 @@ Write a function to sort the objects in-place on their creation sequence number 
 
 [ Find the First K Missing Positive Numbers ](cracking_practices/find_first_k_missing_positive/README.md)
 - Given an unsorted array containing numbers and a number ‘k’, find the first ‘k’ missing positive numbers in the array.
+
+[ Implement Binary Search in a List ](cracking_practices/binary_search/README.md)
+- Given an sorted array containing numbers or letters, using binary search return the value's index. If the value is not found, then returns -1.

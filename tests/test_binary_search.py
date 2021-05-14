@@ -56,3 +56,20 @@ def test_letters():
 
 
     assert actual == expected, 'Error on test_letters.'
+
+
+def test_empty_list():
+    array = []
+    value_to_find = 30
+    expected = -1
+
+    actual = binary_search(array, value_to_find)
+
+
+    assert actual == expected, 'Error on test_empty_list.'
+
+
+
+
+
+    assert actual == expected, 'Error on test_repeted_values.'

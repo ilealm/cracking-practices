@@ -269,3 +269,7 @@ Write a function to sort the objects in-place on their creation sequence number 
 
 [ Exersices with recursion ](cracking_practices/recursion/README.md)
 - Using Recursion, get the sum of all elements in an array, get the number of elements in an array, find the bigest number of elements in an array and applying binary search, find a value in a list. If the value is not there, return -1.
+
+
+[ QuickSort with Comprenhension List ](cracking_practices/quick_sort_v2/README.md)
+- This solution implements Quick Sort, but instead of using a helper Partition funtion to sort the less and greater values in the array, this solution implements List Comprenhension istead.

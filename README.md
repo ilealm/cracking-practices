@@ -273,3 +273,7 @@ Write a function to sort the objects in-place on their creation sequence number 
 
 [ QuickSort with Comprenhension List ](cracking_practices/quick_sort_v2/README.md)
 - This solution implements Quick Sort, but instead of using a helper Partition funtion to sort the less and greater values in the array, this solution implements List Comprenhension istead.
+
+
+[ Class Scheduling ](cracking_practices/class_scheduling/README.md)
+- You have a classroom and a schedule, and want to hold as many classes there as possible. Some clases may overlap, so you need to arrainge the classes in the most optimal way. The original schedule is insorted.

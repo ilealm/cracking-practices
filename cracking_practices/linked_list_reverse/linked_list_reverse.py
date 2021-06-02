@@ -59,15 +59,4 @@ class LinkedList(Node):
 
 
 
-ll = LinkedList()
-ll.append_top(40)
-ll.append_top(30)
-ll.append_top(20)
-ll.append_top(10)
-print("Original \n", ll.traverse())
-ll.reverse()
-print("Reversed \n", ll.traverse())
-# Original
-#  Head => [10] -> [20] -> [30] -> [40] ->  None
-# Reversed
-#  Head => [40] -> [30] -> [20] -> [10] ->  None
+

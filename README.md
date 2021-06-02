@@ -287,3 +287,5 @@ Write a function to sort the objects in-place on their creation sequence number 
 - Using a linked list, return the kth node value from the end.  Use O(n) for time and space.
 
 
+[ Middle Element from a Linked List ](cracking_practices/linked_list_get_middle/README.md)
+- Using a linked list, return the middle node value from the end.  Use O(n) for time and space.

@@ -289,3 +289,7 @@ Write a function to sort the objects in-place on their creation sequence number 
 
 [ Middle Element from a Linked List ](cracking_practices/linked_list_get_middle/README.md)
 - Using a linked list, return the middle node value from the end.  Use O(n) for time and space.
+
+
+[ Is a valid expresion? (Implemented with Stacks) ](cracking_practices/check_expresion_stacks/README.md)
+- Given a expresion, return True if the opening tags "({<" has their closed tag in the right possition.

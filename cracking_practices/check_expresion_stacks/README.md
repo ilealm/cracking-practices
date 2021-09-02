@@ -1,10 +1,12 @@
 [Table of Contents](../../README.md)
 
-# Problem
+# Problem: Is a valid expresion?
 
-<!-- [Whiteboard approach](x_x) -->
+<!-- [Whiteboard approach](check_expresion_stacks) -->
 
 ### PROBLEM DOMAIN
+Given a expresion, return True if the opening tags "({<" has their closed tag in the right possition.
+
 
 ### VISUALS
 
@@ -26,7 +28,7 @@
 
 ### ALGORITHMS
 
-#### APPROACH 1,
+#### APPROACH 1, Using Stacks with collections.deque
 
 ```
 implement a stack object
@@ -57,18 +59,18 @@ Please review the test section below.
 
 #### BIG O
 
-**Time O(n):** I need to
+**Time O(1):** I need to pass the expresion only once.
 
-**Space O(n):** I'm
+**Space O(1):** I'm not creating new DS.
 
 ### CODE
 
-[cracking_practices/x_x/x_x.py](x_x.py)
+[cracking_practices/check_expresion_stacks/check_expresion_stacks.py](check_expresion_stacks.py)
 
 ### TESTS
 
-[tests/test_x_x.py](../../tests/test_x_x.py)
+[tests/test_check_expresion_stacks.py](../../tests/test_check_expresion_stacks.py)
 
 ### GITHUB BRANCH
 
-[Pull Request # n, Branch: x_x](https://github.com/ilealm/cracking-practices/pull/X)
+[Pull Request # n, Branch: check_expresion_stacks](https://github.com/ilealm/cracking-practices/pull/94)

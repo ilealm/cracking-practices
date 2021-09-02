@@ -1,21 +1,22 @@
-# Given a expresion, return True is next the opening tags "({<" has their closed tag in the right possition.
+# Given a expresion, return True if the opening tags "({<" has their closed tag in the right possition.
 # (1+2) : True; 1+2): False; (1+2<) 1> : False; (1+2) <1> - {5+9}: True
 
 
 from collections import deque
 
+# keys are the opening tags, and the values are the closing tags.
+ALLOWED_TAGS = {"[": "]", "(": ")", "<": ">", "{": "}"}
+
 
 def is_tag(ch):
-    valid_tags = ["[", "]", "(", ")", "<", ">", "{", "}"]
-    if ch in valid_tags:
+    if ch in ALLOWED_TAGS.values() or ch in ALLOWED_TAGS.keys():
         return True
     else:
         return False
 
 
 def is_opening_tag(ch):
-    opening_tags = ["[", "(", "<", "{"]
-    if ch in opening_tags:
+    if ch in ALLOWED_TAGS.keys():
         return True
     else:
         return False
@@ -23,9 +24,9 @@ def is_opening_tag(ch):
 
 def are_matching_tag(opening, closing):
     # instead of using a if for each tag, I will use a dictonary where the key are the opening tags, and the value the closing ones.
-    tags_dict = {"[": "]", "(": ")", "<": ">", "{": "}"}
+    # ALLOWED_TAGS = {"[": "]", "(": ")", "<": ">", "{": "}"}
     # I could use match with python 3
-    if tags_dict[opening] == closing:
+    if ALLOWED_TAGS[opening] == closing:
         return True
     else:
         return False

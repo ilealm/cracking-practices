@@ -105,18 +105,18 @@ Please review the test section below.
 
 #### BIG O
 
-**Time O(n):** I need to
+**Time O(1):** I don't need to traverse all the array.
 
-**Space O(n):** I'm
+**Space O(1):** I'm not creating new DS.
 
 ### CODE
 
-[cracking_practices/x_x/x_x.py](x_x.py)
+[cracking_practices/two_stacks_in_one_array/two_stacks_in_one_array.py](two_stacks_in_one_array.py)
 
 ### TESTS
 
-[tests/test_x_x.py](../../tests/test_x_x.py)
+[tests/test_two_stacks_in_one_array.py](../../tests/test_two_stacks_in_one_array.py)
 
 ### GITHUB BRANCH
 
-[Pull Request # n, Branch: x_x](https://github.com/ilealm/cracking-practices/pull/X)
+[Pull Request # n, Branch: two_stacks_in_one_array](https://github.com/ilealm/cracking-practices/pull/95)

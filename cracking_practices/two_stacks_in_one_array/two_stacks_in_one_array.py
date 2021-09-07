@@ -1,3 +1,16 @@
+# Implement two stacks in one array.
+# Support these operations:
+# push1() // to push in the first stack
+# push2() // to push in the second stack
+# pop1()
+# pop2()
+# isEmpty1()
+# isEmpty2()
+# isFull1()
+# isFull2()
+# Make sure your implementation is space efficient. (hint: do not allocate the same amount of space by dividing the array in half.)
+
+
 class Stack:
     def __init__(self):
         self.array_lenght = 10
@@ -57,21 +70,3 @@ class Stack:
 
         return False
 
-
-my_stack = Stack()
-my_stack.push1("a")
-my_stack.push1("b")
-my_stack.push1("c")
-# print(my_stack.stack)
-# print(my_stack.pop1())
-# print(my_stack.pop1())
-# print(my_stack.pop1())
-# my_stack.push1("A")
-# my_stack.push1("B")
-my_stack.push2('1')
-my_stack.push2('2')
-my_stack.push2('3')
-print(my_stack.pop2())
-print(my_stack.pop2())
-my_stack.push2('100')
-print(my_stack.stack)

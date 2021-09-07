@@ -41,8 +41,10 @@ array:[1, None, None, None, None, None, None, None, None, None,  ]
 
 ### EDGE CASES
 
-- I can have valid values in the arays.
-- Values can be repeted.
+- I can Add more items in side 1 than side 2.
+- Add all items in side 1 or all in side 2.
+- I can add in side 1 or 2 as long I can have space.
+- I only can use 1 array for the stack management.
 
 ### ALGORITHMS
 
@@ -67,6 +69,7 @@ def push1(value):
 def pop1(value):
     if pointer_left == 0 raise error
 
+    <!-- I will not reasing a new value to the poped position, is pointless -->
     decrease pointer_left by 1
     return array[pointer_left]
 
@@ -81,6 +84,7 @@ def push2(value):
 def pop2(value):
     if pointer_right == 0 raise error
 
+    <!-- I will not reasing a new value to the poped position, is pointless -->
     top_value = array[pointer_right+1]
     increase pointer_right by 1
     return top_value

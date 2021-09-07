@@ -26,7 +26,6 @@ def test_is_empty_true():
     my_stack.push2('a')
     my_stack.push2('a')
     my_stack.push2('a')
-    my_stack.push2('a')
 
     expected = True
 
@@ -54,7 +53,7 @@ def test_push1_three_items():
     my_stack.push1('b')
     my_stack.push1('c')
 
-    expected = ['a', 'b', 'c', None, None, None, None, None, None, None]
+    expected = 'c'
 
     actual = my_stack.pop1()
 

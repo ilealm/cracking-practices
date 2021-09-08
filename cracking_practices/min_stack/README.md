@@ -83,9 +83,9 @@ Please review the test section below.
 
 #### BIG O
 
-**Time O(n):** I need to
+**Time O(n):** I need to use a two stacks that can flexibly grow.
 
-**Space O(n):** I'm
+**Space O(1):** I'm retrieving the min value in constant time.
 
 ### CODE
 
@@ -97,4 +97,4 @@ Please review the test section below.
 
 ### GITHUB BRANCH
 
-[Pull Request # n, Branch: min_stack](https://github.com/ilealm/cracking-practices/pull/X)
+[Pull Request # n, Branch: min_stack](https://github.com/ilealm/cracking-practices/pull/96)

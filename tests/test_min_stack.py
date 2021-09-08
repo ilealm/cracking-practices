@@ -66,42 +66,73 @@ def test_top_stack_empty():
         assert actual == expected, 'Error on test_top_stack_empty.'
 
 
-# test the pop on the stack
-# def test_pop_stack():
-#     stack = Stack()
-#     value = 50
-#     stack.push(value)
-#     expected = value
 
-#     actual = stack.pop()
+# test the top on the stack
+def test_top_stack():
+    stack = Stack()
+    value = 50
+    stack.push(value)
+    value = 100
+    stack.push(value)
+    value = 200
+    stack.push(value)
+    expected = value
 
-#     assert actual == expected, 'Error on test_pop_stack.'
+    actual = stack.top()
+
+    assert actual == expected, 'Error on test_top_stack.'
+
 
 
 # # test the push on the min_stack
-# def test_push_stack():
-#     stack = Stack()
-#     value = 50
-#     stack.push(value)
+def test_push_stack():
+    stack = Stack()
+    value = 50
+    stack.push(value)
 
-#     expected = value
+    expected = value
 
-#     actual = stack.min_top()
+    actual = stack.min_top()
 
-#     assert actual == expected, 'Error on test_push_stack.'
+    assert actual == expected, 'Error on test_push_stack.'
 
 
 
 # # test the min
-# def test_min_stack():
-#     stack = Stack()
-#     stack.push(50)
-#     stack.push(100)
-#     stack.push(10)
-#     stack.push(30)
+def test_min_stack():
+    stack = Stack()
+    stack.push(50)
+    stack.push(100)
+    stack.push(10)
+    stack.push(30)
 
-#     expected = 10
+    expected = 10
 
-#     actual = stack.min()
+    actual = stack.min()
 
-#     assert actual == expected, 'Error on test_min_stack.'
+    assert actual == expected, 'Error on test_min_stack.'
+
+
+# # test the min
+def test_min_stack_large():
+    stack = Stack()
+    stack.push(50)
+    stack.push(100)
+    stack.push(1000)
+    stack.push(30)
+    stack.push(150)
+    stack.push(250)
+    stack.push(5)
+    stack.push(500)
+
+    stack.pop()
+    stack.pop()
+    stack.pop()
+    stack.pop()
+    stack.pop()
+
+    expected = 50
+
+    actual = stack.min()
+
+    assert actual == expected, 'Error on test_min_stack_large.'

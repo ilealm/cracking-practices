@@ -26,5 +26,22 @@ class Stack:
             raise Exception("The stack is empty.")
 
 
+class Queue:
+    def __init__(self) -> None:
+        self.queue = deque()
+
+    def is_empty(self):
+        return len(self.queue) == 0
+
+    def push(self, value):
+        self.queue.appendleft(value)
+
+    def pop(self):
+        if not self.is_empty():
+            return self.queue.popleft()
+        else:
+            raise Exception("The stack is empty.")
+
+
 
 

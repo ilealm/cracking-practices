@@ -298,6 +298,11 @@ Write a function to sort the objects in-place on their creation sequence number 
 [ Implement two stacks in one array. ](cracking_practices/two_stacks_in_one_array/README.md)
 - Support these operations:  push1(), to push in the first stack; push2(), to push in the second stack; pop1(), pop2(), isEmpty1(), isEmpty2(), isFull1(), isFull2(). Make sure your implementation is space efficient. (hint: do not allocate the same amount of space by dividing the array in half.)
 
-
 [ MinStack ](cracking_practices/min_stack/README.md)
 - Design a stack that supports push, pop and retrieving the minimum value in constant time.
+
+[ Queue Reverse ](cracking_practices/queue_reverse/README.md)
+- Reverse a queue.
+
+[ ArrayQueue AKA Implement a Queue using an array ](cracking_practices/array_queue/README.md)
+- Implement a Queue using an array. It should have this methods push, pop, peek and is_empty.

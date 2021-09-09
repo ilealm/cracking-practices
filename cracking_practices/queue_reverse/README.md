@@ -2,7 +2,6 @@
 
 # Problem Reverse a Queue
 
-<!-- [Whiteboard approach](x_x) -->
 
 ### PROBLEM DOMAIN
 Reverse a Queue.
@@ -47,11 +46,11 @@ create class Queue()
 
 
     create method push(value)
-        self.queue.push(value)
+        self.queue.pushLeft(value)
 
     create method pop()
         if not_empty:
-            self.queue.popleft()
+            self.queue.pop()
 
 
     create method is_empty()
@@ -70,9 +69,9 @@ create class Queue()
         while not stack.is_empty:
             self.queue.push(stack.pop())
 
-        create method peek()
-            if not_empty:
-                return self.queue[0]
+    create method petopek()
+        if not_empty:
+            return self.queue[-1]
 
 
 ```
@@ -91,12 +90,12 @@ Please review the test section below.
 
 ### CODE
 
-[cracking_practices/x_x/x_x.py](x_x.py)
+[cracking_practices/queue_reverse/queue_reverse.py](queue_reverse.py)
 
 ### TESTS
 
-[tests/test_x_x.py](../../tests/test_x_x.py)
+[tests/test_queue_reverse.py](../../tests/test_queue_reverse.py)
 
 ### GITHUB BRANCH
 
-[Pull Request # n, Branch: x_x](https://github.com/ilealm/cracking-practices/pull/X)
+[Pull Request # n, Branch: queue_reverse](https://github.com/ilealm/cracking-practices/pull/97)

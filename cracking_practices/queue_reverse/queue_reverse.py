@@ -38,14 +38,14 @@ class Queue:
 
     def pop(self):
         if not self.is_empty():
-            return self.queue.popleft()
+            return self.queue.pop()
         else:
             raise Exception("The stack is empty.")
 
 
     def top(self):
         if not self.is_empty():
-            return self.queue[0]
+            return self.queue[-1]
         else:
             raise Exception("The stack is empty.")
 
@@ -63,30 +63,4 @@ class Queue:
 
 
 
-# main
-# stack = Stack()
-# stack.push(10)
-# stack.push(20)
-# stack.push(30)
-# print(stack.peek())
-# stack.push(40)
-# stack.push(50)
-# print(stack.peek())
 
-queue = Queue()
-queue.push(10)
-queue.push(20)
-queue.push(30)
-queue.push(40)
-queue.push(50)
-# print(queue.is_empty())
-# print(queue.pop())
-# print(queue.pop())
-# print(queue.pop())
-# print(queue.pop())
-# print(queue.pop())
-
-# print(queue.show_queue())
-print(queue.top())
-queue.reverse()
-print(queue.top())

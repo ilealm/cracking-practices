@@ -36,4 +36,19 @@ def test_push_then_pop_all():
 
 
 
+# test that add 3 values, then pop those 3 values
+def test_pushX3_popX2_pushX1_popX1():
+    q = Queue()
+    q.enqueue(10)
+    q.enqueue(20)
+    q.enqueue(30)
+    q.dequeue()
+    q.dequeue()
+    q.enqueue(40)
 
+
+    expected = 30
+
+    actual = q.dequeue()
+
+    assert actual == expected, 'Error on test_pushX3_popX2_pushX1_popX1.'

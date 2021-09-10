@@ -11,8 +11,38 @@ Implement a queue using two stacks.
 ```
 F = Front
 R = Rear
-        F       R
-queue: [10, 20, 30]
+
+push: 10, 20, 30
+stack 1
+ F       R
+[10, 20, 30]
+stack 2
+[]
+
+pop
+stack 1
+ F       R
+[]
+stack 2
+[30, 20]  => pop:10
+
+
+push: 40
+stack 1
+ F       R
+[40]
+stack 2
+[30, 20]
+
+
+pop
+stack 1
+ F       R
+[40]
+stack 2
+[30]  => pop: 20
+
+
 
 ```
 

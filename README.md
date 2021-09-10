@@ -310,3 +310,12 @@ Write a function to sort the objects in-place on their creation sequence number 
 
 [ Queue with two stacks ](cracking_practices/queue_with_two_stacks/README.md)
 - Implement a Queue using two stacks.
+
+
+[ Priority Queue ](cracking_practices/priority_queue/README.md)
+- Implement a Priority Queue using an array. The methods should include add and remove.
+The remove method should return the greatest value in the array.
+
+
+[ Queue reverse k elements ](cracking_practices/queue_reverse_k_elements*/README.md)
+- Given an integer K and a queue of integers, write code to reverse the order of the first K elements of the queue.

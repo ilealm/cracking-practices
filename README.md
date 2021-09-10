@@ -306,3 +306,7 @@ Write a function to sort the objects in-place on their creation sequence number 
 
 [ ArrayQueue AKA Implement a Queue using an array ](cracking_practices/array_queue/README.md)
 - Implement a Queue using an array. It should have this methods push, pop, peek and is_empty.
+
+
+[ Queue with two stacks ](cracking_practices/queue_with_two_stacks/README.md)
+- Implement a Queue using two stacks.

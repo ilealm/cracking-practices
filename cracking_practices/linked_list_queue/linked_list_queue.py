@@ -33,22 +33,19 @@ class Queue:
 
         return self.front.value
 
-
     def enqueue(self, value):
         new_node = Node(value)
 
         if self.is_empty():
             self.front = new_node
+        else:
+            self.rear.after = new_node
 
         new_node.before = self.rear
-        # TODO create link to next from rear
-        # self.rear.after = new_node
+
         self.rear = new_node
 
-        self.items += 1
-
-
-
+        self.increase_items()
 
     def deqeue(self):
         if self.is_empty():
@@ -56,27 +53,60 @@ class Queue:
 
         value = self.front.value
 
-        print(self.front.after.value)
-        # me quede intentando quitar el link de front
-        self.front = self.front.before
+        self.front = self.front.after
+
+        self.decrease_items()
+
         return value
 
+    def increase_items(self):
+        self.items += 1
 
-    def print_queue(self):
+    def decrease_items(self):
+        self.items -= 1
+
+    def print_queue_from_rear(self):
         current = self.rear
-        print('Back...')
+        double_ll_values = "Double LL from Back => "
         while current:
-            print(current.value)
+            double_ll_values += "[ " + str(current.value) + " ]"
+            # print(current.value)
             current = current.before
 
+        return double_ll_values
 
-q = Queue()
-q.enqueue(10)
-q.enqueue(20)
-q.enqueue(30)
-# print(q.peek())
-print(q.print_queue())
-# me quede en hacer double link and dequeue
-# print(q.deqeue())
-# print(q)
+    def print_queue_from_front(self):
+        current = self.front
+        double_ll_values = "Double LL from Front => "
+        while current:
+            # print(current.value)
+            double_ll_values += "[ " + str(current.value) + " ]"
+            current = current.after
 
+        return double_ll_values
+
+
+# q = Queue()
+# q.enqueue(10)
+# q.enqueue(20)
+# q.enqueue(30)
+# # print(q.peek())
+# # print(q.print_queue_from_rear())
+# # print(q.print_queue_from_front())
+# # me quede en hacer double link and dequeue
+# print("deqeue: ", q.deqeue())
+# print(q.print_queue_from_front())
+
+# print("deqeue: ", q.deqeue())
+# print(q.print_queue_from_front())
+# q.enqueue(40)
+
+
+# # print("deqeue: ", q.deqeue())
+# print(q.print_queue_from_front())
+
+# print("deqeue: ", q.deqeue())
+# print(q.print_queue_from_front())
+
+# print("deqeue: ", q.deqeue())
+# print("deqeue: ", q.deqeue())

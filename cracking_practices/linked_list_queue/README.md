@@ -2,7 +2,6 @@
 
 # Problem Linked List Queue
 
-<!-- [Whiteboard approach](x_x) -->
 
 ### PROBLEM DOMAIN
 - Build a queue using a linked list from scratch. Implement the following operations: enqueue, dequeue, peek, size and is_empty.
@@ -101,18 +100,18 @@ Please review the test section below.
 
 #### BIG O
 
-**Time O(n):** I need to
+**Time Insert O(1):** I add at the rear of the queue, where I have saved the pointer.
+**Time Delete O(1):** I add at the front of the queue, where I have saved the pointer.
 
-**Space O(n):** I'm
 
 ### CODE
 
-[cracking_practices/x_x/x_x.py](x_x.py)
+[cracking_practices/linked_list_queue/linked_list_queue.py](linked_list_queue.py)
 
 ### TESTS
 
-[tests/test_x_x.py](../../tests/test_x_x.py)
+[tests/test_linked_list_queue.py](../../tests/test_linked_list_queue.py)
 
 ### GITHUB BRANCH
 
-[Pull Request # n, Branch: x_x](https://github.com/ilealm/cracking-practices/pull/X)
+[Pull Request # n, Branch: linked_list_queue](https://github.com/ilealm/cracking-practices/pull/102)

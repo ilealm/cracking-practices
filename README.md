@@ -317,5 +317,9 @@ Write a function to sort the objects in-place on their creation sequence number 
 The remove method should return the greatest value in the array.
 
 
-[ Queue reverse k elements ](cracking_practices/queue_reverse_k_elements*/README.md)
+[ Queue reverse k elements ](cracking_practices/queue_reverse_k_elements/README.md)
 - Given an integer K and a queue of integers, write code to reverse the order of the first K elements of the queue.
+
+
+[ Linked List Queue ](cracking_practices/linked_list_queue/README.md)
+- Build a queue using a linked list from scratch. Implement the following operations: enqueue, dequeue, peek, size and is_empty.

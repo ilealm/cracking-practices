@@ -323,3 +323,7 @@ The remove method should return the greatest value in the array.
 
 [ Linked List Queue ](cracking_practices/linked_list_queue/README.md)
 - Build a queue using a linked list from scratch. Implement the following operations: enqueue, dequeue, peek, size and is_empty.
+
+
+[ Hash Table First Non Repeted Character](cracking_practices/hash_table_find_1st_non_repited_ch/README.md)
+- From a given string, return the first non repetated character.

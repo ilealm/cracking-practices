@@ -327,3 +327,7 @@ The remove method should return the greatest value in the array.
 
 [ Hash Table First Non Repeted Character](cracking_practices/hash_table_find_1st_non_repited_ch/README.md)
 - From a given string, return the first non repetated character.
+
+
+[ Count the number of unique pairs of integers that have difference k.](cracking_practices/unique_pairs_with_k_difference/README.md)
+- Given an array of integers, count the number of unique pairs of integers that have difference k. Note that we only want the number of these pairs, not the pairs themselves.

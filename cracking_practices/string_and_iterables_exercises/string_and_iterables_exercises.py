@@ -60,15 +60,49 @@ class ListExersices:
         return len(self.small_list_a)
 
     def get_sixth_item(self):
-        return self.small_list_a[7-1]
+        return self.small_list_a[7 - 1]
 
     def remove_sixth_element(self):
-        del self.small_list_a[6-1]
+        del self.small_list_a[6 - 1]
         return self.small_list_a
 
     def upd_first_element(self):
-        self.small_list_a[1-1] = 'A'
+        self.small_list_a[1 - 1] = "A"
         return self.small_list_a
+
+    def add_item_at_end(self):
+        new_item = "B"
+        self.small_list_a.append(new_item)
+        return self.small_list_a
+
+    def add_new_sequence(self):
+        new_sequence = ["C", "D", "E", "F"]
+        self.small_list_a.extend(new_sequence)
+        return self.small_list_a
+
+    def insert_at_sixth_position(self):
+        self.small_list_a.insert(5, "60")
+        return self.small_list_a
+
+    #! this one, removes the first item with the indicared VALUE
+    def remove_value_one_hundred(self):
+        value_to_remove = '100'
+        self.small_list_a.remove(value_to_remove)
+        return self.small_list_a
+
+    def remove_last_value(self):
+        self.small_list_a.pop()
+        return self.small_list_a
+
+    def sort_in_place(self):
+        self.small_list_a.extend(['-1','-2','-3'])
+        self.small_list_a.sort()
+        return self.small_list_a
+
+    def reverse_in_place(self):
+        self.small_list_a.reverse()
+        return self.small_list_a
+
 
     def test_list_exercises(self):
         print("get_all_items_one_list \n", self.get_all_items_one_list())
@@ -86,8 +120,13 @@ class ListExersices:
         print("self.get_sixth_item \n", self.get_sixth_item())
         print("self.remove_sixth_element \n", self.remove_sixth_element())
         print("self.upd_first_element \n", self.upd_first_element())
-
-
+        print("self.add_item_at_end \n", self.add_item_at_end())
+        print("self.add_new_sequence \n", self.add_new_sequence())
+        print("self.insert_at_sixth_position \n", self.insert_at_sixth_position())
+        print("self.remove_value_one_hundred \n", self.remove_value_one_hundred())
+        print("self.remove_last_value \n", self.remove_last_value())
+        print("self.sort_in_place \n", self.sort_in_place())
+        print("self.reverse_in_place \n", self.reverse_in_place())
 
 
 if __name__ == "__main__":

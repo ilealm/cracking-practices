@@ -1,10 +1,6 @@
-import re
-from select import select
-
-
-class StringsExersices:
-    def __init__(self):
-        self.smalll_sentence = "This is a small sentence"
+# class StringsExersices:
+#     def __init__(self):
+#         self.smalll_sentence = "This is a small sentence"
 
 
 class ListExersices:
@@ -86,23 +82,22 @@ class ListExersices:
 
     #! this one, removes the first item with the indicared VALUE
     def remove_value_one_hundred(self):
-        value_to_remove = '100'
+        value_to_remove = "100"
         self.small_list_a.remove(value_to_remove)
         return self.small_list_a
 
-    def remove_last_value(self):
+    def remove_last_item(self):
         self.small_list_a.pop()
         return self.small_list_a
 
     def sort_in_place(self):
-        self.small_list_a.extend(['-1','-2','-3'])
+        self.small_list_a.extend(["-1", "-2", "-3"])
         self.small_list_a.sort()
         return self.small_list_a
 
     def reverse_in_place(self):
         self.small_list_a.reverse()
         return self.small_list_a
-
 
     def test_list_exercises(self):
         print("get_all_items_one_list \n", self.get_all_items_one_list())
@@ -124,14 +119,91 @@ class ListExersices:
         print("self.add_new_sequence \n", self.add_new_sequence())
         print("self.insert_at_sixth_position \n", self.insert_at_sixth_position())
         print("self.remove_value_one_hundred \n", self.remove_value_one_hundred())
-        print("self.remove_last_value \n", self.remove_last_value())
+        print("self.remove_last_item \n", self.remove_last_item())
         print("self.sort_in_place \n", self.sort_in_place())
         print("self.reverse_in_place \n", self.reverse_in_place())
 
 
+class DictExersices:
+    def __init__(self):
+        self.my_dict = None
+
+    def create_dict_with_values(self):
+        self.my_dict = {1: "one", 2: "two", 3: "three"}
+        return self.my_dict
+
+    def get_two_value(self):
+        return self.my_dict[2]
+
+    def add_new_key_value(self):
+        self.my_dict[4] = "four"
+        return self.my_dict
+
+    def update_value(self):
+        self.my_dict[1] = "uno"
+        return self.my_dict
+
+    def get_keys(self):
+        # rerurns an ITERABLE
+        return self.my_dict.keys()
+
+    def get_values(self):
+        # rerurns an ITERABLE
+        return self.my_dict.values()
+
+    def dict_contains_value_four(self):
+        values = self.my_dict.values()
+
+        return True if "four" in values else False
+
+    def remove_key_two(self):
+        self.my_dict.pop(2)
+        return self.my_dict
+
+    def remove_non_exitant_key(self):
+        return self.my_dict.pop(2, "The key does not exist")
+
+    def remove_last_added(self):
+        self.my_dict.popitem()
+        return self.my_dict
+
+    def get_value_of_a_key(self):
+        return self.my_dict[1]
+
+    def add_key_value_if_key_doesnt_exist(self):
+        #  returns the value of the item with the specified key.
+        # If the key does not exist, insert the key, with the specified value
+        res = self.my_dict.setdefault(5,"five")
+        return self.my_dict
+
+    def convert_list_to_dict(self):
+        pass
+
+    def test_dict_exercises(self):
+        print("Dict exercises ")
+        print("create_dict_with_values \n", self.create_dict_with_values())
+        print("get_two_value \n", self.get_two_value())
+        print("add_new_key_value \n", self.add_new_key_value())
+        print("update_value \n", self.update_value())
+        print("get_keys \n", self.get_keys())
+        print("get_values \n", self.get_values())
+        print("dict_contains_value_four \n", self.dict_contains_value_four())
+        print("remove_key_two \n", self.remove_key_two())
+        print("remove_non_exitant_key \n", self.remove_non_exitant_key())
+        print("remove_last_added \n", self.remove_last_added())
+        print("get_value_of_a_key \n", self.get_value_of_a_key())
+        print("add_key_value_if_key_doesnt_exist \n", self.add_key_value_if_key_doesnt_exist() )
+        # print(" \n", self.() )
+
+
+#
+
+
 if __name__ == "__main__":
     lst = ListExersices()
-    lst.test_list_exercises()
+    # lst.test_list_exercises()
+    hh = DictExersices()
+    hh.test_dict_exercises()
 
 
 # sdf

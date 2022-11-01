@@ -99,6 +99,21 @@ class ListExersices:
         self.small_list_a.reverse()
         return self.small_list_a
 
+    def remove_range_items(self):
+        self.small_list_a[4:13] = []
+        return self.small_list_a
+
+    def remove_list_duplicates(self):
+        # ! convert to a set, BC set doesn't allow diplicates
+        thisList = ["apple", "banana", "banana", "banana", "cherry"]
+        thisSet = set(thisList)
+
+        return thisSet
+
+    def clear_all_items(self):
+        # the list still exists, it's just NONE
+        return self.small_list_a.clear()
+
     def test_list_exercises(self):
         print("get_all_items_one_list \n", self.get_all_items_one_list())
         print("get_first_item_list \n", self.get_first_item_list())
@@ -122,6 +137,9 @@ class ListExersices:
         print("self.remove_last_item \n", self.remove_last_item())
         print("self.sort_in_place \n", self.sort_in_place())
         print("self.reverse_in_place \n", self.reverse_in_place())
+        print("self.remove_range_items \n", self.remove_range_items())
+        print("self.remove_list_duplicates \n", self.remove_list_duplicates())
+        print("self.clear_all_items \n", self.clear_all_items())
 
 
 class DictExersices:
@@ -171,8 +189,73 @@ class DictExersices:
     def add_key_value_if_key_doesnt_exist(self):
         #  returns the value of the item with the specified key.
         # If the key does not exist, insert the key, with the specified value
-        res = self.my_dict.setdefault(5,"five")
+        res = self.my_dict.setdefault(5, "five")
         return self.my_dict
+
+    def create_new_dic_from_two_dicts(self):
+        dict_one = {"A": "a", "B": "b", "C": "c", "D": "d"}
+        dict_two = {
+            "E": "e",
+            "F": "f",
+            "A": "aa",
+            "B": "bb",
+            "G": "g",
+            "H": "h",
+            "I": "i",
+        }
+        # !this also removes duplicates
+        new_dict = {**dict_one, **dict_two}
+        return new_dict
+
+    def create_new_dic_from_other_two_opt_two(self):
+        dict_one = {"A": "a", "B": "b"}
+        dict_two = {
+            "E": "e",
+            "F": "f",
+            "A": "aa",
+            "B": "bb",
+            "G": "g",
+
+        }
+        # !this also removes duplicates
+        new_dict = dict_one.copy()
+        new_dict.update(dict_two)
+
+        return new_dict
+
+    def create_new_dic_from_two_dicts_and_other_keys(self):
+        dict_one = {"A": "a", "B": "b"}
+        dict_two = {
+            "E": "e",
+            "F": "f",
+            "A": "aa",
+            "B": "bb",
+            "G": "g",
+
+        }
+        # !this also removes duplicates
+        new_dict = {**dict_one, 'key1':'value1', **dict_two, 'key2':'value2', 'key3':'value3'}
+
+        return new_dict
+
+
+    def merge_two_dicts(self):
+        dict_one = {"A": "a", "B": "b"}
+        dict_two = {
+            "E": "e",
+            "F": "f",
+            "A": "aa",
+            "B": "bb",
+            "G": "g",
+
+        }
+        # !this also removes duplicates
+        # I don't know why 2nd arg HAS TO HAVE **
+        dict_one = dict(dict_one, **dict_two)
+
+        return dict_one
+
+
 
 
     def test_dict_exercises(self):
@@ -188,18 +271,18 @@ class DictExersices:
         print("remove_non_exitant_key \n", self.remove_non_exitant_key())
         print("remove_last_added \n", self.remove_last_added())
         print("get_value_of_a_key \n", self.get_value_of_a_key())
-        print("add_key_value_if_key_doesnt_exist \n", self.add_key_value_if_key_doesnt_exist() )
-        # print(" \n", self.() )
-
-
-#
+        print("add_key_value_if_key_doesnt_exist \n", self.add_key_value_if_key_doesnt_exist())
+        print("create_new_dic_from_two_dicts \n", self.create_new_dic_from_two_dicts())
+        print("create_new_dic_from_two_dicts_and_other_keys \n", self.create_new_dic_from_two_dicts_and_other_keys())
+        print("merge_two_dicts \n", self.merge_two_dicts())
+        print("create_new_dic_from_other_two_opt_two \n", self.create_new_dic_from_other_two_opt_two())
 
 
 if __name__ == "__main__":
-    lst = ListExersices()
+    # lst = ListExersices()
     # lst.test_list_exercises()
     hh = DictExersices()
     hh.test_dict_exercises()
 
 
-# sdf
+

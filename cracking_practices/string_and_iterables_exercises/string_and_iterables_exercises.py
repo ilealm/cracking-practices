@@ -132,7 +132,7 @@ class DictExersices:
         self.my_dict = {1: "one", 2: "two", 3: "three"}
         return self.my_dict
 
-    def get_two_value(self):
+    def get_value(self):
         return self.my_dict[2]
 
     def add_new_key_value(self):
@@ -152,9 +152,7 @@ class DictExersices:
         return self.my_dict.values()
 
     def dict_contains_value_four(self):
-        values = self.my_dict.values()
-
-        return True if "four" in values else False
+        return True if "four" in self.my_dict.values() else False
 
     def remove_key_two(self):
         self.my_dict.pop(2)
@@ -176,13 +174,11 @@ class DictExersices:
         res = self.my_dict.setdefault(5,"five")
         return self.my_dict
 
-    def convert_list_to_dict(self):
-        pass
 
     def test_dict_exercises(self):
         print("Dict exercises ")
         print("create_dict_with_values \n", self.create_dict_with_values())
-        print("get_two_value \n", self.get_two_value())
+        print("get_value \n", self.get_value())
         print("add_new_key_value \n", self.add_new_key_value())
         print("update_value \n", self.update_value())
         print("get_keys \n", self.get_keys())

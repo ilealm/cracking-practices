@@ -325,7 +325,7 @@ class SetExercises():
         return mySet
 
 
-    def remove_list_item(self):
+    def remove_set_item(self):
         # To remove an item in a set, use the remove(), or the discard() method.
         #  If the item to remove does not exist, remove() will raise an error.
         # If the item to remove does not exist, discard() will NOT raise an error.
@@ -335,7 +335,7 @@ class SetExercises():
         return mySet
 
 
-    def remove_last_item(self):
+    def remove_random_item(self):
         # ! this method will always RETURN DIFFERENT VALUES
         # Sets are unordered, so when using the pop() method, you do not know which item that gets removed.
         mySet = {'apple', 'banana', 'cherry'}
@@ -448,8 +448,8 @@ class SetExercises():
         print("add_item_to_set \n", self.add_item_to_set())
         print("merge_two_sets_in_one \n", self.merge_two_sets_in_one())
         print("add_iterable_to_set \n", self.add_iterable_to_set())
-        print("remove_list_item \n", self.remove_list_item())
-        print("remove_last_item \n", self.remove_last_item())
+        print("remove_set_item \n", self.remove_set_item())
+        print("remove_random_item \n", self.remove_random_item())
         print("clear_set \n", self.clear_set())
         print("delete_set \n", self.delete_set())
         print("print_all_set_items \n", self.print_all_set_items())

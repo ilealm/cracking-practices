@@ -3,6 +3,9 @@
 #         self.smalll_sentence = "This is a small sentence"
 
 
+from ast import Delete
+
+
 class ListExersices:
     def __init__(self) -> None:
         self.small_list_a = ["10", "20", "30", "40", "50"]
@@ -277,12 +280,198 @@ class DictExersices:
         print("merge_two_dicts \n", self.merge_two_dicts())
         print("create_new_dic_from_other_two_opt_two \n", self.create_new_dic_from_other_two_opt_two())
 
+class SetExercises():
+    def __init__(self) -> None:
+        pass
+
+    def create_set(self):
+        #! has to have double (())
+        mySet = set(('apple', 'banana', 'cherry'))
+        return mySet
+
+    def get_set_len(self):
+        mySet = {'apple', 'banana', 'cherry'}
+        return len(mySet)
+
+    def loop_set(self):
+        mySet = {'apple', 'banana', 'cherry'}
+        for item in mySet:
+            print(item)
+
+    def is_item_in_set(self):
+        mySet = {'apple', 'banana', 'cherry'}
+        return True if 'banana' in mySet else False
+
+
+    def add_item_to_set(self):
+        mySet = {'apple', 'banana', 'cherry'}
+        mySet.add('straberry')
+        return mySet
+
+    def add_iterable_to_set(self):
+        # The object in the update() method does not have to be a set, it can be any iterable object (tuples, lists, dictionaries etc.).
+        mySet = {'apple', 'banana', 'cherry'}
+        myList =['chicken','eggs']
+        mySet.update(myList)
+
+        return mySet
+
+    def merge_two_sets_in_one(self):
+        # The object in the update() method does not have to be a set, it can be any iterable object (tuples, lists, dictionaries etc.).
+        mySet = {'apple', 'banana', 'cherry'}
+        my_newSet = {'chicken','eggs'}
+        mySet.update(my_newSet)
+
+        return mySet
+
+
+    def remove_list_item(self):
+        # To remove an item in a set, use the remove(), or the discard() method.
+        #  If the item to remove does not exist, remove() will raise an error.
+        # If the item to remove does not exist, discard() will NOT raise an error.
+        mySet = {'apple', 'banana', 'cherry'}
+        mySet.discard('banana')
+
+        return mySet
+
+
+    def remove_last_item(self):
+        # ! this method will always RETURN DIFFERENT VALUES
+        # Sets are unordered, so when using the pop() method, you do not know which item that gets removed.
+        mySet = {'apple', 'banana', 'cherry'}
+        last_item = mySet.pop()
+        return last_item
+
+
+    def clear_set(self):
+        mySet = {'apple', 'banana', 'cherry'}
+        # this will create a None object
+        mySet.clear()
+        return mySet
+
+    def delete_set(self):
+        mySet = {'apple', 'banana', 'cherry'}
+        # this will DELETE COMPLETLY THE OBJECT
+        del mySet
+        return "the object doesnt exist"
+
+    def print_all_set_items(self):
+        mySet = {'apple', 'banana', 'cherry'}
+        for item in mySet:
+            print(item)
+
+        return "all the sets"
+
+    def create_new_set_from_two_sets(self):
+        mySet_one = {'apple', 'banana', 'cherry'}
+        mySet_two ={'chicken','eggs'}
+        # You can use the union() method that returns a new set containing all items from both sets
+        # Both union() and update() will exclude any duplicate items.
+        new_set = mySet_one.union(mySet_two)
+
+        return new_set
+
+    def add_set_to_existing_set(self):
+        mySet_one = {'apple', 'banana', 'cherry'}
+        mySet_two ={'chicken','eggs'}
+        # update() method that inserts all the items from one set into another.
+        # Both union() and update() will exclude any duplicate items.
+        mySet_one.update(mySet_two)
+
+        return mySet_one
+
+
+    def get_items_in_both_sets(self):
+        mySet_one = {'apple', 'banana', 'cherry', 'eggs'}
+        mySet_two ={'chicken','eggs', 'banana'}
+        duplicated_sets = mySet_one.intersection(mySet_two)
+        # intersection() method will return a new set, that only contains the items that are present in both sets.
+        return duplicated_sets
+
+    def leave_just_duplicated_items_in_sets(self):
+        mySet_one = {'apple', 'banana', 'cherry', 'eggs'}
+        mySet_two ={'chicken','eggs', 'banana'}
+        mySet_one.intersection_update(mySet_two)
+
+        return mySet_one
+
+    def get_new_set_with_non_duplicated_items_in_sets(self):
+        mySet_one = {'apple', 'banana', 'cherry', 'eggs'}
+        mySet_two ={'chicken','eggs', 'banana'}
+
+        non_duplicated = mySet_one.symmetric_difference(mySet_two)
+
+        return non_duplicated
+
+    def remove_duplicates_from_sets(self):
+        mySet_one = {'apple', 'banana', 'cherry', 'eggs'}
+        mySet_two ={'chicken','eggs', 'banana'}
+        mySet_one.symmetric_difference_update(mySet_two)
+        # symmetric_difference() method will return a new set, that contains only the elements that are NOT present in both sets.
+        return mySet_one
+
+    def are_set_item_into_other_set(self):
+        mySet_one = {'apple', 'banana', 'cherry', 'eggs'}
+        mySet_two ={'chicken','eggs', 'banana'}
+        # sdisjoint() method returns True if none of the items are present in both sets, otherwise it returns False.
+        return not mySet_one.isdisjoint(mySet_two)
+
+    def are_all_setA_items_in_setB(self):
+        # the order of the sets doesnt matter
+        mySet_one = {"a", "b", "c"}
+        mySet_two ={"f", "e", "d", "c", "b", "a"}
+        #! Returns whether another set contains this set or not
+        # issubset True if all items in set mySet_one are present in set mySet_two:
+        is_one_in_two =  mySet_one.issubset(mySet_two)
+
+        return is_one_in_two
+
+
+    def are_all_setB_items_in_setA(self):
+        # the order of the sets doesnt matter
+        mySet_one ={"f", "e", "d", "c", "b", "a"}
+        mySet_two = {"a", "b", "c"}
+        # Returns whether another set contains this set or not
+        #! issubset True if all items in set mySet_two are present in set mySet_one:
+        is_one_in_two =  mySet_one.issuperset(mySet_two)
+
+        return is_one_in_two
+
+
+
+    def test_set_exercises(self):
+        print("Set exercises")
+        print("create_set \n", self.create_set())
+        print("get_set_len \n", self.get_set_len())
+        self.loop_set()
+        print("is_item_in_set \n", self.is_item_in_set())
+        print("add_item_to_set \n", self.add_item_to_set())
+        print("merge_two_sets_in_one \n", self.merge_two_sets_in_one())
+        print("add_iterable_to_set \n", self.add_iterable_to_set())
+        print("remove_list_item \n", self.remove_list_item())
+        print("remove_last_item \n", self.remove_last_item())
+        print("clear_set \n", self.clear_set())
+        print("delete_set \n", self.delete_set())
+        print("print_all_set_items \n", self.print_all_set_items())
+        print("create_new_set_from_two_sets \n", self.create_new_set_from_two_sets())
+        print("add_set_to_existing_set \n", self.add_set_to_existing_set())
+        print("get_items_in_both_sets \n", self.get_items_in_both_sets())
+        print("leave_just_duplicated_items_in_sets \n", self.leave_just_duplicated_items_in_sets())
+        print("remove_duplicates_from_sets \n", self.remove_duplicates_from_sets())
+        print("are_set_item_into_other_set \n", self.are_set_item_into_other_set())
+        print("are_all_setA_items_in_setB \n", self.are_all_setA_items_in_setB())
+        print("are_all_setB_items_in_setA \n", self.are_all_setB_items_in_setA())
+        print("get_new_set_with_non_duplicated_items_in_sets \n", self.get_new_set_with_non_duplicated_items_in_sets())
+
 
 if __name__ == "__main__":
     # lst = ListExersices()
     # lst.test_list_exercises()
-    hh = DictExersices()
-    hh.test_dict_exercises()
+    # hh = DictExersices()
+    # hh.test_dict_exercises()
+    thisSet =SetExercises()
+    thisSet.test_set_exercises()
+
 
 
 

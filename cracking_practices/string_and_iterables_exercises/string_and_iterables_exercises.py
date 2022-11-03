@@ -1,9 +1,4 @@
-# class StringsExersices:
-#     def __init__(self):
-#         self.smalll_sentence = "This is a small sentence"
-
-
-from ast import Delete
+import re
 
 
 class ListExersices:
@@ -118,7 +113,7 @@ class ListExersices:
         return self.small_list_a.clear()
 
     def test_list_exercises(self):
-        print("get_all_items_one_list \n", self.get_all_items_one_list())
+        print("get_count_of_one_item \n", self.get_count_of_one_item())
         print("get_first_item_list \n", self.get_first_item_list())
         print("get_last_item_list \n", self.get_last_item_list())
         print("get_first_3_items \n", self.get_first_3_items())
@@ -218,7 +213,6 @@ class DictExersices:
             "A": "aa",
             "B": "bb",
             "G": "g",
-
         }
         # !this also removes duplicates
         new_dict = dict_one.copy()
@@ -234,13 +228,17 @@ class DictExersices:
             "A": "aa",
             "B": "bb",
             "G": "g",
-
         }
         # !this also removes duplicates
-        new_dict = {**dict_one, 'key1':'value1', **dict_two, 'key2':'value2', 'key3':'value3'}
+        new_dict = {
+            **dict_one,
+            "key1": "value1",
+            **dict_two,
+            "key2": "value2",
+            "key3": "value3",
+        }
 
         return new_dict
-
 
     def merge_two_dicts(self):
         dict_one = {"A": "a", "B": "b"}
@@ -250,16 +248,12 @@ class DictExersices:
             "A": "aa",
             "B": "bb",
             "G": "g",
-
         }
         # !this also removes duplicates
         # I don't know why 2nd arg HAS TO HAVE **
         dict_one = dict(dict_one, **dict_two)
 
         return dict_one
-
-
-
 
     def test_dict_exercises(self):
         print("Dict exercises ")
@@ -274,97 +268,103 @@ class DictExersices:
         print("remove_non_exitant_key \n", self.remove_non_exitant_key())
         print("remove_last_added \n", self.remove_last_added())
         print("get_value_of_a_key \n", self.get_value_of_a_key())
-        print("add_key_value_if_key_doesnt_exist \n", self.add_key_value_if_key_doesnt_exist())
+        print(
+            "add_key_value_if_key_doesnt_exist \n",
+            self.add_key_value_if_key_doesnt_exist(),
+        )
         print("create_new_dic_from_two_dicts \n", self.create_new_dic_from_two_dicts())
-        print("create_new_dic_from_two_dicts_and_other_keys \n", self.create_new_dic_from_two_dicts_and_other_keys())
+        print(
+            "create_new_dic_from_two_dicts_and_other_keys \n",
+            self.create_new_dic_from_two_dicts_and_other_keys(),
+        )
         print("merge_two_dicts \n", self.merge_two_dicts())
-        print("create_new_dic_from_other_two_opt_two \n", self.create_new_dic_from_other_two_opt_two())
+        print(
+            "create_new_dic_from_other_two_opt_two \n",
+            self.create_new_dic_from_other_two_opt_two(),
+        )
 
-class SetExercises():
+
+class SetExercises:
     def __init__(self) -> None:
         pass
 
     def create_set(self):
         #! has to have double (())
-        mySet = set(('apple', 'banana', 'cherry'))
+        mySet = set(("apple", "banana", "cherry"))
         return mySet
 
     def get_set_len(self):
-        mySet = {'apple', 'banana', 'cherry'}
+        mySet = {"apple", "banana", "cherry"}
         return len(mySet)
 
     def loop_set(self):
-        mySet = {'apple', 'banana', 'cherry'}
+        mySet = {"apple", "banana", "cherry"}
         for item in mySet:
             print(item)
 
     def is_item_in_set(self):
-        mySet = {'apple', 'banana', 'cherry'}
-        return True if 'banana' in mySet else False
-
+        mySet = {"apple", "banana", "cherry"}
+        return True if "banana" in mySet else False
 
     def add_item_to_set(self):
-        mySet = {'apple', 'banana', 'cherry'}
-        mySet.add('straberry')
+        mySet = {"apple", "banana", "cherry"}
+        mySet.add("straberry")
         return mySet
 
     def add_iterable_to_set(self):
         # The object in the update() method does not have to be a set, it can be any iterable object (tuples, lists, dictionaries etc.).
-        mySet = {'apple', 'banana', 'cherry'}
-        myList =['chicken','eggs']
+        mySet = {"apple", "banana", "cherry"}
+        myList = ["chicken", "eggs"]
         mySet.update(myList)
 
         return mySet
 
     def merge_two_sets_in_one(self):
         # The object in the update() method does not have to be a set, it can be any iterable object (tuples, lists, dictionaries etc.).
-        mySet = {'apple', 'banana', 'cherry'}
-        my_newSet = {'chicken','eggs'}
+        mySet = {"apple", "banana", "cherry"}
+        my_newSet = {"chicken", "eggs"}
         mySet.update(my_newSet)
 
         return mySet
-
 
     def remove_set_item(self):
         # To remove an item in a set, use the remove(), or the discard() method.
         #  If the item to remove does not exist, remove() will raise an error.
         # If the item to remove does not exist, discard() will NOT raise an error.
-        mySet = {'apple', 'banana', 'cherry'}
-        mySet.discard('banana')
+        mySet = {"apple", "banana", "cherry"}
+        mySet.discard("banana")
 
         return mySet
-
 
     def remove_random_item(self):
         # ! this method will always RETURN DIFFERENT VALUES
         # Sets are unordered, so when using the pop() method, you do not know which item that gets removed.
-        mySet = {'apple', 'banana', 'cherry'}
+        mySet = {"apple", "banana", "cherry"}
         last_item = mySet.pop()
         return last_item
 
-
     def clear_set(self):
-        mySet = {'apple', 'banana', 'cherry'}
+        mySet = {"apple", "banana", "cherry"}
         # this will create a None object
         mySet.clear()
         return mySet
 
     def delete_set(self):
-        mySet = {'apple', 'banana', 'cherry'}
+        mySet = {"apple", "banana", "cherry"}
         # this will DELETE COMPLETLY THE OBJECT
         del mySet
         return "the object doesnt exist"
 
     def print_all_set_items(self):
-        mySet = {'apple', 'banana', 'cherry'}
+        mySet = {"apple", "banana", "cherry"}
         for item in mySet:
             print(item)
 
         return "all the sets"
 
     def create_new_set_from_two_sets(self):
-        mySet_one = {'apple', 'banana', 'cherry'}
-        mySet_two ={'chicken','eggs'}
+        mySet_one = {"apple", "banana", "cherry"}
+        mySet_two = {"chicken", "eggs"}
         # You can use the union() method that returns a new set containing all items from both sets
         # Both union() and update() will exclude any duplicate items.
         new_set = mySet_one.union(mySet_two)
@@ -372,72 +372,68 @@ class SetExercises():
         return new_set
 
     def add_set_to_existing_set(self):
-        mySet_one = {'apple', 'banana', 'cherry'}
-        mySet_two ={'chicken','eggs'}
+        mySet_one = {"apple", "banana", "cherry"}
+        mySet_two = {"chicken", "eggs"}
         # update() method that inserts all the items from one set into another.
         # Both union() and update() will exclude any duplicate items.
         mySet_one.update(mySet_two)
 
         return mySet_one
 
-
     def get_items_in_both_sets(self):
-        mySet_one = {'apple', 'banana', 'cherry', 'eggs'}
-        mySet_two ={'chicken','eggs', 'banana'}
+        mySet_one = {"apple", "banana", "cherry", "eggs"}
+        mySet_two = {"chicken", "eggs", "banana"}
         duplicated_sets = mySet_one.intersection(mySet_two)
         # intersection() method will return a new set, that only contains the items that are present in both sets.
         return duplicated_sets
 
     def leave_just_duplicated_items_in_sets(self):
-        mySet_one = {'apple', 'banana', 'cherry', 'eggs'}
-        mySet_two ={'chicken','eggs', 'banana'}
+        mySet_one = {"apple", "banana", "cherry", "eggs"}
+        mySet_two = {"chicken", "eggs", "banana"}
         mySet_one.intersection_update(mySet_two)
 
         return mySet_one
 
     def get_new_set_with_non_duplicated_items_in_sets(self):
-        mySet_one = {'apple', 'banana', 'cherry', 'eggs'}
-        mySet_two ={'chicken','eggs', 'banana'}
+        mySet_one = {"apple", "banana", "cherry", "eggs"}
+        mySet_two = {"chicken", "eggs", "banana"}
 
         non_duplicated = mySet_one.symmetric_difference(mySet_two)
 
         return non_duplicated
 
     def remove_duplicates_from_sets(self):
-        mySet_one = {'apple', 'banana', 'cherry', 'eggs'}
-        mySet_two ={'chicken','eggs', 'banana'}
+        mySet_one = {"apple", "banana", "cherry", "eggs"}
+        mySet_two = {"chicken", "eggs", "banana"}
         mySet_one.symmetric_difference_update(mySet_two)
         # symmetric_difference() method will return a new set, that contains only the elements that are NOT present in both sets.
         return mySet_one
 
     def are_set_item_into_other_set(self):
-        mySet_one = {'apple', 'banana', 'cherry', 'eggs'}
-        mySet_two ={'chicken','eggs', 'banana'}
+        mySet_one = {"apple", "banana", "cherry", "eggs"}
+        mySet_two = {"chicken", "eggs", "banana"}
         # sdisjoint() method returns True if none of the items are present in both sets, otherwise it returns False.
         return not mySet_one.isdisjoint(mySet_two)
 
     def are_all_setA_items_in_setB(self):
         # the order of the sets doesnt matter
         mySet_one = {"a", "b", "c"}
-        mySet_two ={"f", "e", "d", "c", "b", "a"}
+        mySet_two = {"f", "e", "d", "c", "b", "a"}
         #! Returns whether another set contains this set or not
         # issubset True if all items in set mySet_one are present in set mySet_two:
-        is_one_in_two =  mySet_one.issubset(mySet_two)
+        is_one_in_two = mySet_one.issubset(mySet_two)
 
         return is_one_in_two
-
 
     def are_all_setB_items_in_setA(self):
         # the order of the sets doesnt matter
-        mySet_one ={"f", "e", "d", "c", "b", "a"}
+        mySet_one = {"f", "e", "d", "c", "b", "a"}
         mySet_two = {"a", "b", "c"}
         # Returns whether another set contains this set or not
         #! issubset True if all items in set mySet_two are present in set mySet_one:
-        is_one_in_two =  mySet_one.issuperset(mySet_two)
+        is_one_in_two = mySet_one.issuperset(mySet_two)
 
         return is_one_in_two
-
-
 
     def test_set_exercises(self):
         print("Set exercises")
@@ -456,12 +452,277 @@ class SetExercises():
         print("create_new_set_from_two_sets \n", self.create_new_set_from_two_sets())
         print("add_set_to_existing_set \n", self.add_set_to_existing_set())
         print("get_items_in_both_sets \n", self.get_items_in_both_sets())
-        print("leave_just_duplicated_items_in_sets \n", self.leave_just_duplicated_items_in_sets())
+        print(
+            "leave_just_duplicated_items_in_sets \n",
+            self.leave_just_duplicated_items_in_sets(),
+        )
         print("remove_duplicates_from_sets \n", self.remove_duplicates_from_sets())
         print("are_set_item_into_other_set \n", self.are_set_item_into_other_set())
         print("are_all_setA_items_in_setB \n", self.are_all_setA_items_in_setB())
         print("are_all_setB_items_in_setA \n", self.are_all_setB_items_in_setA())
-        print("get_new_set_with_non_duplicated_items_in_sets \n", self.get_new_set_with_non_duplicated_items_in_sets())
+        print(
+            "get_new_set_with_non_duplicated_items_in_sets \n",
+            self.get_new_set_with_non_duplicated_items_in_sets(),
+        )
+
+
+class TuplesExercises:
+    def create_tuple(self):
+        #! it's better to add always a "," at the end of the list, so Python can ID as a tuple
+        # When we create a tuple, we normally assign values to it. This is called "packing" a tuple:
+        my_tupple = (
+            "apple",
+            "banana",
+            "cherry",
+            "banana",
+        )
+        return my_tupple
+
+    def create_tuple_with_constructor(self):
+        #! note the double round-brackets
+        my_tuple = tuple(("apple", "banana", "cherry", "banana"))
+        return my_tuple
+
+    def create_tuple_with_one_item(self):
+        # ! To create a tuple with only one item, you have to add a comma after the item, otherwise Python will not recognize it as a tuple.
+        my_tuple = ("apple",)
+        return my_tuple
+
+    def create_tuple_dif_data_types(self):
+        my_tupple = (
+            "apple",
+            548,
+            True,
+        )
+        return my_tupple
+
+    def get_tuple_len(self):
+        my_tupple = (
+            "apple",
+            "banana",
+            "cherry",
+            "banana",
+        )
+        return len(my_tupple)
+
+    def get_second_item(self):
+        # BC tuples are ordered, I will alwasys have them ordered
+        my_tupple = (
+            "apple",
+            "cherry",
+            "banana",
+            "cherry",
+            "banana",
+        )
+        return my_tupple[1]
+
+    def get_last_item(self):
+        # tuples accept negative index, like list
+        my_tupple = (
+            "apple",
+            "banana",
+            "cherry",
+            "banana",
+        )
+        return my_tupple[-1]
+
+    def get_second_to_last_item(self):
+        # tuples accept negative index, like list
+        my_tupple = (
+            "apple",
+            "banana",
+            "cherry",
+            "orange",
+            "banana",
+        )
+        return my_tupple[-2]
+
+    def get_range_in_tuple(self):
+        my_tuple = ("apple", "banana", "cherry", "orange", "kiwi", "melon", "mango")
+        # The search will start at index 2 (included) and end at index 5 (not included)
+        return my_tuple[2:5]
+
+    def get_items_until_nth_position(self):
+        my_tuple = ("apple", "banana", "cherry", "orange", "kiwi", "melon", "mango")
+        return my_tuple[:4]
+
+    def get_items_from_nth_to_end(self):
+        my_tuple = ("apple", "banana", "cherry", "orange", "kiwi", "melon", "mango")
+        return my_tuple[2:]
+
+    def get_last_three_items(self):
+        my_tuple = ("apple", "banana", "cherry", "orange", "kiwi", "melon", "mango")
+        # returns the items from index -4 (included) to index -1 (excluded)
+        return my_tuple[-4:-1]
+
+    def item_exist(self):
+        my_tuple = ("apple", "banana", "cherry", "orange", "kiwi", "melon", "mango")
+        return True if "orange" in my_tuple else False
+
+    def workaround_to_edit_item(self):
+        my_tuple = ("apple", "banana", "cherry", "orange", "kiwi", "melon", "mango")
+        # Tuples are unchangeable, or immutable as it also is called.
+        # But there is a workaround.
+        # You can convert the tuple into a list, change the list, and convert the list back into a tuple.
+        my_list = list(my_tuple)
+        my_list[1] = "BANANA"
+        my_tuple = tuple(my_list)
+        return my_tuple
+
+    def add_item(self):
+        my_tuple = ("apple", "banana", "cherry")
+        # Since tuples are immutable, they do not have a build-in append() method, but there are other ways to add items to a tuple.
+        # Convert into a list: Just like the workaround for changing a tuple, you can convert it into a list, add your item(s), and convert it back into a tuple.
+        my_list = list(my_tuple)
+        my_list.append("MANGO")
+        my_tuple = tuple(my_list)
+        return my_tuple
+
+    def add_tuple_to_tuple(self):
+        my_tuple = (
+            "apple",
+            "banana",
+            "cherry",
+        )
+        # ! When creating a tuple with only one item, remember to include a comma after the item, otherwise it will not be identified as a tuple.
+        my_new_tuple = ("EGGS",)
+        my_tuple += my_new_tuple
+        return my_tuple
+
+    def remove_item(self):
+        # ! Tuples are unchangeable, so you cannot remove items from it, but you can use the same workaround as we used for changing and adding tuple items
+        my_tuple = (
+            "apple",
+            "banana",
+            "cherry",
+        )
+        # ! When creating a tuple with only one item, remember to include a comma after the item, otherwise it will not be identified as a tuple.
+        my_list = list(my_tuple)
+        my_list.remove("banana")
+        my_tuple = tuple(my_list)
+        return my_tuple
+
+    def delete_tuple(self):
+        # del keyword can delete the tuple completely:
+        my_tuple = (
+            "apple",
+            "banana",
+            "cherry",
+        )
+        del my_tuple
+        return "Deleted"
+
+    def set_items_into_variables(self):
+        # When we create a tuple, we normally assign values to it. This is called "packing" a tuple:
+        # But, in Python, we are also allowed to extract the values back into variables. This is called "unpacking":
+        fruits = ("apple", "banana", "cherry")
+        #! The number of variables must match the number of values in the tuple, if not, you must use an asterisk to collect the remaining values as a list.
+        (green, yellow, red) = fruits
+
+        return (green, yellow, red)
+
+    def set_some_items_to_list_variable(self):
+        fruits = (
+            "apple",
+            "banana",
+            "cherry",
+            "strawberry",
+            "raspberry",
+        )
+        # If the number of variables is less than the number of values, you can add an * to the variable name and the values will be assigned to the variable as a list:
+        (first, second, *my_list_variable) = fruits
+
+        return first, second, my_list_variable
+        # -->  ('apple', 'banana', ['cherry', 'strawberry', 'raspberry'])
+
+    # If the asterisk is added to another variable name than the last, Python will assign values to the variable until the number of values left matches the number of variables left.
+    def set_middle_items_to_list_variable(self):
+        fruits = (
+            "apple",
+            "banana",
+            "cherry",
+            "strawberry",
+            "raspberry",
+        )
+        (first, *middle_items,last) = fruits
+
+        return (first, middle_items,last)
+        # --> ('apple', ['banana', 'cherry', 'strawberry'], 'raspberry')
+
+
+    def loop_tuple(self):
+        my_tuple = ("apple", "banana","cherry")
+        items = ""
+        for item in my_tuple:
+            items += item + ", "
+
+        return items
+
+    def loop_tuple_with_range_and_index(self):
+        my_tuple = ("apple", "banana", "cherry", "lime")
+        items = ""
+        for i in range(len(my_tuple)):
+            items += my_tuple[i] + ", "
+
+        return items
+
+    def join_two_tuples(self):
+        tuple_one = ("eggs", "milk",)
+        tuple_two = ("bananas", "milk", "berries")
+        all_tuple = tuple_one + tuple_two
+
+        return all_tuple
+        # -->  ('eggs', 'milk', 'bananas', 'milk', 'berries')
+
+    def multiply_tuple(self):
+        base_tuple = ("one", "two", "three",)
+        multiplied_base = base_tuple * 3
+
+        return multiplied_base
+        #  -->  ('one', 'two', 'three', 'one', 'two', 'three', 'one', 'two', 'three')
+
+
+    def get_count_of_one_item(self):
+        my_tuple = ("milk", "eggs", "milk", "bread", "milk")
+        return my_tuple.count("milk")
+        # -->  3
+
+    def get_index_of_item(self):
+        my_tuple = ("milk", "eggs", "milk", "bread", "milk")
+        return my_tuple.index("eggs")
+        # -->  1
+
+    def test_tuples_exercises(self):
+        print("create_tuple --> ", self.create_tuple())
+        print("create_tuple_with_one_item --> ", self.create_tuple_with_one_item())
+        print("get_tuple_len --> ", self.get_tuple_len())
+        print("create_tuple_dif_data_types --> ", self.create_tuple_dif_data_types())
+        print(
+            "create_tuple_with_constructor --> ", self.create_tuple_with_constructor()
+        )
+        print("get_second_item --> ", self.get_second_item())
+        print("get_last_item --> ", self.get_last_item())
+        print("get_second_to_last_item --> ", self.get_second_to_last_item())
+        print("get_range_in_tuple --> ", self.get_range_in_tuple())
+        print("get_items_until_nth_position --> ", self.get_items_until_nth_position())
+        print("get_items_from_nth_to_end --> ", self.get_items_from_nth_to_end())
+        print("get_last_three_items --> ", self.get_last_three_items())
+        print("item_exist --> ", self.item_exist())
+        print("workaround_to_edit_item --> ", self.workaround_to_edit_item())
+        print("add_item --> ", self.add_item())
+        print("add_tuple_to_tuple --> ", self.add_tuple_to_tuple())
+        print("remove_item --> ", self.remove_item())
+        print("delete_tuple --> ", self.delete_tuple())
+        print("set_items_into_variables --> ", self.set_items_into_variables())
+        print("set_some_items_to_list_variable --> ", self.set_some_items_to_list_variable())
+        print("set_middle_items_to_list_variable --> ", self.set_middle_items_to_list_variable())
+        print("loop_tuple --> ", self.loop_tuple())
+        print("loop_tuple_with_range_and_index --> ", self.loop_tuple_with_range_and_index())
+        print("join_two_tuples --> ", self.join_two_tuples())
+        print("join_two_tuples --> ", self.join_two_tuples())
+        print("multiply_tuple --> ", self.multiply_tuple())
+        print("get_count_of_one_item --> ", self.get_count_of_one_item())
+        print("get_index_of_item --> ", self.get_index_of_item())
 
 
 if __name__ == "__main__":
@@ -469,9 +730,8 @@ if __name__ == "__main__":
     # lst.test_list_exercises()
     # hh = DictExersices()
     # hh.test_dict_exercises()
-    thisSet =SetExercises()
-    thisSet.test_set_exercises()
-
-
-
+    # thisSet =SetExercises()
+    # thisSet.test_set_exercises()
+    tpl = TuplesExercises()
+    tpl.test_tuples_exercises()
 

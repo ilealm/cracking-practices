@@ -331,3 +331,7 @@ The remove method should return the greatest value in the array.
 
 [ Count the number of unique pairs of integers that have difference k.](cracking_practices/unique_pairs_with_k_difference/README.md)
 - Given an array of integers, count the number of unique pairs of integers that have difference k. Note that we only want the number of these pairs, not the pairs themselves.
+
+
+[ Practices with Iterables](cracking_practices/string_and_iterables_exercises/README.md)
+- Common exercises for Strings, Lists, Sets, Tuples and dictionaries.

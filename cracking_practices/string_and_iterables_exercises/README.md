@@ -1,51 +1,14 @@
 [Table of Contents](../../README.md)
 
-# Problem 
+# Problem
 
 <!-- [Whiteboard approach](x_x) -->
 
 ### PROBLEM DOMAIN
 
-### VISUALS
+Common exercises for Strings, Lists, Sets, Tuples and dictionaries.
 
-```
-
-```
-
-### EDGE CASES
-
-- I can have valid values in the arays.
-- Values can be repeted.
-
-### ALGORITHMS
-
-#### APPROACH 1,
-
-```
-algo
-
-```
-
-#### TESTS
-
-```
-Please review the test section below.
-```
-
-#### BIG O
-
-**Time O(n):** I need to
-
-**Space O(n):** I'm
-
-### CODE
-
-[cracking_practices/x_x/x_x.py](x_x.py)
-
-### TESTS
-
-[tests/test_x_x.py](../../tests/test_x_x.py)
 
 ### GITHUB BRANCH
 
-[Pull Request # n, Branch: x_x](https://github.com/ilealm/cracking-practices/pull/X)
+[Pull Request # 105, Branch: string_and_iterables_exercises](https://github.com/ilealm/cracking-practices/pull/105)

@@ -1,3 +1,4 @@
+
 import re
 
 
@@ -435,6 +436,39 @@ class SetExercises:
 
         return is_one_in_two
 
+
+    def add_three_lists_to_a_set(self):
+        set1 = {11, 12, 13, 14}
+        # 3 lists of numbers
+        list1 = [15, 16, 17]
+        list2 = [18, 19]
+        list3 = [30, 31, 19, 17]
+        set1.update(list1, list2, list3)
+
+        return set1
+
+
+    def add_list_to_set_with_pipe(self):
+        #original set
+        set1 = {1, 2, 3, 4, 5}
+        #list ofnumbers to add
+        list1 = [6, 7]
+        # convert list to set and get union of both the sets using |
+        set1 |= set(list1)
+
+        return set1
+
+    def add_tuple_to_a_set(self):
+        #input set
+        set1 = {1, 2, 4, 5}
+        # tuple to add
+        tuple1 = (6, 7)
+        #add tuple to the set
+        set1.add(tuple1)
+
+        return set1
+        # {1, 2, 4, 5, (6, 7)}
+
     def test_set_exercises(self):
         print("Set exercises")
         print("create_set \n", self.create_set())
@@ -464,6 +498,9 @@ class SetExercises:
             "get_new_set_with_non_duplicated_items_in_sets \n",
             self.get_new_set_with_non_duplicated_items_in_sets(),
         )
+        print("add_three_lists_to_a_set \n", self.add_three_lists_to_a_set())
+        print("add_list_to_set_with_pipe \n", self.add_list_to_set_with_pipe())
+        print("add_tuple_to_a_set \n", self.add_tuple_to_a_set())
 
 
 class TuplesExercises:
@@ -505,7 +542,7 @@ class TuplesExercises:
         )
         return len(my_tupple)
 
-    def get_second_item(self):
+    def get_item_with_index(self):
         # BC tuples are ordered, I will alwasys have them ordered
         my_tupple = (
             "apple",
@@ -700,7 +737,7 @@ class TuplesExercises:
         print(
             "create_tuple_with_constructor --> ", self.create_tuple_with_constructor()
         )
-        print("get_second_item --> ", self.get_second_item())
+        print("get_item_with_index --> ", self.get_item_with_index())
         print("get_last_item --> ", self.get_last_item())
         print("get_second_to_last_item --> ", self.get_second_to_last_item())
         print("get_range_in_tuple --> ", self.get_range_in_tuple())
@@ -725,13 +762,32 @@ class TuplesExercises:
         print("get_index_of_item --> ", self.get_index_of_item())
 
 
-if __name__ == "__main__":
+class MatchExercises:
+    def find_first_name_with_seven_letters(self):
+        names = ["Linda", "Tiffany", "Florina", "Jovann"]
+        length_of_names = [len(name) for name in names]
+        # --> [5, 7, 7, 6]
+        idx = length_of_names.index(7)
+        return names[idx]
+
+    def find_index_first_match(self):
+        names = ["Linda", "Tiffany", "Florina", "Jovann"]
+        idx = names.index("Florina")
+        return idx
+
+    def test_match_exercises(self):
+        print("find_first_name_with_seven_letters  --> ", self.find_first_name_with_seven_letters())
+        print("find_index_first_match  --> ", self.find_index_first_match())
+
+# if __name__ == "__main__":
     # lst = ListExersices()
     # lst.test_list_exercises()
     # hh = DictExersices()
     # hh.test_dict_exercises()
     # thisSet =SetExercises()
     # thisSet.test_set_exercises()
-    tpl = TuplesExercises()
-    tpl.test_tuples_exercises()
+    # tpl = TuplesExercises()
+    # tpl.test_tuples_exercises()
+    # matchs = MatchExercises()
+    # matchs.test_match_exercises()
 

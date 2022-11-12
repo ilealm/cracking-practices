@@ -62,6 +62,60 @@ class BinaryTree:
 
         return False
 
+    def pre_order(self):
+        pre_order_result = ""
+        # if self.root is None:
+        #     return pre_order_result
+
+        def traverse(current_node):
+            if not current_node:
+                return
+
+            nonlocal pre_order_result
+            # print(current_node.value)
+            pre_order_result += str(current_node.value) + " "
+            traverse(current_node.left)
+            traverse(current_node.right)
+
+        traverse(self.root)
+        return pre_order_result
+
+    def in_order(self):
+        in_order_result = ""
+        # if self.root is None:
+        #     return in_order_result
+
+        def traverse(current_node):
+            if not current_node:
+                return
+
+            nonlocal in_order_result
+
+            traverse(current_node.left)
+            in_order_result += str(current_node.value) + " "
+            traverse(current_node.right)
+
+        traverse(self.root)
+        return in_order_result
+
+    def post_order(self):
+        post_order_result = ""
+
+        def traverse(current_node):
+            nonlocal post_order_result
+
+            if current_node is None : return
+
+            traverse(current_node.left)
+            traverse(current_node.right)
+            post_order_result += str(current_node.value) + " "
+
+
+
+        traverse(self.root)
+
+        return post_order_result
+
 
 if __name__ == "__main__":
     import os
@@ -70,14 +124,26 @@ if __name__ == "__main__":
     os.system("clear")
 
     tree = BinaryTree()
-    tree.insert(10)
-    tree.insert(5)
-    tree.insert(15)
-    tree.insert(6)
+    tree.insert(7)
+    tree.insert(4)
+    tree.insert(9)
     tree.insert(1)
+    tree.insert(6)
     tree.insert(8)
-    tree.insert(12)
-    tree.insert(18)
-    tree.insert(17)
-    print(tree.find(15))
+    tree.insert(10)
+    print(tree.pre_order())
+    print(tree.in_order())
+    print(tree.post_order())
+
+    # tree = BinaryTree()
+    # tree.insert(10)
+    # tree.insert(5)
+    # tree.insert(15)
+    # tree.insert(6)
+    # tree.insert(1)
+    # tree.insert(8)
+    # tree.insert(12)
+    # tree.insert(18)
+    # tree.insert(17)
+    # print(tree.find(15))
 

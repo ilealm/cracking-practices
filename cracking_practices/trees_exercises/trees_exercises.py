@@ -250,16 +250,13 @@ class BinaryTree:
     def get_nodes_at_kth_deep(self, k):
         return self.get_nodes_k_distance(k)
 
-
     def traverse_level_order(self):
-        if self.root is None :
+        if self.root is None:
             return
 
         tree_hight = self.height() + 1
-        for i in range(0,tree_hight):
+        for i in range(0, tree_hight):
             print(self.get_nodes_k_distance(i))
-
-
 
 
 def tests_on_binary_search_trees():
@@ -274,6 +271,7 @@ def tests_on_binary_search_trees():
     tree.insert(6)
     tree.insert(8)
     tree.insert(10)
+    
 
     # print(tree.pre_order())
     # print(tree.in_order())

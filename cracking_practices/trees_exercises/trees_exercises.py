@@ -216,9 +216,12 @@ class BinaryTree:
             if not current:
                 return True
             # preorder traversal
-            return (
-                ((range_min < current.value) and (current.value < range_max))
-                and traverse(current.left, range_min, current.value)
+
+            if not ((range_min < current.value) and
+                    (current.value < range_max)) :
+                return False
+
+            return (traverse(current.left, range_min, current.value)
                 and traverse(current.right, current.value, range_max)
             )
 

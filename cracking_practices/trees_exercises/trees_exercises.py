@@ -132,6 +132,15 @@ class BinaryTree:
         traverse(self.root)
         return desc_order
 
+
+    def height(self):
+        def traverse(current):
+            if current.left is None and current.right is None: return 0
+
+            return 1 + max(traverse(current.left), traverse(current.right))
+
+        return traverse(self.root)
+
 if __name__ == "__main__":
     import os
 
@@ -149,8 +158,9 @@ if __name__ == "__main__":
     # print(tree.pre_order())
     # print(tree.in_order())
     # print(tree.post_order())
-    print(tree.get_tree_asc_order())
-    print(tree.get_tree_desc_order())
+    # print(tree.get_tree_asc_order())
+    # print(tree.get_tree_desc_order())
+    print(tree.height())
 
     # tree = BinaryTree()
     # tree.insert(10)

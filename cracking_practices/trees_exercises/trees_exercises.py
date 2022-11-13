@@ -64,8 +64,6 @@ class BinaryTree:
 
     def pre_order(self):
         pre_order_result = ""
-        # if self.root is None:
-        #     return pre_order_result
 
         def traverse(current_node):
             if not current_node:
@@ -80,10 +78,9 @@ class BinaryTree:
         traverse(self.root)
         return pre_order_result
 
+
     def in_order(self):
         in_order_result = ""
-        # if self.root is None:
-        #     return in_order_result
 
         def traverse(current_node):
             if not current_node:
@@ -116,6 +113,24 @@ class BinaryTree:
 
         return post_order_result
 
+    def get_tree_asc_order(self):
+        return self.in_order()
+
+
+    def get_tree_desc_order(self):
+        desc_order = ""
+
+        def traverse(current):
+            nonlocal desc_order
+            if current is None : return desc_order
+
+            #! same idea as in_order, but first visit RIGHT, then LETT
+            traverse(current.right)
+            desc_order += str(current.value) + " "
+            traverse(current.left)
+
+        traverse(self.root)
+        return desc_order
 
 if __name__ == "__main__":
     import os
@@ -131,9 +146,11 @@ if __name__ == "__main__":
     tree.insert(6)
     tree.insert(8)
     tree.insert(10)
-    print(tree.pre_order())
-    print(tree.in_order())
-    print(tree.post_order())
+    # print(tree.pre_order())
+    # print(tree.in_order())
+    # print(tree.post_order())
+    print(tree.get_tree_asc_order())
+    print(tree.get_tree_desc_order())
 
     # tree = BinaryTree()
     # tree.insert(10)

@@ -227,7 +227,7 @@ class BinaryTree:
         return traverse(self.root, -math.inf, math.inf)
 
     # ! This method also PRINT THE NODES AT K DEEP
-    def nodes_k_distance(self, k):
+    def get_nodes_k_distance(self, k):
         kth_nodes = ""
 
         def traverse(current, k):
@@ -247,8 +247,19 @@ class BinaryTree:
 
         return kth_nodes if not kth_nodes == "" else "There is not kth distance."
 
-    def nodes_at_kth_deep(self, k):
-        return self.nodes_k_distance(k)
+    def get_nodes_at_kth_deep(self, k):
+        return self.get_nodes_k_distance(k)
+
+
+    def traverse_level_order(self):
+        if self.root is None :
+            return
+
+        tree_hight = self.height() + 1
+        for i in range(0,tree_hight):
+            print(self.get_nodes_k_distance(i))
+
+
 
 
 def tests_on_binary_search_trees():
@@ -281,8 +292,9 @@ def tests_on_binary_search_trees():
     # second_tree.insert(10)
     # print(tree.are_equal_trees(second_tree))
     # print(tree.is_BinarySearchTree())
-
-    print(tree.nodes_k_distance(30))
+    # print(tree.get_nodes_k_distance(2))
+    # print(tree.get_nodes_at_kth_deep(1))
+    print(tree.traverse_level_order())
 
 
 if __name__ == "__main__":

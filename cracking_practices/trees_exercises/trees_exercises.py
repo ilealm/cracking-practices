@@ -258,6 +258,24 @@ class BinaryTree:
         for i in range(0, tree_hight):
             print(self.get_nodes_k_distance(i))
 
+    def count_leaves(self):
+        leaves_counter = 0
+
+        def traverse(current):
+            nonlocal leaves_counter
+            if current is None:
+                return
+
+            if current.left is None and current.right is None:
+                leaves_counter += 1
+
+            traverse(current.left)
+            traverse(current.right)
+
+        traverse(self.root)
+
+        return leaves_counter
+
 
 def tests_on_binary_search_trees():
     # os.system('cls||clear')
@@ -271,7 +289,6 @@ def tests_on_binary_search_trees():
     tree.insert(6)
     tree.insert(8)
     tree.insert(10)
-    
 
     # print(tree.pre_order())
     # print(tree.in_order())
@@ -292,7 +309,8 @@ def tests_on_binary_search_trees():
     # print(tree.is_BinarySearchTree())
     # print(tree.get_nodes_k_distance(2))
     # print(tree.get_nodes_at_kth_deep(1))
-    print(tree.traverse_level_order())
+    # print(tree.traverse_level_order())
+    print(tree.count_leaves())
 
 
 if __name__ == "__main__":

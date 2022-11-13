@@ -217,15 +217,38 @@ class BinaryTree:
                 return True
             # preorder traversal
 
-            if not ((range_min < current.value) and
-                    (current.value < range_max)) :
+            if not ((range_min < current.value) and (current.value < range_max)):
                 return False
 
-            return (traverse(current.left, range_min, current.value)
-                and traverse(current.right, current.value, range_max)
+            return traverse(current.left, range_min, current.value) and traverse(
+                current.right, current.value, range_max
             )
 
         return traverse(self.root, -math.inf, math.inf)
+
+    # ! This method also PRINT THE NODES AT K DEEP
+    def nodes_k_distance(self, k):
+        kth_nodes = ""
+
+        def traverse(current, k):
+            nonlocal kth_nodes
+            if not current:
+                return
+
+            if k == 0:
+                kth_nodes += str(current.value) + " "
+                return
+
+            k -= 1
+            traverse(current.left, k)
+            traverse(current.right, k)
+
+        traverse(self.root, k)
+
+        return kth_nodes if not kth_nodes == "" else "There is not kth distance."
+
+    def nodes_at_kth_deep(self, k):
+        return self.nodes_k_distance(k)
 
 
 def tests_on_binary_search_trees():
@@ -257,11 +280,11 @@ def tests_on_binary_search_trees():
     # second_tree.insert(88)
     # second_tree.insert(10)
     # print(tree.are_equal_trees(second_tree))
-    print(tree.is_BinarySearchTree())
+    # print(tree.is_BinarySearchTree())
 
+    print(tree.nodes_k_distance(30))
 
 
 if __name__ == "__main__":
     tests_on_binary_search_trees()
-
 

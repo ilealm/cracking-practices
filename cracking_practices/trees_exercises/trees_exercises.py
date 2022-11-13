@@ -145,8 +145,6 @@ class BinaryTree:
 
         return traverse(self.root)
 
-
-
     # helper function to test other functions
     def swap_tree(self):
         self.root.right , self.root.left = self.root.left, self.root.right
@@ -169,7 +167,21 @@ class BinaryTree:
         return min_value
 
 
+    def get_max_value(self):
+        if self.root is None : return -1
 
+        max_value = - math.inf
+
+        def traverse(current):
+            if current is None : return
+            nonlocal max_value
+
+            if current.value > max_value : max_value = current.value
+            traverse(current.left)
+            traverse(current.right)
+
+        traverse(self.root)
+        return max_value
 
 if __name__ == "__main__":
     import os
@@ -187,6 +199,7 @@ if __name__ == "__main__":
     tree.insert(10)
 
 
+
     # print(tree.pre_order())
     # print(tree.in_order())
     # print(tree.post_order())
@@ -195,8 +208,8 @@ if __name__ == "__main__":
     # print(tree.height())
     # print(tree.swap_tree())
     # print(tree.pre_order())
-
-    print(tree.get_min_value())
+    # print(tree.get_min_value())
+    print(tree.get_max_value())
 
     # tree = BinaryTree()
     # tree.insert(10)

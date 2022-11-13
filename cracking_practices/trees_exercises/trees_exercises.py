@@ -1,5 +1,6 @@
 import math
 
+
 class BinaryTree:
     def __init__(self):
         self.root = None
@@ -80,7 +81,6 @@ class BinaryTree:
         traverse(self.root)
         return pre_order_result
 
-
     def in_order(self):
         in_order_result = ""
 
@@ -103,13 +103,12 @@ class BinaryTree:
         def traverse(current_node):
             nonlocal post_order_result
 
-            if current_node is None : return
+            if current_node is None:
+                return
 
             traverse(current_node.left)
             traverse(current_node.right)
             post_order_result += str(current_node.value) + " "
-
-
 
         traverse(self.root)
 
@@ -118,13 +117,13 @@ class BinaryTree:
     def get_tree_asc_order(self):
         return self.in_order()
 
-
     def get_tree_desc_order(self):
         desc_order = ""
 
         def traverse(current):
             nonlocal desc_order
-            if current is None : return desc_order
+            if current is None:
+                return desc_order
 
             #! same idea as in_order, but first visit RIGHT, then LETT
             traverse(current.right)
@@ -134,12 +133,13 @@ class BinaryTree:
         traverse(self.root)
         return desc_order
 
-
     def height(self):
-        if self.root is None: return -1
+        if self.root is None:
+            return -1
 
         def traverse(current):
-            if current.left is None and current.right is None: return 0
+            if current.left is None and current.right is None:
+                return 0
 
             return 1 + max(traverse(current.left), traverse(current.right))
 
@@ -147,41 +147,60 @@ class BinaryTree:
 
     # helper function to test other functions
     def swap_tree(self):
-        self.root.right , self.root.left = self.root.left, self.root.right
-
+        self.root.right, self.root.left = self.root.left, self.root.right
 
     def get_min_value(self):
-        if self.root is None : return -1
+        if self.root is None:
+            return -1
 
         min_value = math.inf
 
         def traverse(current):
-            if current is None : return
+            if current is None:
+                return
             nonlocal min_value
 
-            if current.value < min_value : min_value = current.value
+            if current.value < min_value:
+                min_value = current.value
             traverse(current.left)
             traverse(current.right)
 
         traverse(self.root)
         return min_value
 
-
     def get_max_value(self):
-        if self.root is None : return -1
+        if self.root is None:
+            return -1
 
-        max_value = - math.inf
+        max_value = -math.inf
 
         def traverse(current):
-            if current is None : return
+            if current is None:
+                return
             nonlocal max_value
 
-            if current.value > max_value : max_value = current.value
+            if current.value > max_value:
+                max_value = current.value
             traverse(current.left)
             traverse(current.right)
 
         traverse(self.root)
         return max_value
+
+    def are_equal_trees(self, second_tree):
+        if not self.root or not second_tree.root:
+            return False
+
+        def traverse(current_A, current_B):
+            if current_A is None or current_B is None : return True
+
+            if not current_A is None and not current_B is None:
+                return (current_A.value == current_B.value) and traverse(current_A.left, current_B.left) and traverse(current_A.right, current_B.right)
+
+            return False
+
+        return traverse(self.root, second_tree.root)
+
 
 if __name__ == "__main__":
     import os
@@ -198,8 +217,6 @@ if __name__ == "__main__":
     tree.insert(8)
     tree.insert(10)
 
-
-
     # print(tree.pre_order())
     # print(tree.in_order())
     # print(tree.post_order())
@@ -209,7 +226,13 @@ if __name__ == "__main__":
     # print(tree.swap_tree())
     # print(tree.pre_order())
     # print(tree.get_min_value())
-    print(tree.get_max_value())
+    # print(tree.get_max_value())
+    second_tree = BinaryTree()
+    second_tree.insert(7)
+    second_tree.insert(4)
+    second_tree.insert(88)
+    second_tree.insert(10)
+    print(tree.are_equal_trees(second_tree))
 
     # tree = BinaryTree()
     # tree.insert(10)

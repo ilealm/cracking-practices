@@ -1,3 +1,4 @@
+import os
 import math
 
 
@@ -148,6 +149,7 @@ class BinaryTree:
     # helper function to test other functions
     def swap_tree(self):
         self.root.right, self.root.left = self.root.left, self.root.right
+        return "Tree swapped"
 
     def get_min_value(self):
         if self.root is None:
@@ -192,19 +194,38 @@ class BinaryTree:
             return False
 
         def traverse(current_A, current_B):
-            if current_A is None or current_B is None : return True
+            if current_A is None or current_B is None:
+                return True
 
             if not current_A is None and not current_B is None:
-                return (current_A.value == current_B.value) and traverse(current_A.left, current_B.left) and traverse(current_A.right, current_B.right)
+                return (
+                    (current_A.value == current_B.value)
+                    and traverse(current_A.left, current_B.left)
+                    and traverse(current_A.right, current_B.right)
+                )
 
             return False
 
         return traverse(self.root, second_tree.root)
 
+    def is_BinarySearchTree(self):
+        if self.root is None:
+            return True
 
-if __name__ == "__main__":
-    import os
+        def traverse(current, range_min, range_max):
+            if not current:
+                return True
+            # preorder traversal
+            return (
+                ((range_min < current.value) and (current.value < range_max))
+                and traverse(current.left, range_min, current.value)
+                and traverse(current.right, current.value, range_max)
+            )
 
+        return traverse(self.root, -math.inf, math.inf)
+
+
+def tests_on_binary_search_trees():
     # os.system('cls||clear')
     os.system("clear")
 
@@ -227,22 +248,17 @@ if __name__ == "__main__":
     # print(tree.pre_order())
     # print(tree.get_min_value())
     # print(tree.get_max_value())
-    second_tree = BinaryTree()
-    second_tree.insert(7)
-    second_tree.insert(4)
-    second_tree.insert(88)
-    second_tree.insert(10)
-    print(tree.are_equal_trees(second_tree))
+    # second_tree = BinaryTree()
+    # second_tree.insert(7)
+    # second_tree.insert(4)
+    # second_tree.insert(88)
+    # second_tree.insert(10)
+    # print(tree.are_equal_trees(second_tree))
+    print(tree.is_BinarySearchTree())
 
-    # tree = BinaryTree()
-    # tree.insert(10)
-    # tree.insert(5)
-    # tree.insert(15)
-    # tree.insert(6)
-    # tree.insert(1)
-    # tree.insert(8)
-    # tree.insert(12)
-    # tree.insert(18)
-    # tree.insert(17)
-    # print(tree.find(15))
+
+
+if __name__ == "__main__":
+    tests_on_binary_search_trees()
+
 

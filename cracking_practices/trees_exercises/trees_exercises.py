@@ -1,3 +1,5 @@
+import math
+
 class BinaryTree:
     def __init__(self):
         self.root = None
@@ -134,12 +136,40 @@ class BinaryTree:
 
 
     def height(self):
+        if self.root is None: return -1
+
         def traverse(current):
             if current.left is None and current.right is None: return 0
 
             return 1 + max(traverse(current.left), traverse(current.right))
 
         return traverse(self.root)
+
+
+
+    # helper function to test other functions
+    def swap_tree(self):
+        self.root.right , self.root.left = self.root.left, self.root.right
+
+
+    def get_min_value(self):
+        if self.root is None : return -1
+
+        min_value = math.inf
+
+        def traverse(current):
+            if current is None : return
+            nonlocal min_value
+
+            if current.value < min_value : min_value = current.value
+            traverse(current.left)
+            traverse(current.right)
+
+        traverse(self.root)
+        return min_value
+
+
+
 
 if __name__ == "__main__":
     import os
@@ -155,12 +185,18 @@ if __name__ == "__main__":
     tree.insert(6)
     tree.insert(8)
     tree.insert(10)
+
+
     # print(tree.pre_order())
     # print(tree.in_order())
     # print(tree.post_order())
     # print(tree.get_tree_asc_order())
     # print(tree.get_tree_desc_order())
-    print(tree.height())
+    # print(tree.height())
+    # print(tree.swap_tree())
+    # print(tree.pre_order())
+
+    print(tree.get_min_value())
 
     # tree = BinaryTree()
     # tree.insert(10)

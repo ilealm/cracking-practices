@@ -1,51 +1,38 @@
 [Table of Contents](../../README.md)
 
-# Problem 
-
-<!-- [Whiteboard approach](x_x) -->
 
 ### PROBLEM DOMAIN
-
-### VISUALS
-
-```
-
-```
-
-### EDGE CASES
-
-- I can have valid values in the arays.
-- Values can be repeted.
-
-### ALGORITHMS
-
-#### APPROACH 1,
-
-```
-algo
-
-```
-
-#### TESTS
-
-```
-Please review the test section below.
-```
+Exercises on Binary Search Trees:
+* Class Node
+* Class Tree
+* .insert(value)
+* .find(value)
+* .pre_order()
+* .in_order()
+* .post_order()
+* .get_tree_asc_order()
+* .get_tree_desc_order()
+* .height()
+* .swap_tree()
+* .get_min_value()
+* .get_max_value()
+* .are_equal_trees()
+* .is_BinarySearchTree()
+* .get_nodes_k_distance()
+* .get_nodes_at_kth_deep()
+* .traverse_level_order()
+* .count_leaves()
 
 #### BIG O
 
-**Time O(n):** I need to
+**Time O(n):** O(logN)
 
-**Space O(n):** I'm
 
 ### CODE
 
-[cracking_practices/x_x/x_x.py](x_x.py)
+[cracking_practices/trees_exercises/trees_exercises.py](trees_exercises.py)
 
-### TESTS
-
-[tests/test_x_x.py](../../tests/test_x_x.py)
 
 ### GITHUB BRANCH
 
-[Pull Request # n, Branch: x_x](https://github.com/ilealm/cracking-practices/pull/X)
+[Pull Request # n, Branch: trees_exercises](https://github.com/ilealm/cracking-practices/pull/X)

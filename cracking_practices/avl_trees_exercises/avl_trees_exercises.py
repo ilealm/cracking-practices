@@ -18,6 +18,9 @@ class AVL_Tree:
     def __str__(self):
         return f"Root: {self.root.value}, Height: {self.root.height}"
 
+    def _get_node_height(self, node):
+        pass
+
     def insert(self, value):
         new_node = self._Node(value)
 
@@ -42,21 +45,27 @@ class AVL_Tree:
                     traverse(current.right)
 
             # height calculation
-            left_height = 0 if current.left is None else current.left.height
-            right_height = 0 if current.right is None else current.right.height
+            current_left_height = 0 if current.left is None else current.left.height
+            current_right_height = 0 if current.right is None else current.right.height
 
-            current.height = (max(left_height, right_height)) + 1
+            current.height = (max(current_left_height, current_right_height)) + 1
 
             # Check if the tree is unbalanced
             # balanceFactor = height(L) - heigh(Right)
             # > 1  => Left heavy, so rotate Right
             # < -1 => Right heavy, so rotate Left
-            balanceFactor = left_height - right_height
+            balanceFactor = current_left_height - current_right_height
 
             if balanceFactor > 1:
                 print("   => Left heavy, rotate Right")
             if balanceFactor <= -1:
-                print("Node: ", current.value, ", height:", current.height, "   => Right heavy, rotate Left")
+                print(
+                    "Node: ",
+                    current.value,
+                    ", height:",
+                    current.height,
+                    "   => Right heavy, rotate Left",
+                )
 
         traverse(self.root)
 
@@ -71,8 +80,7 @@ if __name__ == "__main__":
     # avl.insert(5)
     avl.insert(20)
     avl.insert(30)
-    # avl.insert(40)
-    # avl.insert(50)
+
     print(avl)
     # print(avl.root.left.value)
     # print(avl.root.left.left.value)

@@ -7,6 +7,7 @@ class AVL_Tree:
             self.value = value
             self.left = None
             self.right = None
+            self.height = 0
 
         def __str__(self):
             return f"Node: {self.value}"
@@ -16,7 +17,7 @@ class AVL_Tree:
         self.root = None
 
     def __str__(self):
-        return f"Root: {self.root.value}"
+        return f"Root: {self.root.value}, Height: {self.root.height}"
 
 
     def insert(self, value):
@@ -42,6 +43,11 @@ class AVL_Tree:
                 else:
                     traverse(current.right)
 
+            left_height = 0 if current.left is None else current.left.height
+            right_height = 0 if current.right is None else current.right.height
+
+            current.height = (max(left_height, right_height)) + 1
+
         traverse(self.root)
 
     def _tests_avl_tree(self):
@@ -52,8 +58,10 @@ if __name__ == "__main__":
     os.system("clear")
     avl = AVL_Tree()
     avl.insert(10)
+    avl.insert(5)
     avl.insert(20)
     avl.insert(30)
+    avl.insert(40)
     print(avl)
     # print(avl.root.left.value)
     # print(avl.root.left.left.value)

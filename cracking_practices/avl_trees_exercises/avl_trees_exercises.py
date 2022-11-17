@@ -18,16 +18,26 @@ class AVL_Tree:
     def __str__(self):
         return f"Root: {self.root.value}, Height: {self.root.height}"
 
-
     def _get_node_left_height(self, node):
         return 0 if node.left is None else node.left.height
 
     def _get_node_right_height(self, node):
         return 0 if node.right is None else node.right.height
 
+    def _set_node_height(self, node):
+        node.height = (
+            max(self._get_node_left_height(node), self._get_node_right_height(node))
+        ) + 1
 
-    def _get_node_height(self, node):
-        return (max(self._get_node_left_height(node), self._get_node_right_height(node))) + 1
+    def is_left_heavy(self, node):
+        return  self.balance_factor(node) >= 1
+
+    def is_right_heavy(self, node):
+        return  self.balance_factor(node) <= -1
+
+
+    def balance_factor(self, node):
+        return 0 if node is None else (self._get_node_left_height(node) - self._get_node_right_height(node))
 
 
     def insert(self, value):
@@ -36,7 +46,6 @@ class AVL_Tree:
         if self.root is None:
             self.root = new_node
             return
-
 
         def traverse(current):
             nonlocal value, new_node
@@ -54,25 +63,15 @@ class AVL_Tree:
                 else:
                     traverse(current.right)
 
-            current.height = self._get_node_height(current)
+            self._set_node_height(current)
 
-            # Check if the tree is unbalanced
-            balanceFactor = self._get_node_left_height(current) - self._get_node_right_height(current)
+            if self.is_left_heavy(current):
+                print("Node: ", current.value, "   => Left heavy, rotate Right")
 
-            if balanceFactor >= 1:
-                print("   => Left heavy, rotate Right")
-            if balanceFactor <= -1:
-                print(
-                    "Node: ",
-                    current.value,
-                    ", height:",
-                    current.height,
-                    "   => Right heavy, rotate Left",
-                )
+            if self.is_right_heavy(current):
+                print( "Node: ", current.value, ", height:", current.height, "   => Right heavy, rotate Left",  )
 
         traverse(self.root)
-
-
 
     def insert_v1(self, value):
         new_node = self._Node(value)
@@ -121,8 +120,6 @@ class AVL_Tree:
                 )
 
         traverse(self.root)
-
-
 
     def _tests_avl_tree(self):
         pass

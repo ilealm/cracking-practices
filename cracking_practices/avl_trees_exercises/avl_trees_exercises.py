@@ -35,9 +35,11 @@ class AVL_Tree:
         )
 
     def is_left_heavy(self, node):
+        bf = self.balance_factor(node)
         return self.balance_factor(node) > 1
 
     def is_right_heavy(self, node):
+        bf = self.balance_factor(node)
         return self.balance_factor(node) < -1
 
 
@@ -96,53 +98,6 @@ class AVL_Tree:
 
         traverse(self.root)
 
-    def insert_v1(self, value):
-        new_node = self._Node(value)
-
-        if self.root is None:
-            self.root = new_node
-            return
-
-        def traverse(current):
-            nonlocal value, new_node
-            if not current:
-                return
-
-            if value < current.value:
-                if current.left is None:
-                    current.left = new_node
-                else:
-                    traverse(current.left)
-            else:
-                if current.right is None:
-                    current.right = new_node
-                else:
-                    traverse(current.right)
-
-            # height calculation
-            current_left_height = 0 if current.left is None else current.left.height
-            current_right_height = 0 if current.right is None else current.right.height
-
-            current.height = (max(current_left_height, current_right_height)) + 1
-
-            # Check if the tree is unbalanced
-            # balanceFactor = height(L) - heigh(Right)
-            # > 1  => Left heavy, so rotate Right
-            # < -1 => Right heavy, so rotate Left
-            balanceFactor = current_left_height - current_right_height
-
-            if balanceFactor >= 1:
-                print("   => Left heavy, rotate Right")
-            if balanceFactor <= -1:
-                print(
-                    "Node: ",
-                    current.value,
-                    ", height:",
-                    current.height,
-                    "   => Right heavy, rotate Left",
-                )
-
-        traverse(self.root)
 
     def _tests_avl_tree(self):
         pass
@@ -152,9 +107,9 @@ if __name__ == "__main__":
     os.system("clear")
     avl = AVL_Tree()
     avl.insert(10)
-    avl.insert(30)
     avl.insert(20)
-    # print("stop")
+    avl.insert(30)
+    print("stop")
     # print(avl)
     # print(avl.root.left.value)
     # print(avl.root.left.left.value)

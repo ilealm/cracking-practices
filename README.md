@@ -335,3 +335,37 @@ The remove method should return the greatest value in the array.
 
 [ Practices with Iterables](cracking_practices/string_and_iterables_exercises/README.md)
 - Common exercises for Strings, Lists, Sets, Tuples and dictionaries.
+
+[ Practices with Binary Search Trees](cracking_practices/trees_exercises/README.md)
+- Exercises on Binary Search Trees:
+* Class Node
+* Class Tree
+* .insert(value)
+* .find(value)
+* .pre_order()
+* .in_order()
+* .post_order()
+* .get_tree_asc_order()
+* .get_tree_desc_order()
+* .height()
+* .swap_tree()
+* .get_min_value()
+* .get_max_value()
+* .are_equal_trees()
+* .is_BinarySearchTree()
+* .get_nodes_k_distance()
+* .get_nodes_at_kth_deep()
+* .traverse_level_order()
+* .count_leaves()
+
+
+ Practices with ALV Trees](cracking_practices/avl_trees_exercises/README.md)
+- Exercises on ALV self balance Trees:
+* Insert
+* set Height
+* get Height
+* get balance factor
+* rotate trees left
+* rotate trees right
+* _is_left_heavy
+* _is_right_heavy

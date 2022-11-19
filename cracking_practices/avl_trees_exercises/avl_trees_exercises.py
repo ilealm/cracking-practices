@@ -18,26 +18,43 @@ class AVL_Tree:
     def __str__(self):
         return f"Root: {self.root.value}, Height: {self.root.height}"
 
-    def _get_node_left_height(self, node):
-        return 0 if node.left is None else node.left.height
-
-    def _get_node_right_height(self, node):
-        return 0 if node.right is None else node.right.height
 
     def _set_node_height(self, node):
         node.height = (
-            max(self._get_node_left_height(node), self._get_node_right_height(node))
+            max(self._get_node_height(node.left), self._get_node_height(node.right))
         ) + 1
 
-    def is_left_heavy(self, node):
-        return  self.balance_factor(node) >= 1
-
-    def is_right_heavy(self, node):
-        return  self.balance_factor(node) <= -1
-
+    def _get_node_height(self, node):
+        return -1 if node is None else node.height
 
     def balance_factor(self, node):
-        return 0 if node is None else (self._get_node_left_height(node) - self._get_node_right_height(node))
+        return (
+            0
+            if node is None
+            else (self._get_node_height(node.left) - self._get_node_height(node.right))
+        )
+
+    def is_left_heavy(self, node):
+        return self.balance_factor(node) > 1
+
+    def is_right_heavy(self, node):
+        return self.balance_factor(node) < -1
+
+
+    def balance(self, node):
+        # To be balanced, the difference between left and right must be less or equal to 1
+        #  BF > 1  => Left heavy, perform a Right rotation
+        if self.is_left_heavy(node):
+            print(self.root.value, " is Left heavy.")
+            # BC is leaf heavy, ALWAYS perform a right rotation on the root
+            # print("Right rotate on ", node.value)
+
+        #  BF < -1 => Right heavy
+        if self.is_right_heavy(node):
+            print(self.root.value, " is Right heavy")
+
+            # BC is right heavy, ALWAYS perform a left rotation on the root
+            # print("Left rotate on ", node.value)
 
 
     def insert(self, value):
@@ -65,11 +82,14 @@ class AVL_Tree:
 
             self._set_node_height(current)
 
-            if self.is_left_heavy(current):
-                print("Node: ", current.value, "   => Left heavy, rotate Right")
 
-            if self.is_right_heavy(current):
-                print( "Node: ", current.value, ", height:", current.height, "   => Right heavy, rotate Left",  )
+            self.balance(current)
+            # if self.is_left_heavy(current):
+            #     # right rotate, follow by left rotate
+            #     print("Node: ", current.value, "   => Left heavy, rotate Right")
+
+            # if self.is_right_heavy(current):
+            #     print( "Node: ", current.value, ", height:", current.height, "   => Right heavy, rotate Left",  )
 
         traverse(self.root)
 
@@ -128,11 +148,11 @@ class AVL_Tree:
 if __name__ == "__main__":
     os.system("clear")
     avl = AVL_Tree()
-    avl.insert(10)
-    avl.insert(20)
     avl.insert(30)
-
-    print(avl)
+    avl.insert(20)
+    avl.insert(10)
+    # print("stop")
+    # print(avl)
     # print(avl.root.left.value)
     # print(avl.root.left.left.value)
     # print(avl.root.right.value)

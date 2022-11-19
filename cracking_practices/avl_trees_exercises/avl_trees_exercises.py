@@ -38,29 +38,56 @@ class AVL_Tree:
         bf = self.balance_factor(node)
         return self.balance_factor(node) > 1
 
+    # todo rename to me internal function
     def is_right_heavy(self, node):
         bf = self.balance_factor(node)
         return self.balance_factor(node) < -1
 
+    def _rotate_left(self, node):
+        new_root = node.right
+        # rotations
+        node.right = new_root.left
+        new_root.left = node
+
+        self._set_node_height(node)
+        self._set_node_height(new_root)
+
+        return new_root
+
+    def _rotate_right(self, node):
+        new_root = node.left
+        # rotations
+        node.left = new_root.right
+        new_root.right = node
+
+        self._set_node_height(node)
+        self._set_node_height(new_root)
+
+        return new_root
 
     def balance(self, node):
         if self.is_left_heavy(node):
             # print(self.root.value, " is Left heavy.")
             if self.balance_factor(node.left) < 0:
-                print("Left rotate on ", node.left.value)
+                # print("Left rotate on ", node.left.value)
+                node.left = self._rotate_left(node.left)
 
             # BC is LEFT heavy, ALWAYS perform a RIGHT rotation on the root
-            print("Right rotate on ", node.value)
+            # print("Right rotate on ", node.value)
+            return self._rotate_right(node)
 
         #  BF < -1 => Right heavy
         if self.is_right_heavy(node):
             # print(self.root.value, " is Right heavy")
             # check if the right child needs rotation
             if self.balance_factor(node.right) > 0:
-                print("Right rotate on ", node.right.value)
+                # print("Right rotate on ", node.right.value)
+                node.right = self._rotate_right(node.right)
             # BC is right heavy, ALWAYS perform a left rotation on the root
-            print("Left rotate on ", node.value)
+            # print("Left rotate on ", node.value)
+            return self._rotate_left(node)
 
+        return node
 
     def insert(self, value):
         new_node = self._Node(value)
@@ -87,14 +114,7 @@ class AVL_Tree:
 
             self._set_node_height(current)
 
-
-            self.balance(current)
-            # if self.is_left_heavy(current):
-            #     # right rotate, follow by left rotate
-            #     print("Node: ", current.value, "   => Left heavy, rotate Right")
-
-            # if self.is_right_heavy(current):
-            #     print( "Node: ", current.value, ", height:", current.height, "   => Right heavy, rotate Left",  )
+            return self.balance(current)
 
         traverse(self.root)
 
@@ -109,9 +129,5 @@ if __name__ == "__main__":
     avl.insert(10)
     avl.insert(20)
     avl.insert(30)
-    print("stop")
-    # print(avl)
-    # print(avl.root.left.value)
-    # print(avl.root.left.left.value)
-    # print(avl.root.right.value)
-# __
+    avl.insert(15)
+

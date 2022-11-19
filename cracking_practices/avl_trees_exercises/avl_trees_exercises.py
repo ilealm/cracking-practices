@@ -38,7 +38,6 @@ class AVL_Tree:
         bf = self.balance_factor(node)
         return self.balance_factor(node) > 1
 
-    # todo rename to me internal function
     def is_right_heavy(self, node):
         bf = self.balance_factor(node)
         return self.balance_factor(node) < -1

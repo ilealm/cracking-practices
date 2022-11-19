@@ -357,3 +357,15 @@ The remove method should return the greatest value in the array.
 * .get_nodes_at_kth_deep()
 * .traverse_level_order()
 * .count_leaves()
+
+
+ Practices with ALV Trees](cracking_practices/avl_trees_exercises/README.md)
+- Exercises on ALV self balance Trees:
+* Insert
+* set Height
+* get Height
+* get balance factor
+* rotate trees left
+* rotate trees right
+* _is_left_heavy
+* _is_right_heavy

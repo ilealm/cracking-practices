@@ -1,36 +1,24 @@
 [Table of Contents](../../README.md)
 
-# Problem 
+# Problem
 
-<!-- [Whiteboard approach](x_x) -->
+<!-- [Whiteboard approach](avl_trees_exercises) -->
 
 ### PROBLEM DOMAIN
 
-### VISUALS
+Exersices on ALV Trees
 
 ```
-
+Insert
+set Height
+get Height
+get balance factor
+rotate trees left
+rotate trees right
+_is_left_heavy
+_is_right_heavy
 ```
 
-### EDGE CASES
-
-- I can have valid values in the arays.
-- Values can be repeted.
-
-### ALGORITHMS
-
-#### APPROACH 1,
-
-```
-algo
-
-```
-
-#### TESTS
-
-```
-Please review the test section below.
-```
 
 #### BIG O
 
@@ -40,12 +28,12 @@ Please review the test section below.
 
 ### CODE
 
-[cracking_practices/x_x/x_x.py](x_x.py)
+[cracking_practices/avl_trees_exercises/avl_trees_exercises.py](avl_trees_exercises.py)
 
 ### TESTS
 
-[tests/test_x_x.py](../../tests/test_x_x.py)
+[tests/test_avl_trees_exercises.py](../../tests/test_avl_trees_exercises.py)
 
 ### GITHUB BRANCH
 
-[Pull Request # n, Branch: x_x](https://github.com/ilealm/cracking-practices/pull/X)
+[Pull Request # n, Branch: avl_trees_exercises](https://github.com/ilealm/cracking-practices/pull/X)

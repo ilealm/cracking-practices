@@ -42,19 +42,22 @@ class AVL_Tree:
 
 
     def balance(self, node):
-        # To be balanced, the difference between left and right must be less or equal to 1
-        #  BF > 1  => Left heavy, perform a Right rotation
         if self.is_left_heavy(node):
-            print(self.root.value, " is Left heavy.")
-            # BC is leaf heavy, ALWAYS perform a right rotation on the root
-            # print("Right rotate on ", node.value)
+            # print(self.root.value, " is Left heavy.")
+            if self.balance_factor(node.left) < 0:
+                print("Left rotate on ", node.left.value)
+
+            # BC is LEFT heavy, ALWAYS perform a RIGHT rotation on the root
+            print("Right rotate on ", node.value)
 
         #  BF < -1 => Right heavy
         if self.is_right_heavy(node):
-            print(self.root.value, " is Right heavy")
-
+            # print(self.root.value, " is Right heavy")
+            # check if the right child needs rotation
+            if self.balance_factor(node.right) > 0:
+                print("Right rotate on ", node.right.value)
             # BC is right heavy, ALWAYS perform a left rotation on the root
-            # print("Left rotate on ", node.value)
+            print("Left rotate on ", node.value)
 
 
     def insert(self, value):
@@ -148,9 +151,9 @@ class AVL_Tree:
 if __name__ == "__main__":
     os.system("clear")
     avl = AVL_Tree()
+    avl.insert(10)
     avl.insert(30)
     avl.insert(20)
-    avl.insert(10)
     # print("stop")
     # print(avl)
     # print(avl.root.left.value)

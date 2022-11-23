@@ -53,8 +53,7 @@ class HeapMax:
         return (parent_index * 2) + 2
 
     def parent_has_two_children(self, left_childen_index, right_childen_index):
-        return (left_childen_index and right_childen_index) < self.get_last_index()
-
+        return (left_childen_index and right_childen_index) <= self.get_last_index()
 
     def get_index_bigger_sibling(self, left_childen_index, right_childen_index):
         return (
@@ -86,18 +85,16 @@ class HeapMax:
                     self._bubble_down(parent_index, left_childen_index)
                     return parent_index
 
-
     def _need_to_bubble_down(self, parent_index):
         left_childen_index = self._get_left_children_index(parent_index)
         right_childen_index = self._get_right_children_index(parent_index)
 
-
         if self.parent_has_two_children(left_childen_index, right_childen_index):
-                greater = max(
-                    self.array[left_childen_index], self.array[left_childen_index]
-                )
-                if greater > self.array[parent_index]:
-                    return True
+            greater = max(
+                self.array[left_childen_index], self.array[left_childen_index]
+            )
+            if greater > self.array[parent_index]:
+                return True
         else:
             if left_childen_index <= self.get_last_index():
                 if self.array[parent_index] < self.array[left_childen_index]:
@@ -119,9 +116,11 @@ class HeapMax:
                 parent_index = self._do_bubble_down(parent_index)
         else:
             self.array.clear()
-            print("all array cleared")
 
         return root
+
+    def print_heap(self):
+        print(self.__str__())
 
 
 if __name__ == "__main__":
@@ -146,22 +145,32 @@ if __name__ == "__main__":
     heap_max.add(5)
     heap_max.add(3)
     heap_max.add(4)
-    print("original")
-    print(heap_max)
-    print("heap removed: ", heap_max.remove())
-    # good to here
+    heap_max.print_heap()
+    # print("original")
     # print(heap_max)
     print("heap removed: ", heap_max.remove())
-    # print(heap_max)
     print("heap removed: ", heap_max.remove())
-    # print(heap_max)
     print("heap removed: ", heap_max.remove())
-    # print(heap_max)
     print("heap removed: ", heap_max.remove())
-    print(heap_max)
     print("heap removed: ", heap_max.remove())
-    print(heap_max)
     print("heap removed: ", heap_max.remove())
-    print(heap_max)
     print("heap removed: ", heap_max.remove())
-    print(heap_max)
+    print("heap removed: ", heap_max.remove())
+
+    print("\n\n")
+
+    # mosh example
+    heap_max = HeapMax()
+    heap_max.add(10)
+    heap_max.add(5)
+    heap_max.add(17)
+    heap_max.add(4)
+    heap_max.add(22)
+    heap_max.print_heap()
+    print("heap removed: ", heap_max.remove())
+    print("heap removed: ", heap_max.remove())
+    print("heap removed: ", heap_max.remove())
+    print("heap removed: ", heap_max.remove())
+    print("heap removed: ", heap_max.remove())
+    print("heap removed: ", heap_max.remove())
+    heap_max.print_heap()

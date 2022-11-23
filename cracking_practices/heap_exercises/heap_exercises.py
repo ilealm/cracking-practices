@@ -85,7 +85,6 @@ class HeapMax:
                     self._bubble_down(parent_index, left_childen_index)
                     return parent_index
 
-
     def _need_to_bubble_down(self, parent_index):
         left_childen_index = self._get_left_children_index(parent_index)
         right_childen_index = self._get_right_children_index(parent_index)
@@ -104,7 +103,7 @@ class HeapMax:
         return False
 
     def _check_for_bubble_down(self):
-         # validate if array only has 1 element
+        # validate if array only has 1 element
         if self.get_last_index() > 0:
             parent_index = 0
             self.array[parent_index] = self.array.pop()
@@ -112,7 +111,6 @@ class HeapMax:
                 parent_index = self._do_bubble_down(parent_index)
         else:
             self.array.clear()
-
 
     def remove(self):
         if self.is_array_empty():
@@ -127,9 +125,23 @@ class HeapMax:
         print(self.__str__())
 
 
+class PriorityQueueWithHeap(HeapMax):
+    def __init__(self):
+        self._heap = HeapMax()
+
+    def add(self, value):
+        self._heap.add(value)
+
+    def remove(self):
+        return self._heap.remove()
+
+    def print_priority_queue(self):
+        self._heap.print_heap()
+
+
 if __name__ == "__main__":
     os.system("clear")
-    heap_max = HeapMax()
+    # heap_max = HeapMax()
     # mosh example
     # heap_max.add(15)
     # heap_max.add(10)
@@ -161,17 +173,28 @@ if __name__ == "__main__":
     # print("\n\n")
 
     # mosh example
-    heap_max = HeapMax()
-    heap_max.add(10)
-    heap_max.add(5)
-    heap_max.add(17)
-    heap_max.add(4)
-    heap_max.add(22)
-    heap_max.print_heap()
-    print("heap removed: ", heap_max.remove())
-    print("heap removed: ", heap_max.remove())
-    print("heap removed: ", heap_max.remove())
-    print("heap removed: ", heap_max.remove())
-    print("heap removed: ", heap_max.remove())
-    print("heap removed: ", heap_max.remove())
-    heap_max.print_heap()
+    # heap_max = HeapMax()
+    # heap_max.add(10)
+    # heap_max.add(5)
+    # heap_max.add(17)
+    # heap_max.add(4)
+    # heap_max.add(22)
+    # heap_max.print_heap()
+    # print("heap removed: ", heap_max.remove())
+    # print("heap removed: ", heap_max.remove())
+    # print("heap removed: ", heap_max.remove())
+    # print("heap removed: ", heap_max.remove())
+    # print("heap removed: ", heap_max.remove())
+    # print("heap removed: ", heap_max.remove())
+    # heap_max.print_heap()
+
+    # PriorityQueue
+    prio_queueue = PriorityQueueWithHeap()
+    prio_queueue.add(10)
+    prio_queueue.add(5)
+    prio_queueue.add(17)
+    prio_queueue.add(4)
+    prio_queueue.add(22)
+    prio_queueue.print_priority_queue()
+    prio_queueue.remove()
+    prio_queueue.print_priority_queue()

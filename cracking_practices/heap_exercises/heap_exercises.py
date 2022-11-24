@@ -272,7 +272,10 @@ class Heapify:
                 break
 
     def heapify(self):
-        for index in range(len(self.array)):
+        # Leaf nodes are half of the tree
+        # so i can iterate only on parent nodes
+        index_last_parent = int((len(self.array) / 2) - 1)
+        for index in range(index_last_parent):
             self._process_parent(index)
 
 

@@ -315,15 +315,5 @@ class Heapify:
 
 if __name__ == "__main__":
     os.system("clear")
-
-    # MAX HEAPS
-    # heap = HeapMax()
-    # heap.testing()
     HeapMax().testing()
-    # PriorityQueue
-    # prio_queueue = PriorityQueueWithHeap()
-    # prio_queueue.testing()
-
-    # HEAPIFY
-    # Heapify().testing()
 

@@ -1,51 +1,32 @@
 [Table of Contents](../../README.md)
 
-# Problem 
+# Problem
 
-<!-- [Whiteboard approach](x_x) -->
+<!-- [Whiteboard approach](heap_exercises) -->
 
 ### PROBLEM DOMAIN
 
-### VISUALS
-
+Exercises on Heaps:
+```
+add
+remove
+find_kth_greater_value
+heapify an array
+prority_queues_with_heap
 ```
 
-```
-
-### EDGE CASES
-
-- I can have valid values in the arays.
-- Values can be repeted.
-
-### ALGORITHMS
-
-#### APPROACH 1,
-
-```
-algo
-
-```
-
-#### TESTS
-
-```
-Please review the test section below.
-```
 
 #### BIG O
 
-**Time O(n):** I need to
+**Time O(n):** O(LogN)
 
-**Space O(n):** I'm
+**Space O(n):** O(LogN)
 
 ### CODE
 
-[cracking_practices/x_x/x_x.py](x_x.py)
+[cracking_practices/heap_exercises/heap_exercises.py](heap_exercises.py)
 
-### TESTS
-
-[tests/test_x_x.py](../../tests/test_x_x.py)
 
 ### GITHUB BRANCH
 
-[Pull Request # n, Branch: x_x](https://github.com/ilealm/cracking-practices/pull/X)
+[Pull Request # n, Branch: heap_exercises](https://github.com/ilealm/cracking-practices/pull/X)

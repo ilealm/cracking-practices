@@ -8,6 +8,9 @@ class HeapMax:
     def __str__(self):
         return str(self.array)
 
+    def _clear_array(self):
+        self.__init__()
+
     def get_last_index(self):
         return len(self.array) - 1
 
@@ -121,58 +124,74 @@ class HeapMax:
 
         return root
 
+    def find_kth_largest(self, array, k):
+        self._clear_array()
+        for i in range(len(array)):
+            self.add(array[i])
+
+        k -= 1
+        array_len = self.get_last_index()
+        if ((k) > array_len) or (k < 0):
+            return -1
+
+        for i in range(k):
+            self.remove()
+
+        return self.remove()
+
     def print_heap(self):
         print(self.__str__())
 
     def testing(self):
         # other example
         heap_max = HeapMax()
-        heap_max.add(15)
-        heap_max.add(10)
-        heap_max.add(3)
-        heap_max.add(8)
-        heap_max.add(12)
-        heap_max.add(9)
-        heap_max.add(4)
-        heap_max.add(1)
-        heap_max.add(24)
-        heap_max.print_heap()
-        print("\n\n")
+        # heap_max.add(15)
+        # heap_max.add(10)
+        # heap_max.add(3)
+        # heap_max.add(8)
+        # heap_max.add(12)
+        # heap_max.add(9)
+        # heap_max.add(4)
+        # heap_max.add(1)
+        # heap_max.add(24)
+        # heap_max.print_heap()
+        # print("\n\n")
 
-        heap_max = HeapMax()
-        heap_max.add(15)
-        heap_max.add(10)
-        heap_max.add(9)
-        heap_max.add(8)
-        heap_max.add(5)
-        heap_max.add(3)
-        heap_max.add(4)
-        heap_max.print_heap()
-        print("heap removed: ", heap_max.remove())
-        print("heap removed: ", heap_max.remove())
-        print("heap removed: ", heap_max.remove())
-        print("heap removed: ", heap_max.remove())
-        print("heap removed: ", heap_max.remove())
-        print("heap removed: ", heap_max.remove())
-        print("heap removed: ", heap_max.remove())
-        print("heap removed: ", heap_max.remove())
-        print("\n\n")
+        # heap_max = HeapMax()
+        # heap_max.add(15)
+        # heap_max.add(10)
+        # heap_max.add(9)
+        # heap_max.add(8)
+        # heap_max.add(5)
+        # heap_max.add(3)
+        # heap_max.add(4)
+        # heap_max.print_heap()
+        # print("heap removed: ", heap_max.remove())
+        # print("heap removed: ", heap_max.remove())
+        # print("heap removed: ", heap_max.remove())
+        # print("heap removed: ", heap_max.remove())
+        # print("heap removed: ", heap_max.remove())
+        # print("heap removed: ", heap_max.remove())
+        # print("heap removed: ", heap_max.remove())
+        # print("heap removed: ", heap_max.remove())
+        # print("\n\n")
 
-        heap_max = HeapMax()
-        heap_max.add(10)
-        heap_max.add(5)
-        heap_max.add(17)
-        heap_max.add(4)
-        heap_max.add(22)
-        heap_max.print_heap()
-        print("heap removed: ", heap_max.remove())
-        print("heap removed: ", heap_max.remove())
-        print("heap removed: ", heap_max.remove())
-        print("heap removed: ", heap_max.remove())
-        print("heap removed: ", heap_max.remove())
-        print("heap removed: ", heap_max.remove())
-        heap_max.print_heap()
-        print("\n\n")
+        # heap_max = HeapMax()
+        # heap_max.add(10)
+        # heap_max.add(5)
+        # heap_max.add(17)
+        # heap_max.add(4)
+        # heap_max.add(22)
+        # heap_max.print_heap()
+        # print("heap removed: ", heap_max.remove())
+        # print("heap removed: ", heap_max.remove())
+        # print("heap removed: ", heap_max.remove())
+        # print("heap removed: ", heap_max.remove())
+        # print("heap removed: ", heap_max.remove())
+        # print("heap removed: ", heap_max.remove())
+        # heap_max.print_heap()
+        # print("\n\n")
+        print("find_kth_largest: ", heap_max.find_kth_largest([5, 3, 8, 4, 1, 2], 0))
 
 
 class PriorityQueueWithHeap(HeapMax):
@@ -201,14 +220,20 @@ class PriorityQueueWithHeap(HeapMax):
 
 
 class Heapify:
-    def __init__(self, array):
-        self.array = array
+    def __init__(self):
+        self.array = []
+
+    # def __init__(self, array):
+    #     self.array = array
 
     def __str__(self):
         return str(self.array)
 
     def _get_array_size(self):
         return len(self.array) - 1
+
+    def set_array(self, array):
+        self.array = array
 
     def print_heapify(self):
         print(self.__str__())
@@ -278,6 +303,13 @@ class Heapify:
         for index in range(index_last_parent):
             self._process_parent(index)
 
+    def testing(self):
+        heapify = Heapify()
+        heapify.set_array([5, 3, 8, 4, 1, 2])
+        heapify.print_heapify()
+        heapify.heapify()
+        heapify.print_heapify()
+
 
 if __name__ == "__main__":
     os.system("clear")
@@ -285,13 +317,11 @@ if __name__ == "__main__":
     # MAX HEAPS
     # heap = HeapMax()
     # heap.testing()
-
+    HeapMax().testing()
     # PriorityQueue
     # prio_queueue = PriorityQueueWithHeap()
     # prio_queueue.testing()
 
     # HEAPIFY
-    heapify = Heapify([5, 3, 8, 4, 1, 2])
-    heapify.print_heapify()
-    heapify.heapify()
-    heapify.print_heapify()
+    # Heapify().testing()
+

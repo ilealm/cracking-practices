@@ -124,6 +124,7 @@ class HeapMax:
 
         return root
 
+
     def find_kth_largest(self, array, k):
         self._clear_array()
         for i in range(len(array)):

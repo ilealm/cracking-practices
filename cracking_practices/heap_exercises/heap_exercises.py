@@ -195,6 +195,7 @@ class HeapMax:
         print("find_kth_largest: ", heap_max.find_kth_largest([5, 3, 8, 4, 1, 2], 0))
 
 
+# this is in reallity a wrapper of the common heap max class
 class PriorityQueueWithHeap(HeapMax):
     def __init__(self):
         self._heap = HeapMax()

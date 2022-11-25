@@ -359,7 +359,7 @@ The remove method should return the greatest value in the array.
 * .count_leaves()
 
 
- Practices with ALV Trees](cracking_practices/avl_trees_exercises/README.md)
+ [Practices with ALV Trees](cracking_practices/avl_trees_exercises/README.md)
 - Exercises on ALV self balance Trees:
 * Insert
 * set Height
@@ -369,3 +369,12 @@ The remove method should return the greatest value in the array.
 * rotate trees right
 * _is_left_heavy
 * _is_right_heavy
+
+
+ [Practices with Heaps](cracking_practices/heap_exercises/README.md)
+- Exercises on Heaps:
+* add
+* remove
+* find_kth_greater_value
+* heapify an array
+* prority_queues_with_heap

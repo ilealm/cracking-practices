@@ -67,6 +67,8 @@ class Trie:
 
         current.is_end_of_word = True
 
+
+
     def contains(self, word):
         if word is None : return False
 

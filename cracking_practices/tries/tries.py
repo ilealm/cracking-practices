@@ -1,23 +1,24 @@
 import os
 
 
-class Node:
-    def __init__(self, value):
-        self.value = value
-        # self.children = [None] * 26  # for each letter in the alphabet
-        self.children = {}
-        self.is_end_of_word = False
+# class Node:
+#     def __init__(self, value):
+#         self.value = value
+#         # self.children = [None] * 26  # for each letter in the alphabet
+#         self.children = {}
+#         self.is_end_of_word = False
 
-    def __str__(self):
-        return f'Value: {self.value}, Is_end_of_word: {self.is_end_of_word}'
+#     def __str__(self):
+#         return f'Value: {self.value}, Is_end_of_word: {self.is_end_of_word}'
 
-    def __repr__(self):
-        return f'Value: {self.value}, Is_end_of_word: {self.is_end_of_word}'
+#     def __repr__(self):
+#         return f'Value: {self.value}, Is_end_of_word: {self.is_end_of_word}'
 
 
-class Trie(Node):
+# class Trie(Node):
+class Trie():
     def __init__(self):
-        self.root = Node("root")
+        self.root = self.Node("root")
         # self.root = Node(None)
 
     def __str__(self):
@@ -26,33 +27,56 @@ class Trie(Node):
     def __repr__(self):
         return f'Root: {self.root}'
 
-        
+
+    class Node():
+        def __init__(self, value):
+            self.value = value
+            self.children = {}
+            self.is_end_of_word = False
+
+        def __str__(self):
+            return f'Value: {self.value}, Is_end_of_word: {self.is_end_of_word}'
+
+        def __repr__(self):
+            return f'Value: {self.value}, Is_end_of_word: {self.is_end_of_word}'
+
+        def has_child(self, letter):
+            return letter in self.children
+
+
+
+
+        def add_child(self, letter):
+            # x = self.Node(letter)
+            self.children[letter] = self.Node(letter)
+
+
+        def get_child(self, letter):
+            return self.children[letter]
+
+
     def insert(self, word):
         word = word.lower()
         print("inserting ", word)
-        # set current to root
         current = self.root
-        # traverse all the word
+
+        # TODO ckeck other forms of for in range
         for i in range(len(word)):
             letter = word[i]
             print(letter)
-            if self._letter_exist_in_dict(current, letter):
-                current = current.children[letter]
-            else:
-                new_node = Node(letter)
-                current.children[letter] = new_node
-                current = new_node
+            # if self._letter_exist_in_dict(current, letter):
+            if not current.has_child(letter):
+                # ! esta linea es la que intentaba cambiar
+                # current.add_child(letter)
+                current.children[letter] = self.Node(letter)
+
+            current = current.get_child(letter)
 
         current.is_end_of_word = True
 
         print("done")
 
-    def _letter_exist_in_dict(self, current, letter):
-        return letter in current.children
 
-    # # rerturn the letter's possition on the array. which is the same -1 possition on the alphabet
-    # def _get_ch_index(self, ch):
-    #     return ord(ch.lower()) - ord("a")
 
 
 if __name__ == "__main__":
@@ -60,7 +84,7 @@ if __name__ == "__main__":
     trie = Trie()
     # trie.insert("@")
     trie.insert("BOY")
-    trie.insert("BOl")
+    trie.insert("BOly")
 
     # test uppercase
     # test non alphabet characters

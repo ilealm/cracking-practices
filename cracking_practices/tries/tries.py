@@ -16,78 +16,85 @@ import os
 
 
 # class Trie(Node):
-class Trie():
+class Trie:
     def __init__(self):
         self.root = self.Node("root")
         # self.root = Node(None)
 
     def __str__(self):
-        return f'Root: {self.root}'
+        return f"Root: {self.root}"
 
     def __repr__(self):
-        return f'Root: {self.root}'
+        return f"Root: {self.root}"
 
-
-    class Node():
+    class Node:
         def __init__(self, value):
             self.value = value
             self.children = {}
             self.is_end_of_word = False
 
         def __str__(self):
-            return f'Value: {self.value}, Is_end_of_word: {self.is_end_of_word}'
+            return f"Value: {self.value} "
 
         def __repr__(self):
-            return f'Value: {self.value}, Is_end_of_word: {self.is_end_of_word}'
+            return f"Value: {self.value}"
 
         def has_child(self, letter):
             return letter in self.children
 
-
         def get_child(self, letter):
             return self.children[letter]
 
-        # ! working
         def add_child(self, letter):
-            new_node = Trie.Node(letter)
-            self.children[letter] = new_node
-            # x = self.Node(letter)
-            # self.children[letter] = Node(letter)
+            # in order to create an instance within the same class, I need to referece the superclass (trie)
+            self.children[letter] = Trie.Node(letter)
 
+    def _groom_word(self, word):
+        if word is None:
+            raise Exception("There is no word.")
+
+        return word.lower().strip()
 
     def insert(self, word):
-        word = word.lower()
-        print("inserting ", word)
+        word = self._groom_word(word)
         current = self.root
 
-        # TODO ckeck other forms of for in range
-        for i in range(len(word)):
-            letter = word[i]
-            print(letter)
-            # if self._letter_exist_in_dict(current, letter):
+        for letter in word:
             if not current.has_child(letter):
-                # ! esta linea es la que intentaba cambiar
                 current.add_child(letter)
-                # this works:
-                # current.children[letter] = self.Node(letter)
-
-
 
             current = current.get_child(letter)
 
         current.is_end_of_word = True
 
-        print("done")
+    def contains(self, word):
+        if word is None : return False
 
+        word = self._groom_word(word)
+        current = self.root
 
+        for letter in word:
+            if not current.has_child(letter):
+                return False
+
+            current = current.get_child(letter)
+
+        return current.is_end_of_word
 
 
 if __name__ == "__main__":
     os.system("clear")
     trie = Trie()
     # trie.insert("@")
-    trie.insert("BOY")
-    trie.insert("BOly")
+    # trie.insert("BOY ")
+    # trie.insert("  BOly")
+    trie.insert("canada")
+    print(trie.contains("can"))
+    print(trie.contains("canadA"))
+    print(trie.contains("   canadA"))
+    print(trie.contains("nada"))
+    print(trie.contains(""))
+    print(trie.contains(None))
 
     # test uppercase
     # test non alphabet characters

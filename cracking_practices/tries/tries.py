@@ -44,15 +44,15 @@ class Trie():
             return letter in self.children
 
 
-
-
-        def add_child(self, letter):
-            # x = self.Node(letter)
-            self.children[letter] = self.Node(letter)
-
-
         def get_child(self, letter):
             return self.children[letter]
+
+        # ! working
+        def add_child(self, letter):
+            new_node = Trie.Node(letter)
+            self.children[letter] = new_node
+            # x = self.Node(letter)
+            # self.children[letter] = Node(letter)
 
 
     def insert(self, word):
@@ -67,8 +67,11 @@ class Trie():
             # if self._letter_exist_in_dict(current, letter):
             if not current.has_child(letter):
                 # ! esta linea es la que intentaba cambiar
-                # current.add_child(letter)
-                current.children[letter] = self.Node(letter)
+                current.add_child(letter)
+                # this works:
+                # current.children[letter] = self.Node(letter)
+
+
 
             current = current.get_child(letter)
 

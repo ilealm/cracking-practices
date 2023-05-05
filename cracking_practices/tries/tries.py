@@ -36,6 +36,9 @@ class Trie:
         def get_children(self):
             return self.children.values()
 
+        def has_children(self):
+            return len(self.children.keys()) > 0
+
     def _groom_word(self, word):
         if word is None:
             raise Exception("There is no word.")
@@ -75,7 +78,8 @@ class Trie:
             if not current:
                 return
 
-            if not self._is_root(current): print(current.value)
+            if not self._is_root(current):
+                print(current.value)
             # print(current.value)
             for child in current.get_children():
                 traverse(child)
@@ -84,10 +88,8 @@ class Trie:
 
         traverse(self.root)
 
-
     def _is_root(self, current):
-        return  current.value == "root"
-
+        return current.value == "root"
 
     # Postorder: leaf first. The word will be backwards
     def traverse_postorder(self):
@@ -100,9 +102,43 @@ class Trie:
                 # if child.is_end_of_word:
                 #     print("\n")
 
-            if not self._is_root(current): print(current.value)
+            if not self._is_root(current):
+                print(current.value)
 
         traverse(self.root)
+
+    def _is_empty_word(self, word):
+        return len(word) == 0
+
+    def _is_one_letter(self, word):
+        return len(word) == 1
+
+    def delete(self, word):
+        def traverse(current, word):
+            if current is None:
+                return
+
+            print(current.value, "   word:", word)
+
+            # if I reached the end of the word
+            if self._is_empty_word(word):
+                print(current.is_end_of_word)
+                current.is_end_of_word = False
+                print(current.is_end_of_word)
+                # todo if there is no child, delete the word upwards
+                if current.has_children():
+                    print("I CANT delete this word, IT HAS CHILDREN")
+                else:
+                    print("I can delete this word")
+                return
+
+            current = current.get_child(word[0])
+            cropped_word = word[1:]
+            traverse(current, cropped_word)
+
+        root_letter = self.root.get_child(word[0])
+        traverse(root_letter, word[1:])
+        print("done")
 
 
 if __name__ == "__main__":
@@ -112,12 +148,12 @@ if __name__ == "__main__":
     # trie.insert("BOY ")
     # trie.insert("  BOly")
     trie.insert("care")
-    # trie.insert("casa")
-    trie.insert("iris")
-    # trie.insert("erich")
-    trie.traverse_preorder()
+    trie.insert("other")
+    trie.insert("nada")
     print("\n\n")
-    trie.traverse_postorder()
+    # trie.delete("care")
+    trie.delete("car")
+    # trie.traverse_postorder()
     # print(trie.contains(None))
 
     # test uppercase

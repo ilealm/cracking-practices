@@ -1,25 +1,9 @@
 import os
 
-
-# class Node:
-#     def __init__(self, value):
-#         self.value = value
-#         # self.children = [None] * 26  # for each letter in the alphabet
-#         self.children = {}
-#         self.is_end_of_word = False
-
-#     def __str__(self):
-#         return f'Value: {self.value}, Is_end_of_word: {self.is_end_of_word}'
-
-#     def __repr__(self):
-#         return f'Value: {self.value}, Is_end_of_word: {self.is_end_of_word}'
-
-
 # class Trie(Node):
 class Trie:
     def __init__(self):
         self.root = self.Node("root")
-        # self.root = Node(None)
 
     def __str__(self):
         return f"Root: {self.root}"
@@ -52,8 +36,6 @@ class Trie:
         def get_children(self):
             return self.children.values()
 
-
-
     def _groom_word(self, word):
         if word is None:
             raise Exception("There is no word.")
@@ -72,10 +54,9 @@ class Trie:
 
         current.is_end_of_word = True
 
-
-
     def contains(self, word):
-        if word is None : return False
+        if word is None:
+            return False
 
         word = self._groom_word(word)
         current = self.root
@@ -88,15 +69,38 @@ class Trie:
 
         return current.is_end_of_word
 
-
     # Preorder: root first
     def traverse_preorder(self):
         def traverse(current):
-            if not current : return
+            if not current:
+                return
 
-            print(current.value)
+            if not self._is_root(current): print(current.value)
+            # print(current.value)
             for child in current.get_children():
                 traverse(child)
+                if child.is_end_of_word:
+                    print("\n")
+
+        traverse(self.root)
+
+
+    def _is_root(self, current):
+        return  current.value == "root"
+
+
+    # Postorder: leaf first. The word will be backwards
+    def traverse_postorder(self):
+        def traverse(current):
+            if not current:
+                return
+
+            for child in current.get_children():
+                traverse(child)
+                # if child.is_end_of_word:
+                #     print("\n")
+
+            if not self._is_root(current): print(current.value)
 
         traverse(self.root)
 
@@ -108,9 +112,12 @@ if __name__ == "__main__":
     # trie.insert("BOY ")
     # trie.insert("  BOly")
     trie.insert("care")
-    trie.insert("job")
+    # trie.insert("casa")
     trie.insert("iris")
+    # trie.insert("erich")
     trie.traverse_preorder()
+    print("\n\n")
+    trie.traverse_postorder()
     # print(trie.contains(None))
 
     # test uppercase

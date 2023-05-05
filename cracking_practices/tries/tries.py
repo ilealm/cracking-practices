@@ -49,6 +49,11 @@ class Trie:
             # in order to create an instance within the same class, I need to referece the superclass (trie)
             self.children[letter] = Trie.Node(letter)
 
+        def get_children(self):
+            return self.children.values()
+
+
+
     def _groom_word(self, word):
         if word is None:
             raise Exception("There is no word.")
@@ -84,19 +89,29 @@ class Trie:
         return current.is_end_of_word
 
 
+    # Preorder: root first
+    def traverse_preorder(self):
+        def traverse(current):
+            if not current : return
+
+            print(current.value)
+            for child in current.get_children():
+                traverse(child)
+
+        traverse(self.root)
+
+
 if __name__ == "__main__":
     os.system("clear")
     trie = Trie()
     # trie.insert("@")
     # trie.insert("BOY ")
     # trie.insert("  BOly")
-    trie.insert("canada")
-    print(trie.contains("can"))
-    print(trie.contains("canadA"))
-    print(trie.contains("   canadA"))
-    print(trie.contains("nada"))
-    print(trie.contains(""))
-    print(trie.contains(None))
+    trie.insert("care")
+    trie.insert("job")
+    trie.insert("iris")
+    trie.traverse_preorder()
+    # print(trie.contains(None))
 
     # test uppercase
     # test non alphabet characters

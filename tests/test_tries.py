@@ -46,3 +46,39 @@ def test_contains_five():
     trie.insert("CaNadA")
     assert trie.contains("") == False, "Error on test_contains_five."
 
+
+
+def test_delete_existing_word():
+    trie = Trie()
+    trie.insert("care")
+    trie.insert("tree")
+    trie.insert("desk")
+    word = 'care'
+    trie.delete(word)
+
+    assert trie.contains(word) == False, "Error on test_delete_existing_word"
+
+
+def test_delete_existing_word_with_more_letters_left():
+    trie = Trie()
+    trie.insert("care")
+    trie.insert("tree")
+    trie.insert("desk")
+    trie.insert("car")
+    word = 'car'
+    trie.delete(word)
+
+    assert (trie.contains(word) == False) and (trie.contains('care') == True), "Error on test_delete_existing_word_with_more_letters_left"
+
+
+def test_delete_non_existing_word():
+    with pytest.raises(Exception):
+        expected = Exception('The word does no exist.')
+
+        trie = Trie()
+        word = 'car'
+        actual = trie.delete(word)
+
+        assert actual == expected, 'Error on test_delete_non_existing_word.'
+
+

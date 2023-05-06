@@ -103,7 +103,6 @@ class Trie:
             for child in current.get_children():
                 traverse(child)
 
-
             if not self._is_root(current):
                 print(current.value)
 
@@ -116,6 +115,9 @@ class Trie:
         return len(word) == 1
 
     def delete(self, word):
+        if not self.contains(word):
+            raise Exception("The word does no exist.")
+
         def traverse(current, word):
             if current is None:
                 return
@@ -134,7 +136,6 @@ class Trie:
 
         root_letter = self.root.get_child(word[0])
         traverse(root_letter, word[1:])
-        print("done")
 
 
 if __name__ == "__main__":
@@ -148,15 +149,15 @@ if __name__ == "__main__":
     print("\n\n")
     # trie.delete("care")
     word = "car"
-    print('contains ', word, trie.contains(word))
+    print("contains ", word, trie.contains(word))
     trie.delete(word)
-    print('contains ', word, trie.contains(word))
+    print("contains ", word, trie.contains(word))
     word = "care"
-    print('contains ', word, trie.contains(word))
+    print("contains ", word, trie.contains(word))
     # todo validate if the word to delete is bigger than the stored words
 
-    # trie.traverse_postorder()
-    # test uppercase
-    # test non alphabet characters
+    word = "nada"
+    print("contains ", word, trie.contains(word))
+    trie.delete(word)
+    print("contains ", word, trie.contains(word))
 
-#

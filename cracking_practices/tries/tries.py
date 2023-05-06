@@ -39,6 +39,9 @@ class Trie:
         def has_children(self):
             return len(self.children.keys()) > 0
 
+        def delete(self):
+            self = None
+
     def _groom_word(self, word):
         if word is None:
             raise Exception("There is no word.")
@@ -83,8 +86,8 @@ class Trie:
             # print(current.value)
             for child in current.get_children():
                 traverse(child)
-                if child.is_end_of_word:
-                    print("\n")
+                # if child.is_end_of_word:
+                #     print("\n")
 
         traverse(self.root)
 
@@ -99,8 +102,7 @@ class Trie:
 
             for child in current.get_children():
                 traverse(child)
-                # if child.is_end_of_word:
-                #     print("\n")
+
 
             if not self._is_root(current):
                 print(current.value)
@@ -118,18 +120,12 @@ class Trie:
             if current is None:
                 return
 
-            print(current.value, "   word:", word)
-
-            # if I reached the end of the word
             if self._is_empty_word(word):
-                print(current.is_end_of_word)
                 current.is_end_of_word = False
-                print(current.is_end_of_word)
-                # todo if there is no child, delete the word upwards
-                if current.has_children():
-                    print("I CANT delete this word, IT HAS CHILDREN")
-                else:
-                    print("I can delete this word")
+
+                if not current.has_children():
+                    current.delete()
+
                 return
 
             current = current.get_child(word[0])
@@ -144,18 +140,22 @@ class Trie:
 if __name__ == "__main__":
     os.system("clear")
     trie = Trie()
-    # trie.insert("@")
-    # trie.insert("BOY ")
-    # trie.insert("  BOly")
+
     trie.insert("care")
+    trie.insert("car")
     trie.insert("other")
     trie.insert("nada")
     print("\n\n")
     # trie.delete("care")
-    trie.delete("car")
-    # trie.traverse_postorder()
-    # print(trie.contains(None))
+    word = "car"
+    print('contains ', word, trie.contains(word))
+    trie.delete(word)
+    print('contains ', word, trie.contains(word))
+    word = "care"
+    print('contains ', word, trie.contains(word))
+    # todo validate if the word to delete is bigger than the stored words
 
+    # trie.traverse_postorder()
     # test uppercase
     # test non alphabet characters
 

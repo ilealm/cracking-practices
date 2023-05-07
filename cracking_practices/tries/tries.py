@@ -141,6 +141,8 @@ class Trie:
         root_letter = self.root.get_child(word[0])
         traverse(root_letter, word[1:])
 
+
+
     # giving a letter, it returns a list with all the words which start with that letter
     def get_all_words_from_letter(self, prefix):
         prefix = self._groom_word(prefix)
@@ -153,6 +155,8 @@ class Trie:
         if not current:
             return
 
+        found_words = []
+
         def traverse(current, word, found_words):
             # base case
             word = word + current.value
@@ -160,7 +164,6 @@ class Trie:
             if not current.has_children():
                 if current.is_end_of_word:
                     found_words.append(word)
-                    print(found_words)
                 return
 
             if current.is_end_of_word:
@@ -169,7 +172,8 @@ class Trie:
             for child in current.get_children():
                 traverse(child, word, found_words)
 
-        traverse(current, "", [])
+        traverse(current, "", found_words)
+        return found_words
 
 
 if __name__ == "__main__":
@@ -192,5 +196,5 @@ if __name__ == "__main__":
     # print("contains careful", trie.contains("iris"))
     # todo validate when there is no child letter
     # trie.get_all_words_from_letter("s")
-    trie.get_all_words_from_letter("c")
-    trie.get_all_words_from_letter("e")
+    print(trie.get_all_words_from_letter("c"))
+    print(trie.get_all_words_from_letter("e"))

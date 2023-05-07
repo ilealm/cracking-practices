@@ -1,6 +1,6 @@
 import os
 
-# class Trie(Node):
+
 class Trie:
     def __init__(self):
         self.root = self.Node("root")
@@ -27,6 +27,9 @@ class Trie:
             return letter in self.children
 
         def get_child(self, letter):
+            if self.children[letter] is None:
+                return
+
             return self.children[letter]
 
         def add_child(self, letter):
@@ -114,6 +117,7 @@ class Trie:
     def _is_one_letter(self, word):
         return len(word) == 1
 
+    # post order traversal
     def delete(self, word):
         if not self.contains(word):
             raise Exception("The word does no exist.")
@@ -137,27 +141,55 @@ class Trie:
         root_letter = self.root.get_child(word[0])
         traverse(root_letter, word[1:])
 
+    def auto_complete(self, prefix):
+        prefix = self._groom_word(prefix)
+        if prefix is None:
+            return
+
+        # get the prefix children
+        current = self.root.get_child(prefix[0])
+
+        if not current:
+            return
+
+        def traverse(current, word, found_words):
+            # base case
+            word = word + current.value
+
+            if not current.has_children():
+                if current.is_end_of_word:
+                    found_words.append(word)
+                    print(found_words)
+                return
+
+            if current.is_end_of_word:
+                found_words.append(word)
+
+            for child in current.get_children():
+                traverse(child, word, found_words)
+
+        traverse(current, "", [])
+
 
 if __name__ == "__main__":
     os.system("clear")
     trie = Trie()
 
-    trie.insert("care")
     trie.insert("car")
-    trie.insert("other")
+    trie.insert("care")
+    trie.insert("card")
+    trie.insert("egg")
     trie.insert("nada")
-    print("\n\n")
-    # trie.delete("care")
-    word = "car"
-    print("contains ", word, trie.contains(word))
-    trie.delete(word)
-    print("contains ", word, trie.contains(word))
-    word = "care"
-    print("contains ", word, trie.contains(word))
-    # todo validate if the word to delete is bigger than the stored words
+    trie.insert("careful")
 
-    word = "nada"
-    print("contains ", word, trie.contains(word))
-    trie.delete(word)
-    print("contains ", word, trie.contains(word))
-
+    print("contains car", trie.contains("car"))
+    print("contains care", trie.contains("care"))
+    # print("contains care", trie.contains("care"))
+    # print("contains card", trie.contains("card"))
+    # print("contains egg", trie.contains("egg"))
+    # print("contains careful", trie.contains("careful"))
+    # print("contains careful", trie.contains("iris"))
+    # todo validate when there is no child letter
+    # trie.auto_complete("s")
+    trie.auto_complete("c")
+    trie.auto_complete("e")

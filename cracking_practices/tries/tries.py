@@ -141,7 +141,8 @@ class Trie:
         root_letter = self.root.get_child(word[0])
         traverse(root_letter, word[1:])
 
-    def auto_complete(self, prefix):
+    # giving a letter, it returns a list with all the words which start with that letter
+    def get_all_words_from_letter(self, prefix):
         prefix = self._groom_word(prefix)
         if prefix is None:
             return
@@ -190,6 +191,6 @@ if __name__ == "__main__":
     # print("contains careful", trie.contains("careful"))
     # print("contains careful", trie.contains("iris"))
     # todo validate when there is no child letter
-    # trie.auto_complete("s")
-    trie.auto_complete("c")
-    trie.auto_complete("e")
+    # trie.get_all_words_from_letter("s")
+    trie.get_all_words_from_letter("c")
+    trie.get_all_words_from_letter("e")

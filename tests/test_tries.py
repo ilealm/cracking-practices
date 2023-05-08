@@ -82,3 +82,71 @@ def test_delete_non_existing_word():
         assert actual == expected, 'Error on test_delete_non_existing_word.'
 
 
+def test_words_from_sufix_one(trie__with_words):
+    sufix = "car"
+    expected = ['car', 'care', 'careful', 'card']
+
+    actual = trie__with_words.get_words_from_sufix(sufix)
+
+    assert actual == expected, 'Error on test_words_from_sufix_one.'
+
+
+def test_words_from_sufix_two(trie__with_words):
+    sufix = "e"
+    expected = ['egg']
+
+    actual = trie__with_words.get_words_from_sufix(sufix)
+
+    assert actual == expected, 'Error on test_words_from_sufix_two.'
+
+
+def test_words_from_sufix_two(trie__with_words):
+    sufix = "no"
+    expected = ['nothing', 'notice']
+
+    actual = trie__with_words.get_words_from_sufix(sufix)
+
+    assert actual == expected, 'Error on test_words_from_sufix_two.'
+
+
+def test_words_from_sufix_empty_sufix(trie__with_words):
+    sufix = ""
+    expected = []
+
+    actual = trie__with_words.get_words_from_sufix(sufix)
+
+    assert actual == expected, 'Error on test_words_from_sufix_empty_sufix.'
+
+
+def test_words_from_sufix_none_sufix(trie__with_words):
+    sufix = None
+    expected = []
+
+    actual = trie__with_words.get_words_from_sufix(sufix)
+
+    assert actual == expected, 'Error on test_words_from_sufix_none_sufix.'
+
+
+
+def test_words_from_sufix_non_existing(trie__with_words):
+    sufix = "x"
+    expected = []
+
+    actual = trie__with_words.get_words_from_sufix(sufix)
+
+    assert actual == expected, 'Error on test_words_from_sufix_non_existing.'
+
+
+
+@pytest.fixture
+def trie__with_words():
+    trie = Trie()
+    trie.insert("car")
+    trie.insert("care")
+    trie.insert("card")
+    trie.insert("egg")
+    trie.insert("nothing")
+    trie.insert("careful")
+    trie.insert("notice")
+
+    return trie

@@ -27,6 +27,9 @@ class Trie:
             return letter in self.children
 
         def get_child(self, letter):
+            if not letter in self.children:
+                return
+
             if self.children[letter] is None:
                 return
 
@@ -141,17 +144,19 @@ class Trie:
         root_letter = self.root.get_child(word[0])
         traverse(root_letter, word[1:])
 
+    def get_last_node_from_word(self, word):
+        current = self.root
 
+        for letter in word:
+            current = current.get_child(letter)
+
+            if current is None:
+                return None
+
+        return current
 
     # giving a letter, it returns a list with all the words which start with that letter
-    def get_all_words_from_letter(self, prefix):
-        prefix = self._groom_word(prefix)
-        if prefix is None:
-            return
-
-        # get the prefix children
-        current = self.root.get_child(prefix[0])
-
+    def get_all_words_from_node(self, sufix, current):
         if not current:
             return
 
@@ -172,29 +177,23 @@ class Trie:
             for child in current.get_children():
                 traverse(child, word, found_words)
 
-        traverse(current, "", found_words)
+        traverse(current, sufix, found_words)
+        return found_words
+
+    def get_words_from_sufix(self, sufix):
+        found_words = []
+
+        if sufix is None or sufix == "":
+            return found_words
+
+        sufix = self._groom_word(sufix)
+        last_node_of_sufix = self.get_last_node_from_word(sufix)
+
+        if last_node_of_sufix is None:
+            return found_words
+
+        found_words = self.get_all_words_from_node(sufix[:-1], last_node_of_sufix)
+
         return found_words
 
 
-if __name__ == "__main__":
-    os.system("clear")
-    trie = Trie()
-
-    trie.insert("car")
-    trie.insert("care")
-    trie.insert("card")
-    trie.insert("egg")
-    trie.insert("nada")
-    trie.insert("careful")
-
-    print("contains car", trie.contains("car"))
-    print("contains care", trie.contains("care"))
-    # print("contains care", trie.contains("care"))
-    # print("contains card", trie.contains("card"))
-    # print("contains egg", trie.contains("egg"))
-    # print("contains careful", trie.contains("careful"))
-    # print("contains careful", trie.contains("iris"))
-    # todo validate when there is no child letter
-    # trie.get_all_words_from_letter("s")
-    print(trie.get_all_words_from_letter("c"))
-    print(trie.get_all_words_from_letter("e"))

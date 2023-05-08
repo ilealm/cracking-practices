@@ -197,3 +197,25 @@ class Trie:
         return found_words
 
 
+    def get_all_words(self):
+        found_words = []
+
+        def traverse(current, word, found_words):
+            # base case
+            if not current.value == 'root':
+                word = word + current.value
+
+            if not current.has_children():
+                if current.is_end_of_word:
+                    found_words.append(word)
+                return
+
+            if current.is_end_of_word:
+                found_words.append(word)
+
+            for child in current.get_children():
+                traverse(child, word, found_words)
+
+        traverse(self.root, '', found_words)
+        return found_words
+

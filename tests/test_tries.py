@@ -137,6 +137,20 @@ def test_words_from_sufix_non_existing(trie__with_words):
     assert actual == expected, 'Error on test_words_from_sufix_non_existing.'
 
 
+def test_get_all_words(trie__with_words):
+    expected = ['car', 'care', 'careful', 'card', 'egg', 'nothing', 'notice']
+
+    actual = trie__with_words.get_all_words()
+
+    assert actual == expected, 'Error on test_get_all_words.'
+
+
+def test_get_all_words_empty():
+    expected = []
+
+    actual =  Trie().get_all_words()
+
+    assert actual == expected, 'Error on test_get_all_words_empty.'
 
 @pytest.fixture
 def trie__with_words():

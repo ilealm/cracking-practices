@@ -82,59 +82,59 @@ def test_delete_non_existing_word():
         assert actual == expected, 'Error on test_delete_non_existing_word.'
 
 
-def test_words_from_sufix_one(trie__with_words):
-    sufix = "car"
+def test_words_from_prefix_one(trie__with_words):
+    prefix = "car"
     expected = ['car', 'care', 'careful', 'card']
 
-    actual = trie__with_words.get_words_from_sufix(sufix)
+    actual = trie__with_words.get_words_from_prefix(prefix)
 
-    assert actual == expected, 'Error on test_words_from_sufix_one.'
+    assert actual == expected, 'Error on test_words_from_prefix_one.'
 
 
-def test_words_from_sufix_two(trie__with_words):
-    sufix = "e"
+def test_words_from_prefix_two(trie__with_words):
+    prefix = "e"
     expected = ['egg']
 
-    actual = trie__with_words.get_words_from_sufix(sufix)
+    actual = trie__with_words.get_words_from_prefix(prefix)
 
-    assert actual == expected, 'Error on test_words_from_sufix_two.'
+    assert actual == expected, 'Error on test_words_from_prefix_two.'
 
 
-def test_words_from_sufix_two(trie__with_words):
-    sufix = "no"
+def test_words_from_prefix_two(trie__with_words):
+    prefix = "no"
     expected = ['nothing', 'notice']
 
-    actual = trie__with_words.get_words_from_sufix(sufix)
+    actual = trie__with_words.get_words_from_prefix(prefix)
 
-    assert actual == expected, 'Error on test_words_from_sufix_two.'
+    assert actual == expected, 'Error on test_words_from_prefix_two.'
 
 
-def test_words_from_sufix_empty_sufix(trie__with_words):
-    sufix = ""
+def test_words_from_prefix_empty_prefix(trie__with_words):
+    prefix = ""
     expected = []
 
-    actual = trie__with_words.get_words_from_sufix(sufix)
+    actual = trie__with_words.get_words_from_prefix(prefix)
 
-    assert actual == expected, 'Error on test_words_from_sufix_empty_sufix.'
+    assert actual == expected, 'Error on test_words_from_prefix_empty_prefix.'
 
 
-def test_words_from_sufix_none_sufix(trie__with_words):
-    sufix = None
+def test_words_from_prefix_none_prefix(trie__with_words):
+    prefix = None
     expected = []
 
-    actual = trie__with_words.get_words_from_sufix(sufix)
+    actual = trie__with_words.get_words_from_prefix(prefix)
 
-    assert actual == expected, 'Error on test_words_from_sufix_none_sufix.'
+    assert actual == expected, 'Error on test_words_from_prefix_none_prefix.'
 
 
 
-def test_words_from_sufix_non_existing(trie__with_words):
-    sufix = "x"
+def test_words_from_prefix_non_existing(trie__with_words):
+    prefix = "x"
     expected = []
 
-    actual = trie__with_words.get_words_from_sufix(sufix)
+    actual = trie__with_words.get_words_from_prefix(prefix)
 
-    assert actual == expected, 'Error on test_words_from_sufix_non_existing.'
+    assert actual == expected, 'Error on test_words_from_prefix_non_existing.'
 
 
 def test_get_all_words(trie__with_words):

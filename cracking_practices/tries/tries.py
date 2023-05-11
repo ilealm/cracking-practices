@@ -159,7 +159,7 @@ class Trie:
         return current
 
     # giving a letter, it returns a list with all the words which start with that letter
-    def get_all_words_from_node(self, sufix, current):
+    def get_all_words_from_node(self, prefix, current):
         if not current:
             return
 
@@ -180,22 +180,22 @@ class Trie:
             for child in current.get_children():
                 traverse(child, word, found_words)
 
-        traverse(current, sufix, found_words)
+        traverse(current, prefix, found_words)
         return found_words
 
-    def get_words_from_sufix(self, sufix):
+    def get_words_from_prefix(self, prefix):
         found_words = []
 
-        if sufix is None or sufix == "":
+        if prefix is None or prefix == "":
             return found_words
 
-        sufix = self._groom_word(sufix)
-        last_node_of_sufix = self.get_last_node_from_word(sufix)
+        prefix = self._groom_word(prefix)
+        last_node_of_prefix = self.get_last_node_from_word(prefix)
 
-        if last_node_of_sufix is None:
+        if last_node_of_prefix is None:
             return found_words
 
-        found_words = self.get_all_words_from_node(sufix[:-1], last_node_of_sufix)
+        found_words = self.get_all_words_from_node(prefix[:-1], last_node_of_prefix)
 
         return found_words
 

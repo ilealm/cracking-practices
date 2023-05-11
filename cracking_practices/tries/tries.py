@@ -1,5 +1,8 @@
 import os
 
+# Word Autocomplete implentation using Tries.
+# I have saved this words: car, card, care, egg, nothing, careless.
+# If I send the prefix car, the I will get car, card, care, careless as word autocomplete.
 
 class Trie:
     def __init__(self):

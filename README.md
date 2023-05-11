@@ -378,3 +378,10 @@ The remove method should return the greatest value in the array.
 * find_kth_greater_value
 * heapify an array
 * prority_queues_with_heap
+
+
+
+ [Autocompletition using Tries](cracking_practices/tries/README.md)
+- Given a Trie where I have words saved, and given a sufix, return all the possible words that start with the prefix.
+* Saved this words: car, card, care, egg, nothing, careless.
+* If I send the prefix car, the I will get: car, card, care, careless.

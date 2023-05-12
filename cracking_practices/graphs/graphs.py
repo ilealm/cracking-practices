@@ -1,13 +1,13 @@
 class Graph:
-    class Node:
-        def __init__(self, label):
-            self.label = label
-            self.next = None
-
-        def __str__(self):
-            return f"{self.label} -> {self.next}"
-
     class LinkedList:
+        class Node:
+            def __init__(self, label):
+                self.label = label
+                self.next = None
+
+            def __str__(self):
+                return f"{self.label} -> {self.next}"
+
         def __init__(self):
             self.head = None
             self.tail = None
@@ -16,7 +16,7 @@ class Graph:
             return f"Head -> {self.head}"
 
         def add_node(self, label):
-            new_node = Graph.Node(label)
+            new_node = self.Node(label)
 
             if self.head is None:
                 self.head = new_node
@@ -26,6 +26,11 @@ class Graph:
                 self.tail = new_node
 
             return new_node
+
+        def get_head(self):
+            return self.head
+
+
 
     def __init__(self):
         self.adj_list = []
@@ -49,22 +54,60 @@ class Graph:
         self.hash_table[label] = index
 
     def add(self, label):
-        new_node = self.LinkedList().add_node(label)
+        new_LL = self.LinkedList()
+        new_node = new_LL.add_node(label)
 
-        self._add_into_adj_list(new_node)
-        self._add_into_hash_table(label, self.get_num_items_in_adj_list() - 1)
+        # new_node = self.LinkedList().add_node(label)
+
+        # self._add_into_adj_list(new_node)
+        self._add_into_adj_list(new_LL)
+        # todo lower case label
+        self._add_into_hash_table(
+            self.groom_word(label), self.get_num_items_in_adj_list() - 1
+        )
 
         return new_node
 
-    # def add_edge(self, label_from, label_to):
-    #     # validate labels
-    #     from_node = self.get_node_by_label(label_from)
-    #     to_node = self.get_node_by_label(label_to)
+    def get_label_index(self, label):
+        label = self.groom_word(label)
+        if not label in self.hash_table.keys():
+            return None
 
-    #     if from_node is None or to_node is None:
-    #         return
+        return self.hash_table[label]
 
-    #     from_node.next = to_node
+    def get_node_by_label(self, label):
+        index = self.get_label_index(label)
+
+    def groom_word(self, word):
+        return word.lower().strip()
+
+    def add_edge(self, label_from, label_to):
+        #     # validate labels
+        index_from = self.get_label_index(label_from)
+        index_to = self.get_label_index(label_to)
+
+        if index_from is None or index_to is None:
+            return
+
+        current = self.adj_list[index_from]
+        # print(current)
+        current.add_node(label_to)
+        # print(current)
+
+        # print(
+        #     " \nAdd Edge from ",
+        #     label_from,
+        #     "[",
+        #     index_from,
+        #     "]",
+        #     " to ",
+        #     label_to,
+        #     "[",
+        #     index_to,
+        #     "]\n",
+        # )
+
+
 
 
 if __name__ == "__main__":
@@ -76,6 +119,16 @@ if __name__ == "__main__":
     graph.add("Bob")
     graph.add("Mary")
     graph.add("Alice")
-    graph.print_adj_list()
+    # graph.print_adj_list()
     print("\n")
     graph.print_hash_table()
+
+    graph.add_edge("John", "mary")
+    graph.add_edge("John", "bob")
+    graph.add_edge("alice", "bob")
+    graph.add_edge("bob", "john")
+    graph.add_edge("bob", "john")
+
+
+    graph.print_adj_list()
+

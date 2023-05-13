@@ -144,8 +144,18 @@ class Graph:
         self.adj_list.get(from_node).append(to_node)
 
 
+    def remove_edge(self, from_label, to_label):
+        from_node = self.nodes.get(from_label)
+        to_node = self.nodes.get(to_label)
+
+        if (from_node is None) or (to_node is None):
+            return
+
+        self.adj_list.get(from_node).remove(to_node)
+
+
     # this method remove the node and the edges that it has
-    def removeNode(self, label):
+    def remove_node(self, label):
         node_to_delete = self.nodes.get(label)
 
         if node_to_delete is None:
@@ -159,9 +169,6 @@ class Graph:
         # remove the node from the edges dictionary
         self.adj_list.pop(node_to_delete)
 
-
-
-
     def print_edges(self):
         for key, value in self.adj_list.items():
             for edge in value:
@@ -169,26 +176,28 @@ class Graph:
                 print(" -> ", edge.label)
 
 
-# if __name__ == "__main__":
-#     import os
+if __name__ == "__main__":
+    import os
 
-#     os.system("clear")
-#     graph = Graph()
-#     graph.add_node("John")
-#     graph.add_node("Mary")
-#     graph.add_node("Bob")
-#     graph.add_node("Alice")
-#     graph.add_node("Dan")
-#     graph.add_node("Nina")
+    os.system("clear")
+    graph = Graph()
+    graph.add_node("John")
+    graph.add_node("Mary")
+    graph.add_node("Bob")
+    graph.add_node("Alice")
+    graph.add_node("Dan")
+    graph.add_node("Nina")
 
-#     graph.add_edge("John", "Mary")
-#     graph.add_edge("John", "Bob")
-#     graph.add_edge("Bob", "John")
-#     graph.add_edge("Mary", "John")
-#     graph.add_edge("Alice", "Mary")
-#     graph.add_edge("Dan", "Nina")
-#     graph.print_edges()
-#     print("\n")
-#     graph.removeNode("John")
-#     graph.print_edges()
+    graph.add_edge("John", "Mary")
+    graph.add_edge("John", "Bob")
+    graph.add_edge("Bob", "John")
+    graph.add_edge("Mary", "John")
+    graph.add_edge("Alice", "Mary")
+    graph.add_edge("Dan", "Nina")
+    # graph.print_edges()
+    # print("\n")
+    # graph.remove_node("John")
+    graph.remove_edge("John", "Mary")
+    graph.remove_edge("Dan", "Nina")
+    graph.print_edges()
 

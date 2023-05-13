@@ -1,4 +1,5 @@
-class Graph:
+# iris approach
+class Graph_textbook_approach:
     class LinkedList:
         class Node:
             def __init__(self, label):
@@ -30,8 +31,6 @@ class Graph:
         def get_head(self):
             return self.head
 
-
-
     def __init__(self):
         self.adj_list = []
         self.hash_table = {}
@@ -57,9 +56,6 @@ class Graph:
         new_LL = self.LinkedList()
         new_node = new_LL.add_node(label)
 
-        # new_node = self.LinkedList().add_node(label)
-
-        # self._add_into_adj_list(new_node)
         self._add_into_adj_list(new_LL)
         # todo lower case label
         self._add_into_hash_table(
@@ -79,7 +75,8 @@ class Graph:
         index = self.get_label_index(label)
 
     def groom_word(self, word):
-        return word.lower().strip()
+        # return word.lower().strip()
+        return word.strip()
 
     def add_edge(self, label_from, label_to):
         #     # validate labels
@@ -90,45 +87,95 @@ class Graph:
             return
 
         current = self.adj_list[index_from]
-        # print(current)
         current.add_node(label_to)
-        # print(current)
-
-        # print(
-        #     " \nAdd Edge from ",
-        #     label_from,
-        #     "[",
-        #     index_from,
-        #     "]",
-        #     " to ",
-        #     label_to,
-        #     "[",
-        #     index_to,
-        #     "]\n",
-        # )
 
 
+# Idea is to have two hash_tables, one for the label with their nodes,
+# and the other with the edges of each node
+# nodes hash_table
+#   label : nodes
+#    John : <node kfnksgkdbff>
+#    Bob  : <node kdgdfjgdfjh>
+#    Mary : <node swetksbhfdk>
+
+# adj_list hash_table. AKA where the edges will be stored
+#   node : [list of nodes]
+# <node_John kfnksgkdbff> : [<node_Mary kdgdfjgdfjh>,  <node_Bob kdgdfjgdfjh>]
+
+
+class Graph:
+    class Node:
+        def __init__(self, label):
+            self.label = label
+
+        def __str__(self):
+            return f"{self.label}"
+
+    def __init__(self):
+        self.nodes = {}
+        # adj_list -> node : list[nodes]
+        self.adj_list = {}
+
+    def _key_already_exist(self, hash_table, key):
+        return key in hash_table.keys()
+
+    def add_node(self, label):
+        node = self.Node(label)
+
+        if not self._key_already_exist(self.nodes, label):
+            self.nodes[label] = node
+
+        if not self._key_already_exist(self.adj_list, label):
+            self.adj_list[node] = []
+
+    def add_edge(self, from_label, to_label):
+        from_node = self.nodes.get(from_label)
+        to_node = self.nodes.get(to_label)
+
+        if (from_node is None) or (to_node is None):
+            print("error")
+            raise Exception("Not a valid node")
+
+        self.adj_list.get(from_node).append(to_node)
+
+    def print_hash_table(self):
+        for key, value in self.adj_list.items():
+            # print(key.label)
+            for edge in value:
+                print(key.label)
+                print(" -> ", edge.label)
 
 
 if __name__ == "__main__":
     import os
 
     os.system("clear")
+    # graph = Graph()
+    # graph.add("John")
+    # graph.add("Bob")
+    # graph.add("Mary")
+    # graph.add("Alice")
+    # # graph.print_adj_list()
+    # print("\n")
+    # graph.print_hash_table()
+
+    # graph.add_edge("John", "Mary")
+    # # graph.add_edge("John", "Mary")
+    # graph.add_edge("John", "Bob")
+
+    # graph.add_edge("alice", "Bob")
+    # graph.add_edge("Bob", "John")
+    # graph.add_edge("Bob", "John")
+
+    # end il approach
+
     graph = Graph()
-    graph.add("John")
-    graph.add("Bob")
-    graph.add("Mary")
-    graph.add("Alice")
-    # graph.print_adj_list()
-    print("\n")
+    graph.add_node("John")
+    graph.add_node("Mary")
+    graph.add_node("Bob")
+    graph.add_edge("John", "Mary")
+    graph.add_edge("John", "Bob")
+    graph.add_edge("Bob", "John")
     graph.print_hash_table()
-
-    graph.add_edge("John", "mary")
-    graph.add_edge("John", "bob")
-    graph.add_edge("alice", "bob")
-    graph.add_edge("bob", "john")
-    graph.add_edge("bob", "john")
-
-
-    graph.print_adj_list()
+    # graph.print_adj_list()
 

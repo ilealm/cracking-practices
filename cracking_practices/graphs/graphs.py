@@ -116,16 +116,22 @@ class Graph:
         # adj_list -> node : list[nodes]
         self.adj_list = {}
 
-    def _key_already_exist(self, hash_table, key):
-        return key in hash_table.keys()
+    # def _key_already_exist(self, hash_table, key):
+    def _key_already_exist_in_nodes(self, key):
+        return key in self.nodes.keys()
+
+    def _key_already_exist_in_adj_list(self, key):
+        return key in self.adj_list.keys()
 
     def add_node(self, label):
         node = self.Node(label)
 
-        if not self._key_already_exist(self.nodes, label):
+        # if not self._key_already_exist(self.nodes, label):
+        if not self._key_already_exist_in_nodes(label):
             self.nodes[label] = node
 
-        if not self._key_already_exist(self.adj_list, label):
+        # if not self._key_already_exist(self.adj_list, label):
+        if not self._key_already_exist_in_adj_list(label):
             self.adj_list[node] = []
 
     def add_edge(self, from_label, to_label):
@@ -133,49 +139,56 @@ class Graph:
         to_node = self.nodes.get(to_label)
 
         if (from_node is None) or (to_node is None):
-            print("error")
             raise Exception("Not a valid node")
 
         self.adj_list.get(from_node).append(to_node)
 
-    def print_hash_table(self):
+
+    # this method remove the node and the edges that it has
+    def removeNode(self, label):
+        node_to_delete = self.nodes.get(label)
+
+        if node_to_delete is None:
+            return
+
+        # remove edges
+        for key, edges_list in self.adj_list.items():
+            if node_to_delete in edges_list:
+                edges_list.remove(node_to_delete)
+
+        # remove the node from the edges dictionary
+        self.adj_list.pop(node_to_delete)
+
+
+
+
+    def print_edges(self):
         for key, value in self.adj_list.items():
-            # print(key.label)
             for edge in value:
                 print(key.label)
                 print(" -> ", edge.label)
 
 
-if __name__ == "__main__":
-    import os
+# if __name__ == "__main__":
+#     import os
 
-    os.system("clear")
-    # graph = Graph()
-    # graph.add("John")
-    # graph.add("Bob")
-    # graph.add("Mary")
-    # graph.add("Alice")
-    # # graph.print_adj_list()
-    # print("\n")
-    # graph.print_hash_table()
+#     os.system("clear")
+#     graph = Graph()
+#     graph.add_node("John")
+#     graph.add_node("Mary")
+#     graph.add_node("Bob")
+#     graph.add_node("Alice")
+#     graph.add_node("Dan")
+#     graph.add_node("Nina")
 
-    # graph.add_edge("John", "Mary")
-    # # graph.add_edge("John", "Mary")
-    # graph.add_edge("John", "Bob")
-
-    # graph.add_edge("alice", "Bob")
-    # graph.add_edge("Bob", "John")
-    # graph.add_edge("Bob", "John")
-
-    # end il approach
-
-    graph = Graph()
-    graph.add_node("John")
-    graph.add_node("Mary")
-    graph.add_node("Bob")
-    graph.add_edge("John", "Mary")
-    graph.add_edge("John", "Bob")
-    graph.add_edge("Bob", "John")
-    graph.print_hash_table()
-    # graph.print_adj_list()
+#     graph.add_edge("John", "Mary")
+#     graph.add_edge("John", "Bob")
+#     graph.add_edge("Bob", "John")
+#     graph.add_edge("Mary", "John")
+#     graph.add_edge("Alice", "Mary")
+#     graph.add_edge("Dan", "Nina")
+#     graph.print_edges()
+#     print("\n")
+#     graph.removeNode("John")
+#     graph.print_edges()
 

@@ -1,4 +1,6 @@
-# iris approach
+import queue
+
+# iris approach (book approach, with an array of Linked Lists)
 class Graph_textbook_approach:
     class LinkedList:
         class Node:
@@ -143,7 +145,6 @@ class Graph:
 
         self.adj_list.get(from_node).append(to_node)
 
-
     def remove_edge(self, from_label, to_label):
         from_node = self.nodes.get(from_label)
         to_node = self.nodes.get(to_label)
@@ -152,7 +153,6 @@ class Graph:
             return
 
         self.adj_list.get(from_node).remove(to_node)
-
 
     # this method remove the node and the edges that it has
     def remove_node(self, label):
@@ -175,26 +175,64 @@ class Graph:
                 print(key.label)
                 print(" -> ", edge.label)
 
+    def _get_randon_node(self):
+        # I will get all the nodes in the hash_table
+        # and I will send the first found key
+        keys = list(self.nodes.keys())
 
-# if __name__ == "__main__":
-#     import os
+        return self.nodes[keys[0]]
 
-#     os.system("clear")
-#     graph = Graph()
-#     graph.add_node("John")
-#     graph.add_node("Mary")
-#     graph.add_node("Bob")
-#     graph.add_node("Alice")
-#     graph.add_node("Dan")
-#     graph.add_node("Nina")
+    def get_neighbors(self, node):
+        return self.adj_list[node]
 
-#     graph.add_edge("John", "Mary")
-#     graph.add_edge("John", "Bob")
-#     graph.add_edge("Bob", "John")
-#     graph.add_edge("Mary", "John")
-#     graph.add_edge("Alice", "Mary")
-#     graph.add_edge("Dan", "Nina")
-#     # graph.print_edges()
+    def traverse_breath(self):
+        # set (no dupplicates allowed) of visited nodes
+        visited_nodes = set()
+        queue_nodes = queue.Queue()
+
+        # get a node to start the process
+        current = self._get_randon_node()
+
+        # add node to queue
+        queue_nodes.put(current)
+        while not queue_nodes.empty():
+            current = queue_nodes.get()
+            # print("visiting ", current.label)
+            # add node to set
+            visited_nodes.add(current.label)
+            neighbors = self.get_neighbors(current)
+            for neighbor in neighbors:
+                if not neighbor.label in visited_nodes:
+                    queue_nodes.put(neighbor)
+
+        return visited_nodes
+
+
+if __name__ == "__main__":
+    import os
+
+    os.system("clear")
+    graph = Graph()
+    graph.add_node("A")
+    graph.add_node("B")
+    graph.add_node("C")
+    graph.add_node("D")
+    # graph.add_node("E")
+
+    graph.add_edge("A", "B")
+    graph.add_edge("A", "C")
+    graph.add_edge("B", "D")
+    graph.add_edge("D", "C")
+    # graph.add_edge("C", "E")
+
+    #     graph.add_edge("John", "Mary")
+    #     graph.add_edge("John", "Bob")
+    #     graph.add_edge("Bob", "John")
+    #     graph.add_edge("Mary", "John")
+    #     graph.add_edge("Alice", "Mary")
+    #     graph.add_edge("Dan", "Nina")
+    # graph.print_edges()
+    print(graph.traverse_breath())
 #     # print("\n")
 #     # graph.remove_node("John")
 #     graph.remove_edge("John", "Mary")

@@ -24,7 +24,7 @@ def test_remove_node(base_graph_with_edge):
 
     expected = None
 
-    actual = base_graph_with_edge.removeNode("John")
+    actual = base_graph_with_edge.remove_node("John")
 
     assert actual == expected, "Error on test_remove_node."
 

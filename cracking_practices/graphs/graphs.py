@@ -90,17 +90,17 @@ class Graph_textbook_approach:
         current.add_node(label_to)
 
 
-# Idea is to have two hash_tables, one for the label with their nodes,
+# Idea is to have two hash_tables: One for the label with their nodes,
 # and the other with the edges of each node
-# nodes hash_table
-#   label : nodes
+# nodes hash_table:
+#    LABEL: <NODE>
 #    John : <node kfnksgkdbff>
 #    Bob  : <node kdgdfjgdfjh>
 #    Mary : <node swetksbhfdk>
 
 # adj_list hash_table. AKA where the edges will be stored
-#   node : [list of nodes]
-# <node_John kfnksgkdbff> : [<node_Mary kdgdfjgdfjh>,  <node_Bob kdgdfjgdfjh>]
+#   NODE : [LIST OF NODES WHERE THE NODE HAS EDGES]
+#   <node_John kfnksgkdbff> : [<node_Mary kdgdfjgdfjh>,  <node_Bob kdgdfjgdfjh>]
 
 
 class Graph:
@@ -176,28 +176,28 @@ class Graph:
                 print(" -> ", edge.label)
 
 
-if __name__ == "__main__":
-    import os
+# if __name__ == "__main__":
+#     import os
 
-    os.system("clear")
-    graph = Graph()
-    graph.add_node("John")
-    graph.add_node("Mary")
-    graph.add_node("Bob")
-    graph.add_node("Alice")
-    graph.add_node("Dan")
-    graph.add_node("Nina")
+#     os.system("clear")
+#     graph = Graph()
+#     graph.add_node("John")
+#     graph.add_node("Mary")
+#     graph.add_node("Bob")
+#     graph.add_node("Alice")
+#     graph.add_node("Dan")
+#     graph.add_node("Nina")
 
-    graph.add_edge("John", "Mary")
-    graph.add_edge("John", "Bob")
-    graph.add_edge("Bob", "John")
-    graph.add_edge("Mary", "John")
-    graph.add_edge("Alice", "Mary")
-    graph.add_edge("Dan", "Nina")
-    # graph.print_edges()
-    # print("\n")
-    # graph.remove_node("John")
-    graph.remove_edge("John", "Mary")
-    graph.remove_edge("Dan", "Nina")
-    graph.print_edges()
+#     graph.add_edge("John", "Mary")
+#     graph.add_edge("John", "Bob")
+#     graph.add_edge("Bob", "John")
+#     graph.add_edge("Mary", "John")
+#     graph.add_edge("Alice", "Mary")
+#     graph.add_edge("Dan", "Nina")
+#     # graph.print_edges()
+#     # print("\n")
+#     # graph.remove_node("John")
+#     graph.remove_edge("John", "Mary")
+#     graph.remove_edge("Dan", "Nina")
+#     graph.print_edges()
 

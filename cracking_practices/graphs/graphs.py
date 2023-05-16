@@ -1,4 +1,5 @@
 import queue
+from collections import deque
 
 # iris approach (book approach, with an array of Linked Lists)
 class Graph_textbook_approach:
@@ -196,7 +197,8 @@ class Graph:
         # get a node to start the process
         current = self._get_randon_node()
 
-        if current is None : return None
+        if current is None:
+            return None
 
         # add node to queue
         queue_nodes.put(current)
@@ -212,20 +214,60 @@ class Graph:
 
         return visited_nodes
 
+    def _get_node_by_label(self, label):
+        return self.nodes[label]
+
+    # depth first with stack approach
+    def topological_sort(self, label):
+        stack = deque()
+        visited_nodes = set()
+
+        if label is None:
+            return []
+
+        current = self._get_node_by_label(label)
+
+        if current is None : return []
+
+
+        def traverse(current, visited_nodes, stack):
+            if current is None : return
+
+            neighbors = self.get_neighbors(current)
+
+            for neighbor in neighbors:
+                if neighbor not in visited_nodes:
+                    traverse(neighbor, visited_nodes, stack)
+                    stack.append(neighbor.label)
+                    visited_nodes.add(neighbor)
+
+
+        traverse(current, visited_nodes, stack)
+        stack.append(current.label)
+        
+
+        stack.reverse()
+
+        # todo pop the stack into a list
+        return stack
+
 
 if __name__ == "__main__":
     import os
 
-    # os.system("clear")
+    os.system("clear")
     graph = Graph()
-    # graph.add_node("A")
-    # graph.add_node("B")
-    # graph.add_node("C")
-    # graph.add_node("D")
+    graph.add_node("X")
+    graph.add_node("A")
+    graph.add_node("B")
+    graph.add_node("P")
 
-    # graph.add_edge("A", "B")
-    # graph.add_edge("A", "C")
-    # graph.add_edge("B", "D")
-    # graph.add_edge("D", "C")
+    graph.add_edge("X", "A")
+    graph.add_edge("X", "B")
+    graph.add_edge("A", "P")
+    graph.add_edge("B", "P")
+
+    # print(graph.print_edges())
     # print(graph.traverse_breath())
+    print(graph.topological_sort("X"))
 

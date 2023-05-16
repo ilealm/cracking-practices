@@ -176,9 +176,12 @@ class Graph:
                 print(" -> ", edge.label)
 
     def _get_randon_node(self):
-        # I will get all the nodes in the hash_table
-        # and I will send the first found key
+        # Get all the nodes in the hash_table
+        # and send the first found key
         keys = list(self.nodes.keys())
+
+        if len(keys) == 0:
+            return None
 
         return self.nodes[keys[0]]
 
@@ -192,6 +195,8 @@ class Graph:
 
         # get a node to start the process
         current = self._get_randon_node()
+
+        if current is None : return None
 
         # add node to queue
         queue_nodes.put(current)
@@ -211,31 +216,16 @@ class Graph:
 if __name__ == "__main__":
     import os
 
-    os.system("clear")
+    # os.system("clear")
     graph = Graph()
-    graph.add_node("A")
-    graph.add_node("B")
-    graph.add_node("C")
-    graph.add_node("D")
-    # graph.add_node("E")
+    # graph.add_node("A")
+    # graph.add_node("B")
+    # graph.add_node("C")
+    # graph.add_node("D")
 
-    graph.add_edge("A", "B")
-    graph.add_edge("A", "C")
-    graph.add_edge("B", "D")
-    graph.add_edge("D", "C")
-    # graph.add_edge("C", "E")
-
-    #     graph.add_edge("John", "Mary")
-    #     graph.add_edge("John", "Bob")
-    #     graph.add_edge("Bob", "John")
-    #     graph.add_edge("Mary", "John")
-    #     graph.add_edge("Alice", "Mary")
-    #     graph.add_edge("Dan", "Nina")
-    # graph.print_edges()
-    print(graph.traverse_breath())
-#     # print("\n")
-#     # graph.remove_node("John")
-#     graph.remove_edge("John", "Mary")
-#     graph.remove_edge("Dan", "Nina")
-#     graph.print_edges()
+    # graph.add_edge("A", "B")
+    # graph.add_edge("A", "C")
+    # graph.add_edge("B", "D")
+    # graph.add_edge("D", "C")
+    # print(graph.traverse_breath())
 

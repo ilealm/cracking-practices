@@ -218,17 +218,9 @@ class Graph:
         return self.nodes[label]
 
     # depth first with stack approach
-    def topological_sort(self, label):
+    def topological_sort(self):
         stack = deque()
         visited_nodes = set()
-
-        if label is None:
-            return []
-
-        current = self._get_node_by_label(label)
-
-        if current is None : return []
-
 
         def traverse(current, visited_nodes, stack):
             if current in visited_nodes : return
@@ -243,11 +235,13 @@ class Graph:
             stack.append(current.label)
 
 
-        traverse(current, visited_nodes, stack)
+        # in order to ensure I traverse all the nodes, Im using a death first on all the nodes
+        for node in self.nodes.values():
+            traverse(node, visited_nodes, stack)
 
         stack.reverse()
 
-        return stack
+        return list(stack)
 
 
 if __name__ == "__main__":
@@ -267,5 +261,5 @@ if __name__ == "__main__":
 
     # print(graph.print_edges())
     # print(graph.traverse_breath())
-    print(graph.topological_sort("X"))
+    print(graph.topological_sort())
 

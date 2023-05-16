@@ -1,10 +1,12 @@
 [Table of Contents](../../README.md)
 
-# Problem 
+# Problem
 
 <!-- [Whiteboard approach](x_x) -->
 
 ### PROBLEM DOMAIN
+
+* Implement topological sort.
 
 ### VISUALS
 

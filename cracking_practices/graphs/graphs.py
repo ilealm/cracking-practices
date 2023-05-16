@@ -231,7 +231,6 @@ class Graph:
 
 
         def traverse(current, visited_nodes, stack):
-            # if current is None : return
             if current in visited_nodes : return
 
             visited_nodes.add(current)
@@ -239,15 +238,12 @@ class Graph:
             neighbors = self.get_neighbors(current)
 
             for neighbor in neighbors:
-                # if neighbor not in visited_nodes:
                 traverse(neighbor, visited_nodes, stack)
-                stack.append(neighbor.label)
-                # visited_nodes.add(neighbor)
+
+            stack.append(current.label)
 
 
         traverse(current, visited_nodes, stack)
-        stack.append(current.label)
-
 
         stack.reverse()
 

@@ -223,7 +223,8 @@ class Graph:
         visited_nodes = set()
 
         def traverse(current, visited_nodes, stack):
-            if current in visited_nodes : return
+            if current in visited_nodes:
+                return
 
             visited_nodes.add(current)
 
@@ -234,7 +235,6 @@ class Graph:
 
             stack.append(current.label)
 
-
         # in order to ensure I traverse all the nodes, Im using a death first on all the nodes
         for node in self.nodes.values():
             traverse(node, visited_nodes, stack)
@@ -244,22 +244,22 @@ class Graph:
         return list(stack)
 
 
-if __name__ == "__main__":
-    import os
+# if __name__ == "__main__":
+#     import os
 
-    os.system("clear")
-    graph = Graph()
-    graph.add_node("X")
-    graph.add_node("A")
-    graph.add_node("B")
-    graph.add_node("P")
+#     os.system("clear")
+#     graph = Graph()
+#     graph.add_node("X")
+#     graph.add_node("A")
+#     graph.add_node("B")
+#     graph.add_node("P")
 
-    graph.add_edge("X", "A")
-    graph.add_edge("X", "B")
-    graph.add_edge("A", "P")
-    graph.add_edge("B", "P")
+#     graph.add_edge("X", "A")
+#     graph.add_edge("X", "B")
+#     graph.add_edge("A", "P")
+#     graph.add_edge("B", "P")
 
-    # print(graph.print_edges())
-    # print(graph.traverse_breath())
-    print(graph.topological_sort())
+#     # print(graph.print_edges())
+#     # print(graph.traverse_breath())
+#     print(graph.topological_sort())
 

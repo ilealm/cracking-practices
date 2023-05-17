@@ -72,6 +72,24 @@ def test_traverse_breathfirst_three():
 
 
 
+def test_topological_sort():
+    graph = Graph()
+    graph.add_node("X")
+    graph.add_node("A")
+    graph.add_node("B")
+    graph.add_node("P")
+
+    graph.add_edge("X", "A")
+    graph.add_edge("X", "B")
+    graph.add_edge("A", "P")
+    graph.add_edge("B", "P")
+
+    expected = ['X', 'B', 'A', 'P']
+    actual = graph.topological_sort()
+
+    assert expected == actual, "Error on test_topological_sort."
+
+
 @pytest.fixture
 def base_graph_with_edge():
     graph = Graph()

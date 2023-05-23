@@ -116,10 +116,8 @@ class Graph:
 
     def __init__(self):
         self.nodes = {}
-        # adj_list -> node : list[nodes]
         self.adj_list = {}
 
-    # def _key_already_exist(self, hash_table, key):
     def _key_already_exist_in_nodes(self, key):
         return key in self.nodes.keys()
 
@@ -129,11 +127,9 @@ class Graph:
     def add_node(self, label):
         node = self.Node(label)
 
-        # if not self._key_already_exist(self.nodes, label):
         if not self._key_already_exist_in_nodes(label):
             self.nodes[label] = node
 
-        # if not self._key_already_exist(self.adj_list, label):
         if not self._key_already_exist_in_adj_list(label):
             self.adj_list[node] = []
 
@@ -177,8 +173,6 @@ class Graph:
                 print(" -> ", edge.label)
 
     def _get_randon_node(self):
-        # Get all the nodes in the hash_table
-        # and send the first found key
         keys = list(self.nodes.keys())
 
         if len(keys) == 0:
@@ -246,48 +240,7 @@ class Graph:
     def is_empty(self, object):
         return len(object) == 0
 
-    def has_cycle2(self):
-        all_nodes = set(self.nodes.values())
 
-        if self.is_empty(all_nodes):
-            return False
-
-        visiting = set()
-        visited = set()
-
-        # pick a node from all_nodes set and start the traversal
-        # if I find a cycle, return True. Otherwise keep traversing
-
-
-        def traverse(node, all_nodes, visiting, visited):
-            # move the fist nodes from the first set, to the second set
-            all_nodes.remove(node)
-            visiting.add(node)
-
-            # visit all the neighbors of this node
-            for neighbor in self.get_neighbors(node):
-                if neighbor in visited:
-                    continue
-
-                if neighbor in visiting:
-                    return True
-
-                if traverse(neighbor, all_nodes, visiting, visited):
-                    return True
-
-            # if I got to this point means I haven't found a cycle in the current node
-            visiting.remove(node)
-            visited.add(node)
-
-            return False
-
-        while not self.is_empty(all_nodes):
-            # current = list(all_nodes)[0]
-            current = all_nodes.pop()
-            if traverse(current, all_nodes, visiting, visited):
-                return True
-
-        return False
 
     def has_cycle(self):
         all_nodes = set(self.nodes.values())

@@ -16,8 +16,8 @@ class WightedGraph:
 
         # def __repr__(self):
         def __str__(self):
-            return f"{self._from} -> {self.to}"
-            # return f"{self._from} -> {self.to} : {self.weight}"
+            # return f"{self._from} -> {self.to}"
+            return f"{self._from} -> {self.to} : {self.weight}"
 
     def __init__(self):
         self.nodes = {}
@@ -38,15 +38,10 @@ class WightedGraph:
         if not self._key_already_exist_in_adj_list(label):
             self.adj_list[new_node] = []
 
-        # return new_node
 
-    def get_node_from_label(self, label):
-        return self.nodes[label]
 
     def add_edge(self, _from, to, weight):
         # # this graph is undirected, so I need to have the edges _from -> to, and to -> _from
-        # node_from = self.get_node_from_label(_from)
-        # node_to = self.get_node_from_label(to)
 
         node_from = self.nodes.get(_from)
         node_to = self.nodes.get(to)
@@ -55,25 +50,16 @@ class WightedGraph:
             return
 
         edge_from = self.Edge(node_from, node_to, weight)
-        self.adj_list.get(node_from).append(edge_from)
         edge_to = self.Edge(node_to, node_from, weight)
+
+        self.adj_list.get(node_from).append(edge_from)
         self.adj_list.get(node_to).append(edge_to)
 
-        # print('stop')
-
-        # edge_from = self.Edge(node_from, node_to, weight)
-        # edge_to = self.Edge(node_to, edge_from, weight)
-
-        # self.adj_list.get(node_from).append(edge_from)
-        # # print(edge_to)
-        # self.adj_list.get(node_to).append(edge_to)
 
     def print_edges(self):
         for node, adj_list in self.adj_list.items():
             for edge in adj_list:
                 print(edge)
-                # print(edge._from, '->', edge.to, " : ", edge.weight)
-            # print("sfsd")
 
 
 if __name__ == "__main__":

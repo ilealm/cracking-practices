@@ -90,6 +90,42 @@ def test_topological_sort():
     assert expected == actual, "Error on test_topological_sort."
 
 
+def test_has_cycle_false():
+    graph = Graph()
+    graph.add_node("A")
+    graph.add_node("B")
+    graph.add_node("C")
+
+    graph.add_edge("A", "B")
+    graph.add_edge("B", "C")
+    graph.add_edge("A", "C")
+
+    expected = False
+    actual = graph.has_cycle()
+
+    assert expected == actual, "Error on test_has_cycle_false."
+
+
+def test_has_cycle_true():
+    graph = Graph()
+    graph.add_node("A")
+    graph.add_node("B")
+    graph.add_node("C")
+
+    graph.add_edge("A", "B")
+    graph.add_edge("B", "C")
+    graph.add_edge("C", "A")
+
+    expected = True
+    actual = graph.has_cycle()
+
+    assert expected == actual, "Error on test_has_cycle_true."
+
+
+
+
+
+
 @pytest.fixture
 def base_graph_with_edge():
     graph = Graph()

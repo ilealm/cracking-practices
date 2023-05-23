@@ -243,23 +243,110 @@ class Graph:
 
         return list(stack)
 
+    def is_empty(self, object):
+        return len(object) == 0
+
+    def has_cycle2(self):
+        all_nodes = set(self.nodes.values())
+
+        if self.is_empty(all_nodes):
+            return False
+
+        visiting = set()
+        visited = set()
+
+        # pick a node from all_nodes set and start the traversal
+        # if I find a cycle, return True. Otherwise keep traversing
+
+
+        def traverse(node, all_nodes, visiting, visited):
+            # move the fist nodes from the first set, to the second set
+            all_nodes.remove(node)
+            visiting.add(node)
+
+            # visit all the neighbors of this node
+            for neighbor in self.get_neighbors(node):
+                if neighbor in visited:
+                    continue
+
+                if neighbor in visiting:
+                    return True
+
+                if traverse(neighbor, all_nodes, visiting, visited):
+                    return True
+
+            # if I got to this point means I haven't found a cycle in the current node
+            visiting.remove(node)
+            visited.add(node)
+
+            return False
+
+        while not self.is_empty(all_nodes):
+            # current = list(all_nodes)[0]
+            current = all_nodes.pop()
+            if traverse(current, all_nodes, visiting, visited):
+                return True
+
+        return False
+
+    def has_cycle(self):
+        all_nodes = set(self.nodes.values())
+
+        if self.is_empty(all_nodes):
+            return False
+
+        visiting = set()
+        visited = set()
+
+        # pick a node from all_nodes set and start the traversal
+        # if I find a cycle, return True. Otherwise keep traversing
+
+        def traverse(node, all_nodes, visiting, visited):
+                # move the fist nodes from the first set, to the second set
+                all_nodes.remove(node)
+                visiting.add(node)
+
+                # visit all the neighbors of this node
+                for neighbor in self.get_neighbors(node):
+                    if neighbor in visited:
+                        continue
+
+                    if neighbor in visiting:
+                        return True
+
+                    if traverse(neighbor, all_nodes, visiting, visited):
+                        return True
+
+                # if I got to this point means I haven't found a cycle in the current node
+                visiting.remove(node)
+                visited.add(node)
+
+                return False
+
+
+        while not self.is_empty(all_nodes):
+            current = list(all_nodes)[0]
+            if traverse(current, all_nodes, visiting, visited):
+                return True
+
+        return False
+
+
 
 # if __name__ == "__main__":
 #     import os
 
 #     os.system("clear")
 #     graph = Graph()
-#     graph.add_node("X")
 #     graph.add_node("A")
 #     graph.add_node("B")
-#     graph.add_node("P")
+#     graph.add_node("C")
 
-#     graph.add_edge("X", "A")
-#     graph.add_edge("X", "B")
-#     graph.add_edge("A", "P")
-#     graph.add_edge("B", "P")
+#     graph.add_edge("A", "B")
+#     graph.add_edge("B", "C")
+#     # graph.add_edge("C", "A")
+#     graph.add_edge("A", "C")
 
 #     # print(graph.print_edges())
-#     # print(graph.traverse_breath())
-#     print(graph.topological_sort())
+#     print(graph.has_cycle())
 

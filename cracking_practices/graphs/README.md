@@ -6,8 +6,7 @@
 
 ### PROBLEM DOMAIN
 
-* Implement a graph class.
-* Implement print edges method.
+* Implement a graph class with methods add, delete, add edge, remove edge, print edges.
 * Implement Breath traverse.
 * Implement topological sort.
 * Implement a method to determinate is the graph has a cycle.

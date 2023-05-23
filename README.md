@@ -385,3 +385,10 @@ The remove method should return the greatest value in the array.
 - Given a Trie where I have words saved, and given a sufix, return all the possible words that start with the prefix.
 * Saved this words: car, card, care, egg, nothing, careless.
 * If I send the prefix car, the I will get: car, card, care, careless.
+
+
+ [Graphs](cracking_practices/graphs/README.md)
+ - Implement a graph class with methods add, delete, add edge, remove edge, print edges.
+* Implement Breath traverse.
+* Implement topological sort.
+* Implement a method to determinate is the graph has a cycle.

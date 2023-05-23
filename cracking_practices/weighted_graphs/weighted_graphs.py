@@ -38,8 +38,6 @@ class WightedGraph:
         if not self._key_already_exist_in_adj_list(label):
             self.adj_list[new_node] = []
 
-
-
     def add_edge(self, _from, to, weight):
         # # this graph is undirected, so I need to have the edges _from -> to, and to -> _from
 
@@ -55,11 +53,11 @@ class WightedGraph:
         self.adj_list.get(node_from).append(edge_from)
         self.adj_list.get(node_to).append(edge_to)
 
-
     def print_edges(self):
         for node, adj_list in self.adj_list.items():
+            print(node, "connections:")
             for edge in adj_list:
-                print(edge)
+                print("    ", edge)
 
 
 if __name__ == "__main__":

@@ -11,10 +11,9 @@ class Edge:
         return f"{self.to} : {self.weight}"
 
 
-class Node(Edge):
+class Node:
     def __init__(self, label):
         self.label = label
-        # each node will store its adj_list
         self.edges_list = []
 
     def __repr__(self):
@@ -23,10 +22,13 @@ class Node(Edge):
     def __str__(self):
         return f"{self.label}"
 
-    def add_edge(self, _from, to, weight):
-        new_edge = Edge(_from, to, weight)
+    def add_edge(self, target, weight):
+        new_edge = Edge(self, target, weight)
 
         self.edges_list.append(new_edge)
+
+    def get_edges(self):
+        return self.edges_list
 
 
 class WightedGraph:
@@ -45,19 +47,20 @@ class WightedGraph:
             self.nodes[label] = new_node
 
     def add_edge(self, _from, to, weight):
-        node_from = self.nodes.get(_from)
-        node_to = self.nodes.get(to)
+        from_node = self.nodes.get(_from)
+        to_node = self.nodes.get(to)
 
-        if node_to is None or node_from is None:
+        if to_node is None or from_node is None:
             return
 
-        node_from.add_edge(node_from, node_to, weight)
-        node_to.add_edge(node_to, node_from, weight)
+        from_node.add_edge(to_node, weight)
+        to_node.add_edge(from_node, weight)
 
     def print_edges(self):
-        for node, edges in self.nodes.items():
-            for edge in edges.edges_list:
+        for node in self.nodes.values():
+            for edge in node.get_edges():
                 print(node, "->", edge)
+
 
 
 if __name__ == "__main__":

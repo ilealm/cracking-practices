@@ -37,9 +37,7 @@ class WightedGraph:
         return key in self.nodes.keys()
 
     def _key_already_exist_in_adj_list(self, key):
-        # todo fix this
-        return False
-        # return key in self.adj_list.keys()
+        return key in self.nodes.keys()
 
     def add_node(self, label):
         new_node = Node(label)
@@ -58,10 +56,8 @@ class WightedGraph:
 
     def print_edges(self):
         for node, edges in self.nodes.items():
-            # print(node)
             for edge in edges.edges_list:
                 print(node, "->", edge)
-
 
 
 if __name__ == "__main__":
@@ -73,7 +69,9 @@ if __name__ == "__main__":
     g.add_node("A")
     g.add_node("B")
     g.add_node("C")
+    g.add_node("D")
 
     g.add_edge("A", "B", 3)
     g.add_edge("A", "C", 2)
+    g.add_edge("B", "C", 20)
     g.print_edges()

@@ -1,3 +1,6 @@
+from queue import PriorityQueue
+
+
 class Edge:
     def __init__(self, _from, to, weight):
         self._from = _from
@@ -62,7 +65,6 @@ class WightedGraph:
                 print(node, "->", edge)
 
 
-
 if __name__ == "__main__":
     import os
 
@@ -78,3 +80,14 @@ if __name__ == "__main__":
     g.add_edge("A", "C", 2)
     g.add_edge("B", "C", 20)
     g.print_edges()
+
+
+# pq = PriorityQueue()
+# pq.put((3, Node("three")))
+# pq.put((10, Node("ten")))
+# pq.put((2, Node("two")))
+# while not pq.empty():
+#     print(pq.get())
+
+
+# asd

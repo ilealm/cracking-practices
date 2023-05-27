@@ -4,6 +4,8 @@
 
 Implement Dijkstra's algorithm to find the sortest path in a weigted graph.
 
+Also, detect a cycle in undirected graphs.
+
 ### PROBLEM DOMAIN
 
 ### VISUALS

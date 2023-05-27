@@ -95,18 +95,12 @@ class WightedGraph:
             for edge in node.get_edges():
                 print(node, "->", edge)
 
-
-
     def get_shortest_path(self, from_label, to_label):
-
-        if not from_label in  self.nodes.keys() or not to_label in  self.nodes.keys():
+        if not from_label in self.nodes.keys() or not to_label in self.nodes.keys():
             return ""
-
 
         from_node = self.nodes[from_label]
         to_node = self.nodes[to_label]
-
-
 
         distances = {}
         infinite = math.inf
@@ -164,6 +158,29 @@ class WightedGraph:
 
         return path.__str__()
 
+    def has_cycle(self):
+        visited = set()
+
+        def traverse(node, parent, visited):
+            visited.add(node)
+            for edge in node.get_edges():
+                if edge.to == parent:
+                    continue
+                if edge.to in visited:
+                    return True
+
+                if traverse(edge.to, node, visited) : return True
+
+            return False
+
+        # do a depth first on each node
+        for node in self.nodes.values():
+            if (node not in visited) and traverse(node, None, visited):
+                    return True
+
+        return False
+
+
 
 if __name__ == "__main__":
     import os
@@ -177,21 +194,12 @@ if __name__ == "__main__":
 
     g.add_edge("A", "B", 1)
     g.add_edge("B", "C", 2)
-    g.add_edge("A", "C", 10)
+    g.add_edge("C", "A", 10)
 
     # g.print_edges()
-    x = g.get_shortest_path("A", "K")
-    print(x)
+    # x = g.get_shortest_path("A", "K")
+    # print(x)
     # for item in x.nodes:
-    #     print(item)
+    print(g.has_cycle())
 
 
-# pq = PriorityQueue()
-# pq.put((3, Node("three")))
-# pq.put((10, Node("ten")))
-# pq.put((2, Node("two")))
-# while not pq.empty():
-#     print(pq.get())
-
-
-# asd

@@ -1,28 +1,38 @@
 [Table of Contents](../../README.md)
 
-# Problem 
+# Problem
 
-<!-- [Whiteboard approach](x_x) -->
+Implement Dijkstra's algorithm to find the sortest path in a weigted graph.
 
 ### PROBLEM DOMAIN
 
 ### VISUALS
 
 ```
+     1
+A  ------ B
+
+     10
+A  ------ C
+
+     2
+B  ------ C
+
+Find the shortest path from A to C
+
+>> A, B, C
 
 ```
 
 ### EDGE CASES
 
-- I can have valid values in the arays.
-- Values can be repeted.
+- Empty graph.
+- Only possitive values.
 
 ### ALGORITHMS
 
-#### APPROACH 1,
-
 ```
-algo
+Use breath first from starting node, from there, traverse each neighbor, while keeping tracking on which node had been visited. Also, keep track of the distances and the parent of each node.
 
 ```
 
@@ -40,12 +50,12 @@ Please review the test section below.
 
 ### CODE
 
-[cracking_practices/x_x/x_x.py](x_x.py)
+[cracking_practices/weighted_graphs/weighted_graphs.py](weighted_graphs.py)
 
 ### TESTS
 
-[tests/test_x_x.py](../../tests/test_x_x.py)
+[tests/test_weighted_graphs.py](../../tests/test_weighted_graphs.py)
 
 ### GITHUB BRANCH
 
-[Pull Request # n, Branch: x_x](https://github.com/ilealm/cracking-practices/pull/X)
+[Pull Request # n, Branch: weighted_graphs](https://github.com/ilealm/cracking-practices/pull/X)

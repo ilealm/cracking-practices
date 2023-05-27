@@ -1,5 +1,6 @@
 from collections import deque
 from queue import PriorityQueue
+import math
 
 
 class Path:
@@ -94,12 +95,18 @@ class WightedGraph:
             for edge in node.get_edges():
                 print(node, "->", edge)
 
-    # shortest distance between 2 nodes
-    # here _from is a label, not a node
+
+
     def get_shortest_path(self, from_label, to_label):
+
+        if not from_label in  self.nodes.keys() or not to_label in  self.nodes.keys():
+            return ""
+
+
         from_node = self.nodes[from_label]
         to_node = self.nodes[to_label]
-        import math
+
+
 
         distances = {}
         infinite = math.inf
@@ -173,7 +180,7 @@ if __name__ == "__main__":
     g.add_edge("A", "C", 10)
 
     # g.print_edges()
-    x = g.get_shortest_path("A", "C")
+    x = g.get_shortest_path("A", "K")
     print(x)
     # for item in x.nodes:
     #     print(item)

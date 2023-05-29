@@ -394,5 +394,6 @@ The remove method should return the greatest value in the array.
 * Implement a method to determinate is the graph has a cycle.
 
  [Weighted Graphs](cracking_practices/weighted_graphs/README.md)
- - Implement Dijkstra's sortest Path to find the shortest path beetween two nodes.
-
+* Implement Dijkstra's sortest Path to find the shortest path beetween two nodes.
+* Detect a cycle in undirected graphs.
+* Implement minimum spanning tree.

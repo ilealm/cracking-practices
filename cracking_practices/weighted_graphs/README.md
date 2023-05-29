@@ -2,9 +2,11 @@
 
 # Problem
 
-Implement Dijkstra's algorithm to find the sortest path in a weigted graph.
+- Implement Dijkstra's algorithm to find the sortest path in a weigted graph.
 
-Also, detect a cycle in undirected graphs.
+- Detect a cycle in undirected graphs.
+
+- Implement minimum spanning tree.
 
 ### PROBLEM DOMAIN
 
@@ -44,11 +46,7 @@ Use breath first from starting node, from there, traverse each neighbor, while k
 Please review the test section below.
 ```
 
-#### BIG O
 
-**Time O(n):** I need to
-
-**Space O(n):** I'm
 
 ### CODE
 
@@ -60,4 +58,4 @@ Please review the test section below.
 
 ### GITHUB BRANCH
 
-[Pull Request # n, Branch: weighted_graphs](https://github.com/ilealm/cracking-practices/pull/X)
+[Pull Request # n, Branch: weighted_graphs](https://github.com/ilealm/cracking-practices/pull/110)

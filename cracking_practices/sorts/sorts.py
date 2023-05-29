@@ -37,12 +37,41 @@ class BubbleSort:
         return self.array
 
 
-# sdf
+class SelectionSort:
+    def __init__(self, array):
+        self.array = array
+        self.num_items = len(array)
+
+    def __str__(self):
+        return f"{self.array}"
+
+    def swap(self, left, right):
+        self.array[left], self.array[right] = self.array[right], self.array[left]
+
+    def sort(self):
+        if self.num_items == 0:
+            return []
+
+        items = self.num_items
+
+        for p in range(items):
+            # in each iteration, I need to reset the values to the unsorted ones.
+            min_value = self.array[p]
+            min_index = p
+            for inner in range(p+1, items):
+                if self.array[inner] < min_value:
+                    min_value = self.array[inner]
+                    min_index = inner
+            self.swap(p, min_index)
+
+        return self.array
+
+
 if __name__ == "__main__":
     import os
 
     os.system("clear")
-    sort = BubbleSort([9, 1, 50, 1, 7])
+    sort = SelectionSort([9, 1, 5, 10, 7])
     print(sort)
     sort.sort()
     print(sort)

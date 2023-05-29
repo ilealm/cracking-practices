@@ -1,5 +1,5 @@
 import pytest
-from cracking_practices.sorts.sorts import BubbleSort
+from cracking_practices.sorts.sorts import BubbleSort, SelectionSort
 
 
 def test_bubble_sort_one():
@@ -50,3 +50,34 @@ def test_bubble_sort_five():
     actual = sort.sort()
 
     assert actual == expected, "Error on test_bubble_sort_five"
+
+
+
+def test_selecction_sort_one():
+    sort = SelectionSort([7])
+
+    expected = [7]
+
+    actual = sort.sort()
+
+    assert actual == expected, "Error on test_selecction_sort_one"
+
+
+def test_selecction_sort_two():
+    sort = SelectionSort([9, 1, 5, 10, 7])
+
+    expected = [1, 5, 7, 9, 10]
+
+    actual = sort.sort()
+
+    assert actual == expected, "Error on test_selecction_sort_two"
+
+
+def test_selecction_sort_three():
+    sort = SelectionSort([9, 1])
+
+    expected = [1, 9]
+
+    actual = sort.sort()
+
+    assert actual == expected, "Error on test_selecction_sort_three"

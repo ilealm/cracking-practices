@@ -91,9 +91,16 @@ class WightedGraph:
         to_node.add_edge(from_node, weight)
 
     def print_edges(self):
+        visited = set()
         for node in self.nodes.values():
+            if node in visited:
+                continue
+            visited.add(node)
             for edge in node.get_edges():
                 print(node, "->", edge)
+
+    def get_size(self):
+        return len(self.nodes)
 
     def get_shortest_path(self, from_label, to_label):
         if not from_label in self.nodes.keys() or not to_label in self.nodes.keys():
@@ -169,37 +176,47 @@ class WightedGraph:
                 if edge.to in visited:
                     return True
 
-                if traverse(edge.to, node, visited) : return True
+                if traverse(edge.to, node, visited):
+                    return True
 
             return False
 
         # do a depth first on each node
         for node in self.nodes.values():
             if (node not in visited) and traverse(node, None, visited):
-                    return True
+                return True
 
         return False
 
+    def get_minimum_spanning(self):
+        tree = WightedGraph()
+        pq = PriorityQueue()
 
+        start_node = next(iter(self.nodes.values()))
 
-if __name__ == "__main__":
-    import os
+        for edge in start_node.get_edges():
+            pq.put(NodeEntry(edge, edge.weight))
 
-    os.system("clear")
+        tree.add_node(start_node.label)
 
-    g = WightedGraph()
-    g.add_node("A")
-    g.add_node("B")
-    g.add_node("C")
+        while tree.get_size() < len(self.nodes):
+            min_edge = pq.get()
+            next_node = min_edge.node.to
 
-    g.add_edge("A", "B", 1)
-    g.add_edge("B", "C", 2)
-    g.add_edge("C", "A", 10)
+            if tree.contains_node(next_node.label):
+                continue
 
-    # g.print_edges()
-    # x = g.get_shortest_path("A", "K")
-    # print(x)
-    # for item in x.nodes:
-    print(g.has_cycle())
+            tree.add_node(next_node.label)
+            tree.add_edge(
+                min_edge.node._from.label, next_node.label, min_edge.node.weight
+            )
 
+            for edge in next_node.get_edges():
+                if not tree.contains_node(edge.to.label):
+                    pq.put(NodeEntry(edge, edge.weight))
+
+        return tree
+
+    def contains_node(self, label):
+        return label in self.nodes
 

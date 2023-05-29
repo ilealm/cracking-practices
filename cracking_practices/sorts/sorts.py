@@ -21,11 +21,12 @@ class BubbleSort:
         if self.is_empty():
             return []
 
+        num_items = self.get_num_items() - 1
         # I want to decrease the outer loop so I don't pass numbers that are in its right order
-        for outer in range((len(self.array) - 1), 0, -1):
+        for outer in range((num_items), 0, -1):
             # if I didn't do any swaping, means the array is already sorted and I don't need to keep looking
             is_sorted = True
-            for p in range(self.get_num_items() - 1):
+            for p in range(num_items):
                 if self.array[p] > self.array[p + 1]:
                     self.swap(p, p + 1)
                     is_sorted = False

@@ -3,13 +3,14 @@
 # Problem
 
 * Implement Bubble Sort.
+* Implement Selection Sort.
 
 ### PROBLEM DOMAIN
 
 ### VISUALS
 
 ```
-** Bubble Sort
+** Sorts
 
 Input : [8, 2, 4 , 1 , 3]
 Output : [1, 2, 3, 4, 8]
@@ -37,6 +38,18 @@ Traverse all the array
             swap them
         increase pointer
         keep traversing until len - interrations
+
+```
+
+#### Selection Sort
+
+```
+Loop the array, where p is the pointer
+    set the min_index to p
+    loop from p+1 (this is the inner loop)
+        if inner < min_index
+            set min_index to inner
+        swap min_index with p
 
 ```
 

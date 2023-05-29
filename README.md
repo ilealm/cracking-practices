@@ -399,4 +399,5 @@ The remove method should return the greatest value in the array.
 * Implement minimum spanning tree.
 
 [Sorts](cracking_practices/sort/README.md)
-* Implement Bubble Sort
+* Implement Bubble Sort.
+* Implement Selection Sort.

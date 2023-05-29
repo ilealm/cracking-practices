@@ -56,11 +56,9 @@ class SelectionSort:
 
         for p in range(items):
             # in each iteration, I need to reset the values to the unsorted ones.
-            min_value = self.array[p]
             min_index = p
             for inner in range(p+1, items):
-                if self.array[inner] < min_value:
-                    min_value = self.array[inner]
+                if self.array[inner] < self.array[min_index]:
                     min_index = inner
             self.swap(p, min_index)
 

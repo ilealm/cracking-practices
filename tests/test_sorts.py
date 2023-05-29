@@ -52,7 +52,6 @@ def test_bubble_sort_five():
     assert actual == expected, "Error on test_bubble_sort_five"
 
 
-
 def test_selecction_sort_one():
     sort = SelectionSort([7])
 
@@ -81,3 +80,23 @@ def test_selecction_sort_three():
     actual = sort.sort()
 
     assert actual == expected, "Error on test_selecction_sort_three"
+
+
+def test_selecction_sort_four():
+    sort = SelectionSort([])
+
+    expected = []
+
+    actual = sort.sort()
+
+    assert actual == expected, "Error on test_selecction_sort_four"
+
+
+def test_selecction_sort_five():
+    sort = SelectionSort([100])
+
+    expected = [100]
+
+    actual = sort.sort()
+
+    assert actual == expected, "Error on test_selecction_sort_five"

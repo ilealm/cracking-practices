@@ -80,12 +80,9 @@ class InsertionSort:
 
     def find_spot(self, value_index, value):
         i = value_index
-        while i > 0:
-            if self.array[i-1] > value:
+        while i > 0 and self.array[i-1] > value:
                 self.shift_value_to_left(i - 1)
-            else:
-                return i
-            i = i - 1
+                i = i - 1
 
         return i
 

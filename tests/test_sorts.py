@@ -111,3 +111,33 @@ def test_insertion_sort_one():
     actual = sort.sort()
 
     assert actual == expected, "Error on test_insertion_sort_one"
+
+
+def test_insertion_sort_two():
+    sort = InsertionSort([8])
+
+    expected = [8]
+
+    actual = sort.sort()
+
+    assert actual == expected, "Error on test_insertion_sort_two"
+
+
+def test_insertion_sort_three():
+    sort = InsertionSort([8, 1])
+
+    expected = [1, 8]
+
+    actual = sort.sort()
+
+    assert actual == expected, "Error on test_insertion_sort_three"
+
+
+def test_insertion_sort_three():
+    sort = InsertionSort([ 0, 8, 1])
+
+    expected = [0, 1, 8]
+
+    actual = sort.sort()
+
+    assert actual == expected, "Error on test_insertion_sort_three"

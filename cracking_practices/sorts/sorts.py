@@ -78,13 +78,11 @@ class InsertionSort:
     def shift_value_to_left(self, i):
         self.array[i + 1] = self.array[i]
 
-    def find_spot(self, end_index, value):
-        # i = len(sorted_array) - 1
-        i = end_index
+    def find_spot(self, value_index, value):
+        i = value_index
         while i > 0:
             if self.array[i-1] > value:
                 self.shift_value_to_left(i - 1)
-                print(self.array)
             else:
                 return i
             i = i - 1
@@ -98,7 +96,6 @@ class InsertionSort:
             current = self.array[i]
             spot = self.find_spot(i, current)
             self.array[spot] = current
-            print(self.array)
 
         return self.array
 

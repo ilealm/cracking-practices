@@ -75,26 +75,19 @@ class InsertionSort:
     def __str__(self):
         return f"{self.array}"
 
-    def shift_value_to_left(self, i):
-        self.array[i + 1] = self.array[i]
-
-    def find_spot(self, value_index, value):
-        i = value_index
-        while i > 0 and self.array[i-1] > value:
-                self.shift_value_to_left(i - 1)
-                i = i - 1
-
-        return i
-
+    
     def sort(self):
-        num_elements = len(self.array)
-
-        for i in range(1, num_elements):
+        for i in range(1, len(self.array)):
             current = self.array[i]
-            spot = self.find_spot(i, current)
-            self.array[spot] = current
+            j = i-1
+            while j >= 0 and self.array[j] > current:
+                self.array[j+1] = self.array[j]
+                j = j -1
+
+            self.array[j+1] = current
 
         return self.array
+
 
 
 if __name__ == "__main__":

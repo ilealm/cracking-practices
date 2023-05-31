@@ -141,3 +141,13 @@ def test_insertion_sort_three():
     actual = sort.sort()
 
     assert actual == expected, "Error on test_insertion_sort_three"
+
+
+def test_insertion_sort_three():
+    sort = InsertionSort([])
+
+    expected = []
+
+    actual = sort.sort()
+
+    assert actual == expected, "Error on test_insertion_sort_three"

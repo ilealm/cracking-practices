@@ -96,24 +96,18 @@ class MergeSort:
     def merge(self, left_array, right_array):
         merged = []
         l_pointer = r_pointer = 0
-        len_left_array = len(left_array)
-        len_right_array = len(right_array)
 
-        while l_pointer < len_left_array and r_pointer < len_right_array:
-            if left_array[l_pointer] < right_array[r_pointer]:
-                merged.append(left_array[l_pointer])
-                l_pointer = l_pointer + 1
-            else:
-                merged.append(right_array[r_pointer])
-                r_pointer = r_pointer + 1
+        while l_pointer < len(left_array) and r_pointer < len(right_array):
+                if left_array[l_pointer] < right_array[r_pointer]:
+                    merged.append(left_array[l_pointer])
+                    l_pointer += 1
+                else:
+                    merged.append(right_array[r_pointer])
+                    r_pointer += 1
 
-        while r_pointer < len_right_array:
-                merged.append(right_array[r_pointer])
-                r_pointer = r_pointer + 1
-
-        while l_pointer < len_left_array:
-                merged.append(left_array[l_pointer])
-                l_pointer = l_pointer + 1
+        # append all what was left in the array, after the pointers
+        merged += left_array[l_pointer:]
+        merged += right_array[r_pointer:]
 
         # print(merged)
         return merged

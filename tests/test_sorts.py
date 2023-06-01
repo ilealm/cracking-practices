@@ -187,3 +187,12 @@ def test_merge_sort_four():
     actual = sort.sort(array)
     expected = [5,10,20]
     assert actual == expected, "Error on test_merge_sort_four"
+
+
+def test_merge_sort_five():
+    sort = MergeSort()
+    array = [5,20,10,5,20]
+
+    actual = sort.sort(array)
+    expected = [5,5,10,20, 20]
+    assert actual == expected, "Error on test_merge_sort_five"

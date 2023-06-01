@@ -75,26 +75,77 @@ class InsertionSort:
     def __str__(self):
         return f"{self.array}"
 
-    
     def sort(self):
+        # I start in 1 BC I assume [0] is at correct possition
         for i in range(1, len(self.array)):
             current = self.array[i]
-            j = i-1
+            j = i - 1
+            # while j is bigger than current, I will keep shifting values
             while j >= 0 and self.array[j] > current:
-                self.array[j+1] = self.array[j]
-                j = j -1
-
-            self.array[j+1] = current
+                self.array[j + 1] = self.array[j]
+                j = j - 1
+            # It needs to be [j+1] BC in the while, I decrement it, and if I don't enter there,
+            # I need to put it in the same space that it was
+            self.array[j + 1] = current
 
         return self.array
 
+
+class MergeSort:
+
+    def merge(self, left_array, right_array):
+        merged = []
+        l_pointer = r_pointer = 0
+        len_left_array = len(left_array)
+        len_right_array = len(right_array)
+
+        while l_pointer < len_left_array and r_pointer < len_right_array:
+            if left_array[l_pointer] < right_array[r_pointer]:
+                merged.append(left_array[l_pointer])
+                l_pointer = l_pointer + 1
+            else:
+                merged.append(right_array[r_pointer])
+                r_pointer = r_pointer + 1
+
+        while r_pointer < len_right_array:
+                merged.append(right_array[r_pointer])
+                r_pointer = r_pointer + 1
+
+        while l_pointer < len_left_array:
+                merged.append(left_array[l_pointer])
+                l_pointer = l_pointer + 1
+
+        # print(merged)
+        return merged
+
+
+    def sort(self, array):
+        if array == []:
+            return array
+
+        def traverse(array):
+            if len(array) == 1:
+                return array
+
+            half = len(array) // 2
+            left = array[0:half]
+            right = array[half:]
+
+            sorted_left = traverse(left)
+            sorted_right = traverse(right)
+
+            return(self.merge(sorted_left, sorted_right))
+
+
+        return traverse(array)
 
 
 if __name__ == "__main__":
     import os
 
     os.system("clear")
-    sort = InsertionSort([8, 2, 4, 1, 3])
-    print(sort)
-    sort.sort()
-    print(sort)
+    sort = MergeSort()
+
+    array = [8, 2, 4, 1, 3]
+    print(array)
+    print(sort.sort(array))

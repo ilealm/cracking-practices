@@ -109,7 +109,6 @@ class MergeSort:
         merged += left_array[l_pointer:]
         merged += right_array[r_pointer:]
 
-        # print(merged)
         return merged
 
 
@@ -133,13 +132,50 @@ class MergeSort:
 
         return traverse(array)
 
+class QuickSort:
+
+    # returns the index of the pivot atfer it moved to the rigth possition
+    # the pivot will be the last item on the array
+    def partition(self, array, start, end):
+        pivot = array[end]
+        smaller_elements_index = start - 1
+
+        for i in range(start, end):
+            if array[i] < pivot:
+                smaller_elements_index += 1
+                array[i], array[smaller_elements_index] = array[smaller_elements_index], array[i]
+
+        # This ensures that the pivot is now in its correct position
+        array[smaller_elements_index + 1], array[end] = array[end], array[smaller_elements_index + 1]
+        return smaller_elements_index + 1
+
+
+    def sort(self, array):
+        def sort_recursion(array, start, end):
+            if start >= end:
+                return
+
+            # partition
+            boundary = self.partition(array, start, end)
+            # left
+            sort_recursion(array, start, boundary - 1)
+            # right
+            sort_recursion(array, boundary + 1, end)
+
+        sort_recursion(array, 0, len(array) - 1)
+
+        return array
+
+
+
 
 if __name__ == "__main__":
     import os
 
     os.system("clear")
-    sort = MergeSort()
+    sort = QuickSort()
 
-    array = [8, 2, 4, 1, 3]
+    # array = [8,2,4,7,1,3,9,6,5]
+    array = [15,6,3,1,22,10,13]
     print(array)
     print(sort.sort(array))

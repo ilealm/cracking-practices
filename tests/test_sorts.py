@@ -1,5 +1,5 @@
 import pytest
-from cracking_practices.sorts.sorts import BubbleSort, SelectionSort, InsertionSort, MergeSort
+from cracking_practices.sorts.sorts import BubbleSort, SelectionSort, InsertionSort, MergeSort, QuickSort
 
 
 def test_bubble_sort_one():
@@ -196,3 +196,28 @@ def test_merge_sort_five():
     actual = sort.sort(array)
     expected = [5,5,10,20, 20]
     assert actual == expected, "Error on test_merge_sort_five"
+
+
+def test_quick_sort_one():
+    sort = QuickSort()
+    array = []
+
+    actual = sort.sort(array)
+    expected = []
+    assert actual == expected, "Error on test_quick_sort_one"
+
+def test_quick_sort_two():
+    sort = QuickSort()
+    array = [20]
+
+    actual = sort.sort(array)
+    expected = [20]
+    assert actual == expected, "Error on test_quick_sort_two"
+
+def test_quick_sort_three():
+    sort = QuickSort()
+    array = [5,20,10,5,20]
+
+    actual = sort.sort(array)
+    expected = [5,5,10,20, 20]
+    assert actual == expected, "Error on test_quick_sort_three"

@@ -169,16 +169,41 @@ class QuickSort:
         return array
 
 
+class CountingSort:
+    def create_counter(self, array, k):
+        counter = [0] * (k + 1)
+
+        for i in range(len(array)):
+            index = array[i]
+            counter[index] = counter[index] + 1
+
+        return counter
+
+    def create_sorted(self, array, counter):
+        p = 0
+        for i in range(len(counter)):
+            for j in range(counter[i]):
+                array[p] = i
+                p += 1
+
+    def sort(self, array, k):
+        counter = self.create_counter(array, k)
+        print(counter)
+        self.create_sorted(array, counter)
+        print(array)
+
+
 if __name__ == "__main__":
     import os
 
     os.system("clear")
-    sort = QuickSort()
+    sort = CountingSort()
 
-    # # array = [8,2,4,7,1,3,9,6,5]
-    array = [15, 6, 3, 1, 22, 10, 13]
+    array = [5, 3, 2, 5, 4, 4, 5]
+    k = 5
+
     # print(array)
-    print(sort.sort(array))
+    print(sort.sort(array, k))
 
 # from heapq import nlargest
 

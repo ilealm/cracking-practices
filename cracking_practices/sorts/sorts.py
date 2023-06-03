@@ -92,25 +92,23 @@ class InsertionSort:
 
 
 class MergeSort:
-
     def merge(self, left_array, right_array):
         merged = []
         l_pointer = r_pointer = 0
 
         while l_pointer < len(left_array) and r_pointer < len(right_array):
-                if left_array[l_pointer] < right_array[r_pointer]:
-                    merged.append(left_array[l_pointer])
-                    l_pointer += 1
-                else:
-                    merged.append(right_array[r_pointer])
-                    r_pointer += 1
+            if left_array[l_pointer] < right_array[r_pointer]:
+                merged.append(left_array[l_pointer])
+                l_pointer += 1
+            else:
+                merged.append(right_array[r_pointer])
+                r_pointer += 1
 
         # append all what was left in the array, after the pointers
         merged += left_array[l_pointer:]
         merged += right_array[r_pointer:]
 
         return merged
-
 
     def sort(self, array):
         if array == []:
@@ -127,13 +125,12 @@ class MergeSort:
             sorted_left = traverse(left)
             sorted_right = traverse(right)
 
-            return(self.merge(sorted_left, sorted_right))
-
+            return self.merge(sorted_left, sorted_right)
 
         return traverse(array)
 
-class QuickSort:
 
+class QuickSort:
     # returns the index of the pivot atfer it moved to the rigth possition
     # the pivot will be the last item on the array
     def partition(self, array, start, end):
@@ -143,12 +140,17 @@ class QuickSort:
         for i in range(start, end):
             if array[i] < pivot:
                 smaller_elements_index += 1
-                array[i], array[smaller_elements_index] = array[smaller_elements_index], array[i]
+                array[i], array[smaller_elements_index] = (
+                    array[smaller_elements_index],
+                    array[i],
+                )
 
         # This ensures that the pivot is now in its correct position
-        array[smaller_elements_index + 1], array[end] = array[end], array[smaller_elements_index + 1]
+        array[smaller_elements_index + 1], array[end] = (
+            array[end],
+            array[smaller_elements_index + 1],
+        )
         return smaller_elements_index + 1
-
 
     def sort(self, array):
         def sort_recursion(array, start, end):
@@ -167,15 +169,22 @@ class QuickSort:
         return array
 
 
-
-
 if __name__ == "__main__":
     import os
 
     os.system("clear")
     sort = QuickSort()
 
-    # array = [8,2,4,7,1,3,9,6,5]
-    array = [15,6,3,1,22,10,13]
-    print(array)
+    # # array = [8,2,4,7,1,3,9,6,5]
+    array = [15, 6, 3, 1, 22, 10, 13]
+    # print(array)
     print(sort.sort(array))
+
+# from heapq import nlargest
+
+# heap = [1, 5, 3, 2, 4]
+# k=3
+
+# largest_values = nlargest(k, heap)
+
+# print(largest_values)

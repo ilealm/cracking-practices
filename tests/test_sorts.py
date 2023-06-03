@@ -1,5 +1,5 @@
 import pytest
-from cracking_practices.sorts.sorts import BubbleSort, SelectionSort, InsertionSort, MergeSort, QuickSort
+from cracking_practices.sorts.sorts import BubbleSort, SelectionSort, InsertionSort, MergeSort, QuickSort, CountingSort
 
 
 def test_bubble_sort_one():
@@ -221,3 +221,51 @@ def test_quick_sort_three():
     actual = sort.sort(array)
     expected = [5,5,10,20, 20]
     assert actual == expected, "Error on test_quick_sort_three"
+
+
+
+def test_counting_sort_one():
+    sort = CountingSort()
+    array = [5,20,10,5,20]
+
+    actual = sort.sort(array,20)
+    expected = [5,5,10,20, 20]
+    assert actual == expected, "Error on test_counting_sort_one"
+
+
+
+
+def test_counting_sort_two():
+    sort = CountingSort()
+    array = [5, 3, 2, 5, 4, 4, 5]
+
+    actual = sort.sort(array,5)
+    expected = [2,3,4,4,5,5,5]
+    assert actual == expected, "Error on test_counting_sort_two"
+
+
+def test_counting_sort_three():
+    sort = CountingSort()
+    array = [5, 3]
+
+    actual = sort.sort(array,5)
+    expected = [3,5]
+    assert actual == expected, "Error on test_counting_sort_three"
+
+
+def test_counting_sort_four():
+    sort = CountingSort()
+    array = []
+
+    actual = sort.sort(array,0)
+    expected = []
+    assert actual == expected, "Error on test_counting_sort_four"
+
+
+def test_counting_sort_five():
+    sort = CountingSort()
+    array = [3]
+
+    actual = sort.sort(array,3)
+    expected = [3]
+    assert actual == expected, "Error on test_counting_sort_five"

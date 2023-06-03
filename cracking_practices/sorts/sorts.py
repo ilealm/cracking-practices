@@ -171,11 +171,11 @@ class QuickSort:
 
 class CountingSort:
     def create_counter(self, array, k):
+        # I need the (k+1) because the array should have k indexes
         counter = [0] * (k + 1)
 
         for i in range(len(array)):
-            index = array[i]
-            counter[index] = counter[index] + 1
+            counter[array[i]] += 1
 
         return counter
 
@@ -188,9 +188,9 @@ class CountingSort:
 
     def sort(self, array, k):
         counter = self.create_counter(array, k)
-        print(counter)
         self.create_sorted(array, counter)
-        print(array)
+
+        return array
 
 
 if __name__ == "__main__":
